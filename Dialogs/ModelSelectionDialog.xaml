@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentDialog
+    x:Class="KAIROS.Dialogs.ModelSelectionDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:models="using:KAIROS.Models"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="Select AI Model"
+    PrimaryButtonText="Download &amp; Use"
+    CloseButtonText="Cancel"
+    DefaultButton="Primary"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    CloseButtonClick="ContentDialog_CloseButtonClick">
+
+    <ContentDialog.Resources>
+        <Style x:Key="CategoryHeaderStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Margin" Value="0,16,0,8"/>
+        </Style>
+
+        <Style x:Key="ModelCardStyle" TargetType="Border">
+            <Setter Property="Background" Value="{ThemeResource CardBackgroundFillColorDefaultBrush}"/>
+            <Setter Property="BorderBrush" Value="{ThemeResource CardStrokeColorDefaultBrush}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="Padding" Value="16"/>
+            <Setter Property="Margin" Value="0,0,0,12"/>
+        </Style>
+    </ContentDialog.Resources>
+
+    <ScrollViewer MaxHeight="600" VerticalScrollBarVisibility="Auto">
+        <StackPanel Spacing="8" Padding="4">
+            <!-- Description -->
+            <TextBlock Text="Choose an AI model to power your conversations. Models are downloaded once and stored locally."
+                       TextWrapping="Wrap"
+                       Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                       Margin="0,0,0,8"/>
+
+            <!-- Info Banner -->
+            <InfoBar
+                IsOpen="True"
+                IsClosable="False"
+                Severity="Informational"
+                Title="First Time Setup"
+                Message="The selected model will be downloaded to your device. This happens once and works offline afterward."
+                Margin="0,0,0,8"/>
+
+            <!-- Small Models Section -->
+            <TextBlock Text="?? Small Models (1-3 GB)"
+                       Style="{StaticResource CategoryHeaderStyle}"/>
+            <TextBlock Text="Fast and efficient. Great for most conversations. Recommended for 4-8 GB RAM."
+                       Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                       Margin="0,0,0,8"
+                       TextWrapping="Wrap"/>
+
+            <ItemsControl x:Name="SmallModelsItems">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate x:DataType="models:LLMModel">
+                        <RadioButton x:Name="ModelRadioButton"
+                                     GroupName="ModelSelection"
+                                     Click="ModelRadioButton_Click"
+                                     Tag="{x:Bind}"
+                                     HorizontalAlignment="Stretch"
+                                     Margin="0,0,0,8">
+                            <RadioButton.Content>
+                                <Border Style="{StaticResource ModelCardStyle}">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+
+                                        <!-- Header -->
+                                        <Grid Grid.Row="0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <TextBlock Grid.Column="0"
+                                                       Text="{x:Bind DisplayName}"
+                                                       FontWeight="SemiBold"
+                                                       FontSize="16"/>
+
+                                            <Border Grid.Column="1"
+                                                    Background="{ThemeResource AccentFillColorDefaultBrush}"
+                                                    CornerRadius="4"
+                                                    Padding="8,4"
+                                                    Visibility="{x:Bind IsRecommended}">
+                                                <TextBlock Text="? RECOMMENDED"
+                                                           Foreground="White"
+                                                           FontSize="11"
+                                                           FontWeight="SemiBold"/>
+                                            </Border>
+                                        </Grid>
+
+                                        <!-- Description -->
+                                        <TextBlock Grid.Row="1"
+                                                   Text="{x:Bind Description}"
+                                                   TextWrapping="Wrap"
+                                                   Margin="0,8,0,0"
+                                                   Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+
+                                        <!-- Capabilities -->
+                                        <StackPanel Grid.Row="2"
+                                                    Orientation="Horizontal"
+                                                    Spacing="8"
+                                                    Margin="0,12,0,0">
+                                            <FontIcon Glyph="&#xE8F4;" 
+                                                      FontSize="14"
+                                                      Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"/>
+                                            <TextBlock Text="{x:Bind Capabilities}"
+                                                       FontSize="12"
+                                                       Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"/>
+                                        </StackPanel>
+
+                                        <!-- Stats -->
+                                        <Grid Grid.Row="3" Margin="0,12,0,0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <StackPanel Grid.Column="0" Orientation="Horizontal" Spacing="4">
+                                                <FontIcon Glyph="&#xE896;" FontSize="14"/>
+                                                <TextBlock Text="{x:Bind SizeText}" FontSize="12"/>
+                                            </StackPanel>
+
+                                            <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="4">
+                                                <FontIcon Glyph="&#xE950;" FontSize="14"/>
+                                                <TextBlock Text="{x:Bind MinRam}" FontSize="12"/>
+                                                <TextBlock Text="RAM" FontSize="12" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                                            </StackPanel>
+                                        </Grid>
+                                    </Grid>
+                                </Border>
+                            </RadioButton.Content>
+                        </RadioButton>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+            <!-- Medium Models Section -->
+            <TextBlock Text="?? Medium Models (3-5 GB)"
+                       Style="{StaticResource CategoryHeaderStyle}"
+                       Margin="0,8,0,8"/>
+            <TextBlock Text="More capable and detailed. Best for 8-12 GB RAM systems."
+                       Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                       Margin="0,0,0,8"
+                       TextWrapping="Wrap"/>
+
+            <ItemsControl x:Name="MediumModelsItems">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate x:DataType="models:LLMModel">
+                        <RadioButton x:Name="ModelRadioButton"
+                                     GroupName="ModelSelection"
+                                     Click="ModelRadioButton_Click"
+                                     Tag="{x:Bind}"
+                                     HorizontalAlignment="Stretch"
+                                     Margin="0,0,0,8">
+                            <RadioButton.Content>
+                                <Border Style="{StaticResource ModelCardStyle}">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Grid Grid.Row="0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <TextBlock Grid.Column="0"
+                                                       Text="{x:Bind DisplayName}"
+                                                       FontWeight="SemiBold"
+                                                       FontSize="16"/>
+
+                                            <Border Grid.Column="1"
+                                                    Background="{ThemeResource AccentFillColorDefaultBrush}"
+                                                    CornerRadius="4"
+                                                    Padding="8,4"
+                                                    Visibility="{x:Bind IsRecommended}">
+                                                <TextBlock Text="? RECOMMENDED"
+                                                           Foreground="White"
+                                                           FontSize="11"
+                                                           FontWeight="SemiBold"/>
+                                            </Border>
+                                        </Grid>
+
+                                        <TextBlock Grid.Row="1"
+                                                   Text="{x:Bind Description}"
+                                                   TextWrapping="Wrap"
+                                                   Margin="0,8,0,0"
+                                                   Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+
+                                        <StackPanel Grid.Row="2"
+                                                    Orientation="Horizontal"
+                                                    Spacing="8"
+                                                    Margin="0,12,0,0">
+                                            <FontIcon Glyph="&#xE8F4;" 
+                                                      FontSize="14"
+                                                      Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"/>
+                                            <TextBlock Text="{x:Bind Capabilities}"
+                                                       FontSize="12"
+                                                       Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"/>
+                                        </StackPanel>
+
+                                        <Grid Grid.Row="3" Margin="0,12,0,0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <StackPanel Grid.Column="0" Orientation="Horizontal" Spacing="4">
+                                                <FontIcon Glyph="&#xE896;" FontSize="14"/>
+                                                <TextBlock Text="{x:Bind SizeText}" FontSize="12"/>
+                                            </StackPanel>
+
+                                            <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="4">
+                                                <FontIcon Glyph="&#xE950;" FontSize="14"/>
+                                                <TextBlock Text="{x:Bind MinRam}" FontSize="12"/>
+                                                <TextBlock Text="RAM" FontSize="12" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                                            </StackPanel>
+                                        </Grid>
+                                    </Grid>
+                                </Border>
+                            </RadioButton.Content>
+                        </RadioButton>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+            <!-- Large Models Section -->
+            <TextBlock Text="?? Large Models (5-8 GB)"
+                       Style="{StaticResource CategoryHeaderStyle}"
+                       Margin="0,8,0,8"/>
+            <TextBlock Text="Premium quality with advanced capabilities. Requires 12-16 GB RAM."
+                       Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                       Margin="0,0,0,8"
+                       TextWrapping="Wrap"/>
+
+            <ItemsControl x:Name="LargeModelsItems">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate x:DataType="models:LLMModel">
+                        <RadioButton x:Name="ModelRadioButton"
+                                     GroupName="ModelSelection"
+                                     Click="ModelRadioButton_Click"
+                                     Tag="{x:Bind}"
+                                     HorizontalAlignment="Stretch"
+                                     Margin="0,0,0,8">
+                            <RadioButton.Content>
+                                <Border Style="{StaticResource ModelCardStyle}">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+
+                                        <TextBlock Grid.Row="0"
+                                                   Text="{x:Bind DisplayName}"
+                                                   FontWeight="SemiBold"
+                                                   FontSize="16"/>
+
+                                        <TextBlock Grid.Row="1"
+                                                   Text="{x:Bind Description}"
+                                                   TextWrapping="Wrap"
+                                                   Margin="0,8,0,0"
+                                                   Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+
+                                        <StackPanel Grid.Row="2"
+                                                    Orientation="Horizontal"
+                                                    Spacing="8"
+                                                    Margin="0,12,0,0">
+                                            <FontIcon Glyph="&#xE8F4;" 
+                                                      FontSize="14"
+                                                      Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"/>
+                                            <TextBlock Text="{x:Bind Capabilities}"
+                                                       FontSize="12"
+                                                       Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"/>
+                                        </StackPanel>
+
+                                        <Grid Grid.Row="3" Margin="0,12,0,0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <StackPanel Grid.Column="0" Orientation="Horizontal" Spacing="4">
+                                                <FontIcon Glyph="&#xE896;" FontSize="14"/>
+                                                <TextBlock Text="{x:Bind SizeText}" FontSize="12"/>
+                                            </StackPanel>
+
+                                            <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="4">
+                                                <FontIcon Glyph="&#xE950;" FontSize="14"/>
+                                                <TextBlock Text="{x:Bind MinRam}" FontSize="12"/>
+                                                <TextBlock Text="RAM" FontSize="12" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                                            </StackPanel>
+                                        </Grid>
+                                    </Grid>
+                                </Border>
+                            </RadioButton.Content>
+                        </RadioButton>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+        </StackPanel>
+    </ScrollViewer>
+</ContentDialog>

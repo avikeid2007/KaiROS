@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "KAIROS (Unpackaged)": {
+      "commandName": "Project"
+    },
+    "KAIROS (Package)": {
+      "commandName": "MsixPackage"
+    }
+  }
+}
