@@ -215,6 +215,28 @@ namespace KAIROS.ViewModels
             StatusMessage = "New conversation started.";
         }
 
+        public async Task LoadConversationAsync(Conversation conversation)
+        {
+            if (conversation == null)
+                return;
+
+            Messages.Clear();
+            _currentConversation = conversation;
+            CurrentConversationTitle = conversation.Title;
+
+            // Load all messages
+            var fullConversation = await _databaseService.GetConversationAsync(conversation.Id);
+            if (fullConversation?.Messages != null)
+            {
+                foreach (var message in fullConversation.Messages.OrderBy(m => m.Timestamp))
+                {
+                    Messages.Add(new ChatMessageViewModel(message.Content, message.Role, message.Timestamp));
+                }
+            }
+
+            StatusMessage = $"Loaded conversation: {conversation.Title}";
+        }
+
         [RelayCommand]
         private async Task ExportConversationAsync()
         {

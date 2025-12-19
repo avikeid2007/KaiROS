@@ -121,6 +121,67 @@ namespace KAIROS
         {
             await ViewModel.ExportConversationCommand.ExecuteAsync(null);
         }
+
+        private async void OpenHistory_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (this.Content?.XamlRoot == null)
+                    return;
+
+                var databaseService = ((App)Application.Current).GetService<IChatDatabaseService>();
+                
+                var dialog = new Dialogs.ConversationHistoryDialog(databaseService)
+                {
+                    XamlRoot = this.Content.XamlRoot
+                };
+
+                var result = await dialog.ShowAsync();
+
+                if (result == ContentDialogResult.Primary && dialog.SelectedConversation != null)
+                {
+                    await ViewModel.LoadConversationAsync(dialog.SelectedConversation);
+                }
+            }
+            catch (Exception ex)
+            {
+                ViewModel.StatusMessage = $"Error opening history: {ex.Message}";
+            }
+        }
+
+        // Keyboard accelerator handlers
+        private void NewConversation_Invoked(KeyboardAccelerator sender, KeyboardAcceleratorInvokedEventArgs args)
+        {
+            if (ViewModel.IsModelReady)
+            {
+                args.Handled = true;
+                _ = ViewModel.NewConversationCommand.ExecuteAsync(null);
+            }
+        }
+
+        private void History_Invoked(KeyboardAccelerator sender, KeyboardAcceleratorInvokedEventArgs args)
+        {
+            if (ViewModel.IsModelReady)
+            {
+                args.Handled = true;
+                OpenHistory_Click(sender, null!);
+            }
+        }
+
+        private void Export_Invoked(KeyboardAccelerator sender, KeyboardAcceleratorInvokedEventArgs args)
+        {
+            if (ViewModel.IsModelReady)
+            {
+                args.Handled = true;
+                ExportConversation_Click(sender, null!);
+            }
+        }
+
+        private void Settings_Invoked(KeyboardAccelerator sender, KeyboardAcceleratorInvokedEventArgs args)
+        {
+            args.Handled = true;
+            OpenSettings_Click(sender, null!);
+        }
     }
 
     // Converter for inverting boolean to visibility

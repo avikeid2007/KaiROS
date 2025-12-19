@@ -10,7 +10,7 @@
 [![WinUI 3](https://img.shields.io/badge/WinUI-3-0078D4?logo=windows)](https://microsoft.github.io/microsoft-ui-xaml/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-[Features](#-features) • [Installation](#-installation) • [Screenshots](#-screenshots) • [Build](#-building) • [Contributing](#-contributing)
+[Features](#-features) ï¿½ [Installation](#-installation) ï¿½ [Screenshots](#-screenshots) ï¿½ [Build](#-building) ï¿½ [Contributing](#-contributing)
 
 </div>
 
@@ -243,16 +243,18 @@ var parameters = new ModelParams(modelPath)
 ## ??? Roadmap
 
 - [ ] GPU acceleration auto-detection
-- [ ] Export conversations (PDF, Markdown)
+- [x] Export conversations (Markdown) âœ…
+- [ ] Export conversations to PDF
 - [ ] Custom system prompts
 - [ ] Temperature/Top-P controls
-- [ ] Dark/Light theme toggle
+- [x] Dark/Light theme toggle âœ…
 - [ ] Multi-conversation tabs
-- [ ] Search conversations
-- [ ] Model management (delete cached models)
+- [x] Search conversations âœ…
+- [x] Model management (delete cached models) âœ…
 - [ ] Code syntax highlighting
 - [ ] Markdown rendering
 - [ ] Voice input (speech-to-text)
+- [ ] Conversation statistics dashboard
 
 ---
 
