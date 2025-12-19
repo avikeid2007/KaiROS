@@ -5,7 +5,7 @@
 ### Step 1: Initialize Git Repository
 ```powershell
 # Navigate to your project directory
-cd C:\path\to\KaiROS
+cd C:\Users\%USERNAME%\source\repos\KaiROS
 
 # Initialize git
 git init
