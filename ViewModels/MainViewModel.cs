@@ -5,6 +5,10 @@ using KAIROS.Services;
 using Microsoft.UI.Dispatching;
 using System;
 using System.Collections.ObjectModel;
+<<<<<<< HEAD
+=======
+using System.IO;
+>>>>>>> origin/main
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -16,9 +20,19 @@ namespace KAIROS.ViewModels
         private readonly IChatDatabaseService _databaseService;
         private readonly ILLMService _llmService;
         private readonly IModelDownloaderService _modelDownloaderService;
+<<<<<<< HEAD
         private readonly DispatcherQueue _dispatcherQueue;
         private CancellationTokenSource? _cancellationTokenSource;
 
+=======
+        private readonly IConversationExportService _exportService;
+        private readonly ISettingsService _settingsService;
+        private readonly DispatcherQueue _dispatcherQueue;
+        private CancellationTokenSource? _cancellationTokenSource;
+
+        public event EventHandler? MessageAdded;
+
+>>>>>>> origin/main
         [ObservableProperty]
         private ObservableCollection<ChatMessageViewModel> messages = new();
 
@@ -50,11 +64,21 @@ namespace KAIROS.ViewModels
             IChatDatabaseService databaseService,
             ILLMService llmService,
             IModelDownloaderService modelDownloaderService,
+<<<<<<< HEAD
+=======
+            IConversationExportService exportService,
+            ISettingsService settingsService,
+>>>>>>> origin/main
             DispatcherQueue dispatcherQueue)
         {
             _databaseService = databaseService;
             _llmService = llmService;
             _modelDownloaderService = modelDownloaderService;
+<<<<<<< HEAD
+=======
+            _exportService = exportService;
+            _settingsService = settingsService;
+>>>>>>> origin/main
             _dispatcherQueue = dispatcherQueue;
         }
 
@@ -126,6 +150,10 @@ namespace KAIROS.ViewModels
             // Add user message to UI
             var userMessageViewModel = new ChatMessageViewModel(userMessage, "user", DateTime.Now);
             Messages.Add(userMessageViewModel);
+<<<<<<< HEAD
+=======
+            MessageAdded?.Invoke(this, EventArgs.Empty);
+>>>>>>> origin/main
 
             // Save to database
             await _databaseService.AddMessageAsync(_currentConversation.Id, userMessage, "user");
@@ -144,6 +172,10 @@ namespace KAIROS.ViewModels
             // Prepare assistant message
             var assistantMessage = new ChatMessageViewModel(string.Empty, "assistant", DateTime.Now);
             Messages.Add(assistantMessage);
+<<<<<<< HEAD
+=======
+            MessageAdded?.Invoke(this, EventArgs.Empty);
+>>>>>>> origin/main
 
             try
             {
@@ -208,5 +240,76 @@ namespace KAIROS.ViewModels
             StatusMessage = "New conversation started.";
         }
 
+<<<<<<< HEAD
+=======
+        public async Task LoadConversationAsync(Conversation conversation)
+        {
+            if (conversation == null)
+                return;
+
+            Messages.Clear();
+            _currentConversation = conversation;
+            CurrentConversationTitle = conversation.Title;
+
+            // Load all messages
+            var fullConversation = await _databaseService.GetConversationAsync(conversation.Id);
+            if (fullConversation?.Messages != null)
+            {
+                foreach (var message in fullConversation.Messages.OrderBy(m => m.Timestamp))
+                {
+                    Messages.Add(new ChatMessageViewModel(message.Content, message.Role, message.Timestamp));
+                }
+            }
+
+            StatusMessage = $"Loaded conversation: {conversation.Title}";
+        }
+
+        [RelayCommand]
+        private async Task ExportConversationAsync()
+        {
+            if (_currentConversation == null)
+                return;
+
+            try
+            {
+                // Get full conversation with messages
+                var conversation = await _databaseService.GetConversationAsync(_currentConversation.Id);
+                if (conversation == null)
+                    return;
+
+                // Generate a safe filename
+                var fileName = $"{conversation.Title.Replace("...", "").Trim()}_{DateTime.Now:yyyyMMdd_HHmmss}.md";
+                // Remove invalid file name characters
+                foreach (var c in Path.GetInvalidFileNameChars())
+                {
+                    fileName = fileName.Replace(c, '_');
+                }
+
+                var downloadsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                var filePath = Path.Combine(downloadsPath, fileName);
+
+                await _exportService.ExportToFileAsync(conversation, filePath);
+                StatusMessage = $"Conversation exported to: {filePath}";
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = $"Export failed: {ex.Message}";
+            }
+        }
+
+        public Microsoft.UI.Xaml.ElementTheme CurrentTheme
+        {
+            get => _settingsService.Theme;
+            set
+            {
+                if (_settingsService.Theme != value)
+                {
+                    _settingsService.Theme = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+>>>>>>> origin/main
     }
 }
