@@ -249,16 +249,18 @@ var parameters = new ModelParams(modelPath)
 ## ??? Roadmap
 
 - [ ] GPU acceleration auto-detection
-- [ ] Export conversations (PDF, Markdown)
+- [x] Export conversations (Markdown) ✅
+- [ ] Export conversations to PDF
 - [ ] Custom system prompts
 - [ ] Temperature/Top-P controls
-- [ ] Dark/Light theme toggle
+- [x] Dark/Light theme toggle ✅
 - [ ] Multi-conversation tabs
-- [ ] Search conversations
-- [ ] Model management (delete cached models)
+- [x] Search conversations ✅
+- [x] Model management (delete cached models) ✅
 - [ ] Code syntax highlighting
 - [ ] Markdown rendering
 - [ ] Voice input (speech-to-text)
+- [ ] Conversation statistics dashboard
 
 ---
 

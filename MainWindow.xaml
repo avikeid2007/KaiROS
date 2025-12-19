@@ -14,6 +14,19 @@
         <MicaBackdrop />
     </Window.SystemBackdrop>
 
+    <Window.KeyboardAccelerators>
+        <!-- Ctrl+N for New Conversation -->
+        <KeyboardAccelerator Key="N" Modifiers="Control" Invoked="NewConversation_Invoked"/>
+        <!-- Ctrl+H for History -->
+        <KeyboardAccelerator Key="H" Modifiers="Control" Invoked="History_Invoked"/>
+        <!-- Ctrl+E for Export -->
+        <KeyboardAccelerator Key="E" Modifiers="Control" Invoked="Export_Invoked"/>
+        <!-- Ctrl+, for Settings -->
+        <KeyboardAccelerator Key="OemComma" Modifiers="Control" Invoked="Settings_Invoked"/>
+        <!-- F1 for Help -->
+        <KeyboardAccelerator Key="F1" Invoked="Help_Invoked"/>
+    </Window.KeyboardAccelerators>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -42,6 +55,36 @@
             </StackPanel>
 
             <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="8">
+                <Button Click="OpenHelp_Click"
+                        ToolTipService.ToolTip="Help & Tips">
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <FontIcon Glyph="&#xE897;" FontSize="16"/>
+                        <TextBlock Text="Help"/>
+                    </StackPanel>
+                </Button>
+                <Button Click="OpenHistory_Click"
+                        IsEnabled="{x:Bind ViewModel.IsModelReady, Mode=OneWay}"
+                        ToolTipService.ToolTip="View Conversation History">
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <FontIcon Glyph="&#xE81C;" FontSize="16"/>
+                        <TextBlock Text="History"/>
+                    </StackPanel>
+                </Button>
+                <Button Click="ExportConversation_Click"
+                        IsEnabled="{x:Bind ViewModel.IsModelReady, Mode=OneWay}"
+                        ToolTipService.ToolTip="Export Conversation to Markdown">
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <FontIcon Glyph="&#xE74E;" FontSize="16"/>
+                        <TextBlock Text="Export"/>
+                    </StackPanel>
+                </Button>
+                <Button Click="OpenSettings_Click"
+                        ToolTipService.ToolTip="Settings">
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <FontIcon Glyph="&#xE713;" FontSize="16"/>
+                        <TextBlock Text="Settings"/>
+                    </StackPanel>
+                </Button>
                 <Button Click="SelectModel_Click"
                         ToolTipService.ToolTip="Change AI Model">
                     <StackPanel Orientation="Horizontal" Spacing="8">
@@ -113,6 +156,7 @@
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="Auto"/>
                                                 <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
                                             </Grid.ColumnDefinitions>
                                             <FontIcon Glyph="&#xE8F4;" 
                                                       FontSize="16"
@@ -123,6 +167,14 @@
                                                        Style="{StaticResource CaptionTextBlockStyle}"
                                                        FontWeight="SemiBold"
                                                        Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"/>
+                                            <Button Grid.Column="2"
+                                                    Click="CopyMessage_Click"
+                                                    Tag="{x:Bind Content, Mode=OneWay}"
+                                                    Style="{StaticResource SubtleButtonStyle}"
+                                                    Padding="8,4"
+                                                    ToolTipService.ToolTip="Copy to clipboard">
+                                                <FontIcon Glyph="&#xE8C8;" FontSize="14"/>
+                                            </Button>
                                         </Grid>
                                         <TextBlock Text="{x:Bind Content, Mode=OneWay}"
                                                    TextWrapping="Wrap"
@@ -180,7 +232,7 @@
             <TextBox x:Name="InputTextBox"
                      Grid.Column="0"
                      Text="{x:Bind ViewModel.UserInput, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                     PlaceholderText="Type your message here..."
+                     PlaceholderText="Type your message here... (Enter to send, Shift+Enter for new line)"
                      AcceptsReturn="True"
                      TextWrapping="Wrap"
                      MaxHeight="120"
