@@ -10,7 +10,7 @@
 [![WinUI 3](https://img.shields.io/badge/WinUI-3-0078D4?logo=windows)](https://microsoft.github.io/microsoft-ui-xaml/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-[Features](#-features) • [Installation](#-installation) • [Screenshots](#-screenshots) • [Build](#-building) • [Contributing](#-contributing)
+[Features](#-features) ï¿½ [Installation](#-installation) ï¿½ [Screenshots](#-screenshots) ï¿½ [Build](#-building) ï¿½ [Contributing](#-contributing)
 
 </div>
 
@@ -77,8 +77,8 @@ Choose from professionally selected models:
 ### Option 2: Build from Source
 ```powershell
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/KAIROS.git
-cd KAIROS
+git clone https://github.com/avikeid2007/KaiROS.git
+cd KaiROS
 
 # Restore dependencies
 dotnet restore
@@ -95,19 +95,25 @@ dotnet run
 ## ?? Screenshots
 
 ### Model Selection
-Beautiful dialog to choose your AI model:
+Beautiful dialog to choose your AI model
 
-![Model Selection](docs/screenshots/model-selection.png)
+> **Note:** Screenshot coming soon
+
+<!-- ![Model Selection](docs/screenshots/model-selection.png) -->
 
 ### Chat Interface
-Modern, clean chat experience:
+Modern, clean chat experience
 
-![Chat Interface](docs/screenshots/chat-interface.png)
+> **Note:** Screenshot coming soon
+
+<!-- ![Chat Interface](docs/screenshots/chat-interface.png) -->
 
 ### Download Progress
-Smooth download experience with progress tracking:
+Smooth download experience with progress tracking
 
-![Download Progress](docs/screenshots/download-progress.png)
+> **Note:** Screenshot coming soon
+
+<!-- ![Download Progress](docs/screenshots/download-progress.png) -->
 
 ---
 
@@ -122,13 +128,13 @@ Smooth download experience with progress tracking:
 ### Build Steps
 1. **Clone the repository**
    ```powershell
-   git clone https://github.com/YOUR_USERNAME/KAIROS.git
-   cd KAIROS
+   git clone https://github.com/avikeid2007/KaiROS.git
+   cd KaiROS
    ```
 
 2. **Open in Visual Studio**
    ```powershell
-   start KAIROS.sln
+   start KAIROS.slnx
    ```
 
 3. **Restore NuGet packages**
@@ -293,9 +299,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## ?? Contact & Support
 
-- **Issues**: [GitHub Issues](../../issues)
-- **Discussions**: [GitHub Discussions](../../discussions)
-- **Email**: your-email@example.com
+- **Issues**: [GitHub Issues](https://github.com/avikeid2007/KaiROS/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/avikeid2007/KaiROS/discussions)
 
 ---
 
