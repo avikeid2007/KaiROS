@@ -70,7 +70,7 @@ Choose from professionally selected models:
 ## ?? Installation
 
 ### Option 1: Download Release (Coming Soon)
-1. Download the latest `.msix` from [Releases](../../releases)
+1. Download the latest `.msix` from [Releases](https://github.com/avikeid2007/KaiROS/releases)
 2. Double-click to install
 3. Launch KAIROS from Start Menu
 
