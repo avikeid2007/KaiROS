@@ -1,31 +1,17 @@
 using KAIROS.ViewModels;
-<<<<<<< HEAD
-=======
 using KAIROS.Services;
->>>>>>> origin/main
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Input;
 using System;
 using Microsoft.UI.Xaml.Data;
-<<<<<<< HEAD
-=======
 using Microsoft.Extensions.DependencyInjection;
->>>>>>> origin/main
 
 namespace KAIROS
 {
     public sealed partial class MainWindow : Window
     {
         public MainViewModel ViewModel { get; }
-<<<<<<< HEAD
-
-        private bool _initialized = false;
-
-        public MainWindow(MainViewModel viewModel)
-        {
-            ViewModel = viewModel;
-=======
         private readonly ISettingsService _settingsService;
 
         private bool _initialized = false;
@@ -34,13 +20,10 @@ namespace KAIROS
         {
             ViewModel = viewModel;
             _settingsService = settingsService;
->>>>>>> origin/main
             InitializeComponent();
             
             Title = "KAIROS - AI Chat Assistant";
             
-<<<<<<< HEAD
-=======
             // Apply saved theme
             if (this.Content is FrameworkElement rootElement)
             {
@@ -57,7 +40,6 @@ namespace KAIROS
                 });
             };
             
->>>>>>> origin/main
             // Use DispatcherQueue to defer initialization until after window is fully loaded
             this.DispatcherQueue.TryEnqueue(async () =>
             {
@@ -122,8 +104,6 @@ namespace KAIROS
                 _ = ViewModel.SendMessageCommand.ExecuteAsync(null);
             }
         }
-<<<<<<< HEAD
-=======
 
         private async void OpenSettings_Click(object sender, RoutedEventArgs e)
         {
@@ -270,7 +250,6 @@ namespace KAIROS
                 ViewModel.StatusMessage = $"Copy failed: {ex.Message}";
             }
         }
->>>>>>> origin/main
     }
 
     // Converter for inverting boolean to visibility

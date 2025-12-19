@@ -5,10 +5,7 @@ using KAIROS.Services;
 using Microsoft.UI.Dispatching;
 using System;
 using System.Collections.ObjectModel;
-<<<<<<< HEAD
-=======
 using System.IO;
->>>>>>> origin/main
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -20,11 +17,6 @@ namespace KAIROS.ViewModels
         private readonly IChatDatabaseService _databaseService;
         private readonly ILLMService _llmService;
         private readonly IModelDownloaderService _modelDownloaderService;
-<<<<<<< HEAD
-        private readonly DispatcherQueue _dispatcherQueue;
-        private CancellationTokenSource? _cancellationTokenSource;
-
-=======
         private readonly IConversationExportService _exportService;
         private readonly ISettingsService _settingsService;
         private readonly DispatcherQueue _dispatcherQueue;
@@ -32,7 +24,6 @@ namespace KAIROS.ViewModels
 
         public event EventHandler? MessageAdded;
 
->>>>>>> origin/main
         [ObservableProperty]
         private ObservableCollection<ChatMessageViewModel> messages = new();
 
@@ -64,21 +55,15 @@ namespace KAIROS.ViewModels
             IChatDatabaseService databaseService,
             ILLMService llmService,
             IModelDownloaderService modelDownloaderService,
-<<<<<<< HEAD
-=======
             IConversationExportService exportService,
             ISettingsService settingsService,
->>>>>>> origin/main
             DispatcherQueue dispatcherQueue)
         {
             _databaseService = databaseService;
             _llmService = llmService;
             _modelDownloaderService = modelDownloaderService;
-<<<<<<< HEAD
-=======
             _exportService = exportService;
             _settingsService = settingsService;
->>>>>>> origin/main
             _dispatcherQueue = dispatcherQueue;
         }
 
@@ -150,10 +135,7 @@ namespace KAIROS.ViewModels
             // Add user message to UI
             var userMessageViewModel = new ChatMessageViewModel(userMessage, "user", DateTime.Now);
             Messages.Add(userMessageViewModel);
-<<<<<<< HEAD
-=======
             MessageAdded?.Invoke(this, EventArgs.Empty);
->>>>>>> origin/main
 
             // Save to database
             await _databaseService.AddMessageAsync(_currentConversation.Id, userMessage, "user");
@@ -172,10 +154,7 @@ namespace KAIROS.ViewModels
             // Prepare assistant message
             var assistantMessage = new ChatMessageViewModel(string.Empty, "assistant", DateTime.Now);
             Messages.Add(assistantMessage);
-<<<<<<< HEAD
-=======
             MessageAdded?.Invoke(this, EventArgs.Empty);
->>>>>>> origin/main
 
             try
             {
@@ -240,8 +219,6 @@ namespace KAIROS.ViewModels
             StatusMessage = "New conversation started.";
         }
 
-<<<<<<< HEAD
-=======
         public async Task LoadConversationAsync(Conversation conversation)
         {
             if (conversation == null)
@@ -310,6 +287,5 @@ namespace KAIROS.ViewModels
             }
         }
 
->>>>>>> origin/main
     }
 }

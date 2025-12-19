@@ -14,8 +14,6 @@
         <MicaBackdrop />
     </Window.SystemBackdrop>
 
-<<<<<<< HEAD
-=======
     <Window.KeyboardAccelerators>
         <!-- Ctrl+N for New Conversation -->
         <KeyboardAccelerator Key="N" Modifiers="Control" Invoked="NewConversation_Invoked"/>
@@ -29,7 +27,6 @@
         <KeyboardAccelerator Key="F1" Invoked="Help_Invoked"/>
     </Window.KeyboardAccelerators>
 
->>>>>>> origin/main
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -58,8 +55,6 @@
             </StackPanel>
 
             <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="8">
-<<<<<<< HEAD
-=======
                 <Button Click="OpenHelp_Click"
                         ToolTipService.ToolTip="Help & Tips">
                     <StackPanel Orientation="Horizontal" Spacing="8">
@@ -90,7 +85,6 @@
                         <TextBlock Text="Settings"/>
                     </StackPanel>
                 </Button>
->>>>>>> origin/main
                 <Button Click="SelectModel_Click"
                         ToolTipService.ToolTip="Change AI Model">
                     <StackPanel Orientation="Horizontal" Spacing="8">
@@ -162,10 +156,7 @@
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="Auto"/>
                                                 <ColumnDefinition Width="*"/>
-<<<<<<< HEAD
-=======
                                                 <ColumnDefinition Width="Auto"/>
->>>>>>> origin/main
                                             </Grid.ColumnDefinitions>
                                             <FontIcon Glyph="&#xE8F4;" 
                                                       FontSize="16"
@@ -176,8 +167,6 @@
                                                        Style="{StaticResource CaptionTextBlockStyle}"
                                                        FontWeight="SemiBold"
                                                        Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"/>
-<<<<<<< HEAD
-=======
                                             <Button Grid.Column="2"
                                                     Click="CopyMessage_Click"
                                                     Tag="{x:Bind Content, Mode=OneWay}"
@@ -186,7 +175,6 @@
                                                     ToolTipService.ToolTip="Copy to clipboard">
                                                 <FontIcon Glyph="&#xE8C8;" FontSize="14"/>
                                             </Button>
->>>>>>> origin/main
                                         </Grid>
                                         <TextBlock Text="{x:Bind Content, Mode=OneWay}"
                                                    TextWrapping="Wrap"
@@ -244,11 +232,7 @@
             <TextBox x:Name="InputTextBox"
                      Grid.Column="0"
                      Text="{x:Bind ViewModel.UserInput, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-<<<<<<< HEAD
-                     PlaceholderText="Type your message here..."
-=======
                      PlaceholderText="Type your message here... (Enter to send, Shift+Enter for new line)"
->>>>>>> origin/main
                      AcceptsReturn="True"
                      TextWrapping="Wrap"
                      MaxHeight="120"
