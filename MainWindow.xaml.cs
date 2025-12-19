@@ -29,6 +29,16 @@ namespace KAIROS
             {
                 rootElement.RequestedTheme = _settingsService.Theme;
             }
+
+            // Subscribe to message added event for auto-scroll
+            ViewModel.MessageAdded += (s, e) =>
+            {
+                DispatcherQueue.TryEnqueue(() =>
+                {
+                    // Scroll to bottom when new message is added
+                    ChatScrollViewer.ChangeView(null, ChatScrollViewer.ScrollableHeight, null);
+                });
+            };
             
             // Use DispatcherQueue to defer initialization until after window is fully loaded
             this.DispatcherQueue.TryEnqueue(async () =>
@@ -181,6 +191,64 @@ namespace KAIROS
         {
             args.Handled = true;
             OpenSettings_Click(sender, null!);
+        }
+
+        private async void OpenHelp_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (this.Content?.XamlRoot == null)
+                    return;
+
+                var dialog = new Dialogs.HelpDialog
+                {
+                    XamlRoot = this.Content.XamlRoot
+                };
+
+                await dialog.ShowAsync();
+            }
+            catch (Exception ex)
+            {
+                ViewModel.StatusMessage = $"Error opening help: {ex.Message}";
+            }
+        }
+
+        private void Help_Invoked(KeyboardAccelerator sender, KeyboardAcceleratorInvokedEventArgs args)
+        {
+            args.Handled = true;
+            OpenHelp_Click(sender, null!);
+        }
+
+        private void CopyMessage_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (sender is Button button && button.Tag is string content)
+                {
+                    var dataPackage = new Windows.ApplicationModel.DataTransfer.DataPackage();
+                    dataPackage.SetText(content);
+                    Windows.ApplicationModel.DataTransfer.Clipboard.SetContent(dataPackage);
+                    
+                    // Show a brief feedback
+                    ViewModel.StatusMessage = "Message copied to clipboard";
+                    
+                    // Reset status message after 2 seconds
+                    var timer = new System.Threading.Timer(_ =>
+                    {
+                        DispatcherQueue.TryEnqueue(() =>
+                        {
+                            if (ViewModel.StatusMessage == "Message copied to clipboard")
+                            {
+                                ViewModel.StatusMessage = ViewModel.IsModelReady ? "Ready! Start chatting..." : "Please select a model to continue...";
+                            }
+                        });
+                    }, null, 2000, System.Threading.Timeout.Infinite);
+                }
+            }
+            catch (Exception ex)
+            {
+                ViewModel.StatusMessage = $"Copy failed: {ex.Message}";
+            }
         }
     }
 

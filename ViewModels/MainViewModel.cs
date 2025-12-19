@@ -22,6 +22,8 @@ namespace KAIROS.ViewModels
         private readonly DispatcherQueue _dispatcherQueue;
         private CancellationTokenSource? _cancellationTokenSource;
 
+        public event EventHandler? MessageAdded;
+
         [ObservableProperty]
         private ObservableCollection<ChatMessageViewModel> messages = new();
 
@@ -133,6 +135,7 @@ namespace KAIROS.ViewModels
             // Add user message to UI
             var userMessageViewModel = new ChatMessageViewModel(userMessage, "user", DateTime.Now);
             Messages.Add(userMessageViewModel);
+            MessageAdded?.Invoke(this, EventArgs.Empty);
 
             // Save to database
             await _databaseService.AddMessageAsync(_currentConversation.Id, userMessage, "user");
@@ -151,6 +154,7 @@ namespace KAIROS.ViewModels
             // Prepare assistant message
             var assistantMessage = new ChatMessageViewModel(string.Empty, "assistant", DateTime.Now);
             Messages.Add(assistantMessage);
+            MessageAdded?.Invoke(this, EventArgs.Empty);
 
             try
             {
