@@ -18,6 +18,16 @@ namespace KAIROS
             ConfigureServices();
         }
 
+        public T GetService<T>() where T : class
+        {
+            if (_serviceProvider == null)
+            {
+                throw new InvalidOperationException("Service provider not initialized");
+            }
+            
+            return _serviceProvider.GetRequiredService<T>();
+        }
+
         private void ConfigureServices()
         {
             var services = new ServiceCollection();
@@ -26,6 +36,8 @@ namespace KAIROS
             services.AddSingleton<IChatDatabaseService, ChatDatabaseService>();
             services.AddSingleton<ILLMService, LLMService>();
             services.AddSingleton<IModelDownloaderService, ModelDownloaderService>();
+            services.AddSingleton<ISettingsService, SettingsService>();
+            services.AddSingleton<IConversationExportService, ConversationExportService>();
             
             // Register DispatcherQueue
             services.AddSingleton(DispatcherQueue.GetForCurrentThread());

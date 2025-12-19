@@ -42,6 +42,21 @@
             </StackPanel>
 
             <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="8">
+                <Button Click="ExportConversation_Click"
+                        IsEnabled="{x:Bind ViewModel.IsModelReady, Mode=OneWay}"
+                        ToolTipService.ToolTip="Export Conversation to Markdown">
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <FontIcon Glyph="&#xE74E;" FontSize="16"/>
+                        <TextBlock Text="Export"/>
+                    </StackPanel>
+                </Button>
+                <Button Click="OpenSettings_Click"
+                        ToolTipService.ToolTip="Settings">
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <FontIcon Glyph="&#xE713;" FontSize="16"/>
+                        <TextBlock Text="Settings"/>
+                    </StackPanel>
+                </Button>
                 <Button Click="SelectModel_Click"
                         ToolTipService.ToolTip="Change AI Model">
                     <StackPanel Orientation="Horizontal" Spacing="8">

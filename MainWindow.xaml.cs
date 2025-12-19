@@ -1,24 +1,34 @@
 using KAIROS.ViewModels;
+using KAIROS.Services;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Input;
 using System;
 using Microsoft.UI.Xaml.Data;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace KAIROS
 {
     public sealed partial class MainWindow : Window
     {
         public MainViewModel ViewModel { get; }
+        private readonly ISettingsService _settingsService;
 
         private bool _initialized = false;
 
-        public MainWindow(MainViewModel viewModel)
+        public MainWindow(MainViewModel viewModel, ISettingsService settingsService)
         {
             ViewModel = viewModel;
+            _settingsService = settingsService;
             InitializeComponent();
             
             Title = "KAIROS - AI Chat Assistant";
+            
+            // Apply saved theme
+            if (this.Content is FrameworkElement rootElement)
+            {
+                rootElement.RequestedTheme = _settingsService.Theme;
+            }
             
             // Use DispatcherQueue to defer initialization until after window is fully loaded
             this.DispatcherQueue.TryEnqueue(async () =>
@@ -83,6 +93,33 @@ namespace KAIROS
                 args.Handled = true;
                 _ = ViewModel.SendMessageCommand.ExecuteAsync(null);
             }
+        }
+
+        private async void OpenSettings_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (this.Content?.XamlRoot == null)
+                    return;
+
+                var modelDownloaderService = ((App)Application.Current).GetService<IModelDownloaderService>();
+                
+                var dialog = new Dialogs.SettingsDialog(_settingsService, modelDownloaderService, this)
+                {
+                    XamlRoot = this.Content.XamlRoot
+                };
+
+                await dialog.ShowAsync();
+            }
+            catch (Exception ex)
+            {
+                ViewModel.StatusMessage = $"Error opening settings: {ex.Message}";
+            }
+        }
+
+        private async void ExportConversation_Click(object sender, RoutedEventArgs e)
+        {
+            await ViewModel.ExportConversationCommand.ExecuteAsync(null);
         }
     }
 

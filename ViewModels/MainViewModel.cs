@@ -5,6 +5,7 @@ using KAIROS.Services;
 using Microsoft.UI.Dispatching;
 using System;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -16,6 +17,8 @@ namespace KAIROS.ViewModels
         private readonly IChatDatabaseService _databaseService;
         private readonly ILLMService _llmService;
         private readonly IModelDownloaderService _modelDownloaderService;
+        private readonly IConversationExportService _exportService;
+        private readonly ISettingsService _settingsService;
         private readonly DispatcherQueue _dispatcherQueue;
         private CancellationTokenSource? _cancellationTokenSource;
 
@@ -50,11 +53,15 @@ namespace KAIROS.ViewModels
             IChatDatabaseService databaseService,
             ILLMService llmService,
             IModelDownloaderService modelDownloaderService,
+            IConversationExportService exportService,
+            ISettingsService settingsService,
             DispatcherQueue dispatcherQueue)
         {
             _databaseService = databaseService;
             _llmService = llmService;
             _modelDownloaderService = modelDownloaderService;
+            _exportService = exportService;
+            _settingsService = settingsService;
             _dispatcherQueue = dispatcherQueue;
         }
 
@@ -206,6 +213,52 @@ namespace KAIROS.ViewModels
             _currentConversation = await _databaseService.CreateConversationAsync("New Conversation");
             CurrentConversationTitle = "New Conversation";
             StatusMessage = "New conversation started.";
+        }
+
+        [RelayCommand]
+        private async Task ExportConversationAsync()
+        {
+            if (_currentConversation == null)
+                return;
+
+            try
+            {
+                // Get full conversation with messages
+                var conversation = await _databaseService.GetConversationAsync(_currentConversation.Id);
+                if (conversation == null)
+                    return;
+
+                // Generate a safe filename
+                var fileName = $"{conversation.Title.Replace("...", "").Trim()}_{DateTime.Now:yyyyMMdd_HHmmss}.md";
+                // Remove invalid file name characters
+                foreach (var c in Path.GetInvalidFileNameChars())
+                {
+                    fileName = fileName.Replace(c, '_');
+                }
+
+                var downloadsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                var filePath = Path.Combine(downloadsPath, fileName);
+
+                await _exportService.ExportToFileAsync(conversation, filePath);
+                StatusMessage = $"Conversation exported to: {filePath}";
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = $"Export failed: {ex.Message}";
+            }
+        }
+
+        public Microsoft.UI.Xaml.ElementTheme CurrentTheme
+        {
+            get => _settingsService.Theme;
+            set
+            {
+                if (_settingsService.Theme != value)
+                {
+                    _settingsService.Theme = value;
+                    OnPropertyChanged();
+                }
+            }
         }
 
     }
