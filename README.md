@@ -10,45 +10,45 @@
 [![WinUI 3](https://img.shields.io/badge/WinUI-3-0078D4?logo=windows)](https://microsoft.github.io/microsoft-ui-xaml/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-[Features](#-features) � [Installation](#-installation) � [Screenshots](#-screenshots) � [Build](#-building) � [Contributing](#-contributing)
+[Features](#-features) • [Installation](#-installation) • [Screenshots](#-screenshots) • [Build](#-building) • [Contributing](#-contributing)
 
 </div>
 
 ---
 
-## ? Features
+## ✨ Features
 
-### ?? **Local AI Processing**
+### 🔒 **Local AI Processing**
 - Run powerful LLM models **100% locally** on your Windows PC
 - Complete privacy - no data sent to cloud servers
 - Works offline after initial model download
 - Powered by [LLamaSharp](https://github.com/SciSharp/LLamaSharp)
 
-### ?? **Beautiful Chat Interface**
+### 💬 **Beautiful Chat Interface**
 - Modern Fluent Design with Mica backdrop
 - Smooth text streaming as AI generates responses
 - Message history with chat bubbles
 - Responsive and intuitive UI
 
-### ?? **6 Curated AI Models**
+### 🤖 **6 Curated AI Models**
 Choose from professionally selected models:
 
 | Model | Size | Best For | Min RAM |
 |-------|------|----------|---------|
-| **Phi-3 Mini 3.8B** ? | 2.2 GB | General use, fast responses | 4 GB |
+| **Phi-3 Mini 3.8B** ⭐ | 2.2 GB | General use, fast responses | 4 GB |
 | **Phi-2 2.7B** | 1.6 GB | Coding, technical tasks | 4 GB |
 | **LLaMA 3.2 3B** | 1.9 GB | Multilingual conversations | 4 GB |
-| **Mistral 7B** ? | 4.4 GB | Advanced reasoning, coding | 8 GB |
+| **Mistral 7B** ⭐ | 4.4 GB | Advanced reasoning, coding | 8 GB |
 | **LLaMA 3.1 8B** | 4.9 GB | Complex tasks, long context | 12 GB |
 | **Gemma 2 9B** | 5.4 GB | Premium quality responses | 12 GB |
 
-### ?? **Conversation History**
+### 💾 **Conversation History**
 - Automatic conversation saving with SQLite
 - Resume conversations anytime
 - Search through chat history
 - Export conversations
 
-### ?? **User Experience**
+### ⚡ **User Experience**
 - Beautiful model selection dialog
 - Download progress with speed indicator
 - Real-time response streaming
@@ -58,7 +58,7 @@ Choose from professionally selected models:
 
 ---
 
-## ?? Requirements
+## 📋 Requirements
 
 - **OS**: Windows 10 version 1809+ or Windows 11
 - **RAM**: 4-16 GB (depends on model choice)
@@ -67,7 +67,7 @@ Choose from professionally selected models:
 
 ---
 
-## ?? Installation
+## 📦 Installation
 
 ### Option 1: Download Release (Coming Soon)
 1. Download the latest `.msix` from [Releases](https://github.com/avikeid2007/KaiROS/releases)
@@ -92,7 +92,7 @@ dotnet run
 
 ---
 
-## ?? Screenshots
+## 📸 Screenshots
 
 ### Model Selection
 Beautiful dialog to choose your AI model
@@ -117,7 +117,7 @@ Smooth download experience with progress tracking
 
 ---
 
-## ??? Building
+## 🔨 Building
 
 ### Prerequisites
 - [Visual Studio 2022](https://visualstudio.microsoft.com/) (17.8+) with:
@@ -143,7 +143,7 @@ Smooth download experience with progress tracking
 
 4. **Build the project**
    - Press `Ctrl+Shift+B` or
-   - Build ? Build Solution
+   - Build → Build Solution
 
 5. **Run**
    - Press `F5` for debugging
@@ -151,26 +151,26 @@ Smooth download experience with progress tracking
 
 ---
 
-## ??? Project Structure
+## 📁 Project Structure
 
 ```
 KAIROS/
-??? Models/              # Data models (ChatMessage, Conversation, LLMModel)
-??? Services/            # Business logic
-?   ??? LLMService.cs           # LLamaSharp integration
-?   ??? ChatDatabaseService.cs  # SQLite operations
-?   ??? ModelDownloaderService.cs # GGUF model downloads
-?   ??? LLMModelCatalog.cs      # Available models
-??? ViewModels/          # MVVM view models
-??? Dialogs/             # UI dialogs
-??? Data/                # Database context
-??? Assets/              # App icons and images
-??? Properties/          # App settings
+├── Models/              # Data models (ChatMessage, Conversation, LLMModel)
+├── Services/            # Business logic
+│   ├── LLMService.cs           # LLamaSharp integration
+│   ├── ChatDatabaseService.cs  # SQLite operations
+│   ├── ModelDownloaderService.cs # GGUF model downloads
+│   └── LLMModelCatalog.cs      # Available models
+├── ViewModels/          # MVVM view models
+├── Dialogs/             # UI dialogs
+├── Data/                # Database context
+├── Assets/              # App icons and images
+└── Properties/          # App settings
 ```
 
 ---
 
-## ?? Configuration
+## ⚙️ Configuration
 
 ### Change AI Model
 Click the **"Model"** button in the header to switch between models anytime.
@@ -199,7 +199,7 @@ var parameters = new ModelParams(modelPath)
 
 ---
 
-## ?? Technologies Used
+## 🛠️ Technologies Used
 
 - **[.NET 8](https://dotnet.microsoft.com/)** - Modern .NET framework
 - **[WinUI 3](https://microsoft.github.io/microsoft-ui-xaml/)** - Windows UI framework
@@ -211,7 +211,7 @@ var parameters = new ModelParams(modelPath)
 
 ---
 
-## ?? How It Works
+## 🔄 How It Works
 
 1. **Model Selection**: Choose from curated AI models on first launch
 2. **Download**: Model is downloaded once and cached locally
@@ -228,17 +228,17 @@ var parameters = new ModelParams(modelPath)
 
 ---
 
-## ?? Privacy & Security
+## 🔐 Privacy & Security
 
-? **100% Local Processing** - All AI computation happens on your device  
-? **No Cloud Servers** - No data sent to external servers  
-? **Offline Capable** - Works without internet after model download  
-? **Local Storage** - Conversations stored only on your PC  
-? **Open Source** - Audit the code yourself  
+✅ **100% Local Processing** - All AI computation happens on your device  
+✅ **No Cloud Servers** - No data sent to external servers  
+✅ **Offline Capable** - Works without internet after model download  
+✅ **Local Storage** - Conversations stored only on your PC  
+✅ **Open Source** - Audit the code yourself  
 
 ---
 
-## ?? Known Issues
+## ⚠️ Known Issues
 
 - **First load slow**: Large models (7B+) take time to load into RAM
 - **High RAM usage**: 7B+ models require 8-16 GB RAM
@@ -246,7 +246,7 @@ var parameters = new ModelParams(modelPath)
 
 ---
 
-## ??? Roadmap
+## 🗺️ Roadmap
 
 - [ ] GPU acceleration auto-detection
 - [x] Export conversations (Markdown) ✅
@@ -264,7 +264,7 @@ var parameters = new ModelParams(modelPath)
 
 ---
 
-## ?? Contributing
+## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
@@ -283,13 +283,13 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ---
 
-## ?? License
+## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## ?? Acknowledgments
+## 🙏 Acknowledgments
 
 - [LLamaSharp](https://github.com/SciSharp/LLamaSharp) - Excellent .NET bindings for llama.cpp
 - [llama.cpp](https://github.com/ggerganov/llama.cpp) - Fast LLM inference in C++
@@ -299,7 +299,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## ?? Contact & Support
+## 📧 Contact & Support
 
 - **Issues**: [GitHub Issues](https://github.com/avikeid2007/KaiROS/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/avikeid2007/KaiROS/discussions)
@@ -308,8 +308,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <div align="center">
 
-Made with ?? for the Windows community
+Made with ❤️ for the Windows community
 
-**[? Back to Top](#kairos---ai-chat-assistant)**
+**[⬆️ Back to Top](#kairos---ai-chat-assistant)**
 
 </div>
