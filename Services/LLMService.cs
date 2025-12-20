@@ -70,9 +70,13 @@ namespace KAIROS.Services
 
             var inferenceParams = new InferenceParams
             {
-                MaxTokens = 2048, // Increased for longer responses
+                MaxTokens = 2048,
                 AntiPrompts = new List<string> 
                 { 
+                    "### User:",
+                    "\n### User:",
+                    "###User:",
+                    "\n###User:",
                     "User:", 
                     "\nUser:", 
                     "\n\nUser:",
@@ -82,6 +86,8 @@ namespace KAIROS.Services
                 }
             };
 
+            var buffer = new System.Text.StringBuilder();
+            
             await foreach (var text in executor.InferAsync(prompt, inferenceParams, cancellationToken))
             {
                 if (cancellationToken.IsCancellationRequested)
@@ -89,13 +95,40 @@ namespace KAIROS.Services
                     yield break;
                 }
                 
-                // Filter out repetitive assistant tags
-                if (text.Contains("<|assistant|>") || text.Contains("[assistant]"))
+                buffer.Append(text);
+                var bufferedText = buffer.ToString();
+                
+                // Check if buffer contains unwanted patterns
+                if (bufferedText.Contains("### User") || 
+                    bufferedText.Contains("###User") ||
+                    bufferedText.Contains("<|assistant|>") || 
+                    bufferedText.Contains("[assistant]"))
                 {
-                    continue;
+                    // Stop generation if we hit these patterns
+                    yield break;
                 }
                 
-                yield return text;
+                // Only yield if we have enough tokens and it's safe
+                // Keep last few chars in buffer to catch patterns that span tokens
+                if (buffer.Length > 10)
+                {
+                    var safeText = buffer.ToString(0, buffer.Length - 5);
+                    buffer.Remove(0, buffer.Length - 5);
+                    
+                    if (!string.IsNullOrWhiteSpace(safeText))
+                    {
+                        yield return safeText;
+                    }
+                }
+            }
+            
+            // Yield remaining buffer (minus any trailing markers)
+            var remaining = buffer.ToString().TrimEnd();
+            if (!string.IsNullOrWhiteSpace(remaining) && 
+                !remaining.Contains("###") && 
+                !remaining.Contains("User:"))
+            {
+                yield return remaining;
             }
         }
 
@@ -106,7 +139,7 @@ namespace KAIROS.Services
             
             // System prompt
             promptBuilder.AppendLine("### System:");
-            promptBuilder.AppendLine("You are KAIROS, a helpful and knowledgeable AI assistant. Provide clear, accurate, and concise responses.");
+            promptBuilder.AppendLine("You are KAIROS, a helpful and knowledgeable AI assistant. Provide clear, accurate, and concise responses. Never repeat the user's question or add labels like '### User:' in your responses.");
             promptBuilder.AppendLine();
 
             // Add conversation history
@@ -130,7 +163,7 @@ namespace KAIROS.Services
             var lastMessage = chatHistory.LastOrDefault();
             if (lastMessage?.Role == "user")
             {
-                promptBuilder.Append("### Assistant:");
+                promptBuilder.AppendLine("### Assistant:");
             }
 
             return promptBuilder.ToString();
