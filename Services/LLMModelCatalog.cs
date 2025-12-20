@@ -1,4 +1,5 @@
 using KAIROS.Models;
+
 using System.Collections.Generic;
 
 namespace KAIROS.Services
@@ -10,6 +11,19 @@ namespace KAIROS.Services
             return new List<LLMModel>
             {
                 // Small Models (1-3GB)
+                 new LLMModel
+                {
+                    Name = "tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf",
+                    DisplayName = "TinyLlama 1.1B Chat",
+                    Description = "Ultra small and very fast chat model. Great for lightweight tasks and quick responses on low-end hardware.",
+                    SizeText = "0.8 GB",
+                    SizeBytes = 669737984,
+                    DownloadUrl = "https://huggingface.co/TheBloke/TinyLlama-1.1B-Chat-v1.0-GGUF/resolve/main/tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf",
+                    Capabilities = "Conversation • Fast • Lightweight",
+                    MinRam = "2 GB",
+                    Category = "small",
+                    IsRecommended = false
+                },
                 new LLMModel
                 {
                     Name = "phi-3-mini-4k-instruct-q4.gguf",
@@ -36,6 +50,7 @@ namespace KAIROS.Services
                     Category = "small",
                     IsRecommended = false
                 },
+
                 new LLMModel
                 {
                     Name = "Llama-3.2-3B-Instruct-Q4_K_M.gguf",

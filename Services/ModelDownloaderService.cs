@@ -34,6 +34,15 @@ namespace KAIROS.Services
             _httpClient = new HttpClient();
             _httpClient.Timeout = TimeSpan.FromHours(2); // Long timeout for large model downloads
 
+            // Some hosts (e.g., Hugging Face) may reject requests without a User-Agent.
+            // Provide a friendly UA to avoid 401/403 issues.
+            if (!_httpClient.DefaultRequestHeaders.Contains("User-Agent"))
+            {
+                _httpClient.DefaultRequestHeaders.TryAddWithoutValidation(
+                    "User-Agent",
+                    "KaiROS-ModelDownloader/1.0 (+https://github.com/avikeid2007/KaiROS)");
+            }
+
             _modelsDirectory = Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
                 "KAIROS",
@@ -74,7 +83,7 @@ namespace KAIROS.Services
                 // Download on background thread to avoid blocking UI
                 return await Task.Run(async () =>
                 {
-                    using var response = await _httpClient.GetAsync(modelUrl, HttpCompletionOption.ResponseHeadersRead, cancellationToken);
+                    using var response = await GetWithRetryAsync(modelUrl, HttpCompletionOption.ResponseHeadersRead, cancellationToken);
                     response.EnsureSuccessStatusCode();
 
                     var totalBytes = response.Content.Headers.ContentLength ?? 0;
@@ -148,7 +157,7 @@ namespace KAIROS.Services
                 // Download on background thread to avoid blocking UI
                 return await Task.Run(async () =>
                 {
-                    using var response = await _httpClient.GetAsync(modelUrl, HttpCompletionOption.ResponseHeadersRead, cancellationToken);
+                    using var response = await GetWithRetryAsync(modelUrl, HttpCompletionOption.ResponseHeadersRead, cancellationToken);
                     response.EnsureSuccessStatusCode();
 
                     var totalBytes = response.Content.Headers.ContentLength ?? 0;
@@ -249,6 +258,48 @@ namespace KAIROS.Services
                 }
                 throw new Exception($"Failed to download model: {ex.Message}", ex);
             }
+        }
+
+        private async Task<HttpResponseMessage> GetWithRetryAsync(
+            string url,
+            HttpCompletionOption completionOption,
+            CancellationToken cancellationToken)
+        {
+            const int maxRetries = 4;
+            var delay = TimeSpan.FromSeconds(2);
+
+            for (int attempt = 0; attempt <= maxRetries; attempt++)
+            {
+                try
+                {
+                    var response = await _httpClient.GetAsync(url, completionOption, cancellationToken);
+
+                    if ((int)response.StatusCode == 401 || (int)response.StatusCode == 429 ||
+                        (int)response.StatusCode >= 500)
+                    {
+                        // Dispose error response before retrying
+                        response.Dispose();
+                        if (attempt == maxRetries)
+                        {
+                            throw new HttpRequestException($"HTTP {(int)response.StatusCode} after {attempt + 1} attempts");
+                        }
+                    }
+                    else
+                    {
+                        return response;
+                    }
+                }
+                catch (HttpRequestException) when (attempt < maxRetries)
+                {
+                    // fall through to delay and retry
+                }
+
+                await Task.Delay(delay, cancellationToken);
+                delay = TimeSpan.FromSeconds(delay.TotalSeconds * 2); // exponential backoff
+            }
+
+            // Should not reach here because we either returned or threw
+            throw new HttpRequestException("Request failed after retries");
         }
     }
 }

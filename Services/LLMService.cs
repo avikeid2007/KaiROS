@@ -34,6 +34,8 @@ namespace KAIROS.Services
                     throw new FileNotFoundException($"Model file not found: {modelPath}");
                 }
 
+                // Backend initialization removed; native libraries are copied via project configuration.
+
                 var parameters = new ModelParams(modelPath)
                 {
                     ContextSize = 4096,

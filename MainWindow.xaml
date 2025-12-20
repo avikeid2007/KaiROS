@@ -1,184 +1,210 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <Window
     x:Class="KAIROS.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:KAIROS"
-    xmlns:vm="using:KAIROS.ViewModels"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:KAIROS"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Title="KAIROS - AI Chat Assistant">
+    xmlns:vm="using:KAIROS.ViewModels"
+    Title="KAIROS - AI Chat Assistant"
+    mc:Ignorable="d">
 
     <Window.SystemBackdrop>
         <MicaBackdrop />
     </Window.SystemBackdrop>
 
-    <Window.KeyboardAccelerators>
-        <!-- Ctrl+N for New Conversation -->
-        <KeyboardAccelerator Key="N" Modifiers="Control" Invoked="NewConversation_Invoked"/>
-        <!-- Ctrl+H for History -->
-        <KeyboardAccelerator Key="H" Modifiers="Control" Invoked="History_Invoked"/>
-        <!-- Ctrl+E for Export -->
-        <KeyboardAccelerator Key="E" Modifiers="Control" Invoked="Export_Invoked"/>
-        <!-- Ctrl+, for Settings -->
-        <KeyboardAccelerator Key="OemComma" Modifiers="Control" Invoked="Settings_Invoked"/>
-        <!-- F1 for Help -->
-        <KeyboardAccelerator Key="F1" Invoked="Help_Invoked"/>
-    </Window.KeyboardAccelerators>
+    <!--<Window.KeyboardAccelerators>
+        --><!--  Ctrl+N for New Conversation  --><!--
+        <KeyboardAccelerator
+            Key="N"
+            Invoked="NewConversation_Invoked"
+            Modifiers="Control" />
+        --><!--  Ctrl+H for History  --><!--
+        <KeyboardAccelerator
+            Key="H"
+            Invoked="History_Invoked"
+            Modifiers="Control" />
+        --><!--  Ctrl+E for Export  --><!--
+        <KeyboardAccelerator
+            Key="E"
+            Invoked="Export_Invoked"
+            Modifiers="Control" />
+        --><!--  Ctrl+, for Settings  --><!--
+        <KeyboardAccelerator
+            Key="OemComma"
+            Invoked="Settings_Invoked"
+            Modifiers="Control" />
+        --><!--  F1 for Help  --><!--
+        <KeyboardAccelerator Key="F1" Invoked="Help_Invoked" />
+    </Window.KeyboardAccelerators>-->
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <!-- Header -->
-        <Grid Grid.Row="0" 
-              Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
-              Padding="20,16"
-              BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-              BorderThickness="0,0,0,1">
+        <!--  Header  -->
+        <Grid
+            Grid.Row="0"
+            Padding="20,16"
+            Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+            BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+            BorderThickness="0,0,0,1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="0" Spacing="4">
-                <TextBlock Text="{x:Bind ViewModel.CurrentConversationTitle, Mode=OneWay}"
-                           Style="{StaticResource TitleTextBlockStyle}"
-                           FontWeight="SemiBold"/>
-                <TextBlock Text="{x:Bind ViewModel.StatusMessage, Mode=OneWay}"
-                           Style="{StaticResource CaptionTextBlockStyle}"
-                           Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                <TextBlock
+                    FontWeight="SemiBold"
+                    Style="{StaticResource TitleTextBlockStyle}"
+                    Text="{x:Bind ViewModel.CurrentConversationTitle, Mode=OneWay}" />
+                <TextBlock
+                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                    Style="{StaticResource CaptionTextBlockStyle}"
+                    Text="{x:Bind ViewModel.StatusMessage, Mode=OneWay}" />
             </StackPanel>
 
-            <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="8">
-                <Button Click="OpenHelp_Click"
-                        ToolTipService.ToolTip="Help & Tips">
+            <StackPanel
+                Grid.Column="1"
+                Orientation="Horizontal"
+                Spacing="8">
+                <Button Click="OpenHelp_Click" ToolTipService.ToolTip="Help and Tips">
                     <StackPanel Orientation="Horizontal" Spacing="8">
-                        <FontIcon Glyph="&#xE897;" FontSize="16"/>
-                        <TextBlock Text="Help"/>
+                        <FontIcon FontSize="16" Glyph="&#xE897;" />
+                        <TextBlock Text="Help" />
                     </StackPanel>
                 </Button>
-                <Button Click="OpenHistory_Click"
-                        IsEnabled="{x:Bind ViewModel.IsModelReady, Mode=OneWay}"
-                        ToolTipService.ToolTip="View Conversation History">
+                <Button
+                    Click="OpenHistory_Click"
+                    IsEnabled="{x:Bind ViewModel.IsModelReady, Mode=OneWay}"
+                    ToolTipService.ToolTip="View Conversation History">
                     <StackPanel Orientation="Horizontal" Spacing="8">
-                        <FontIcon Glyph="&#xE81C;" FontSize="16"/>
-                        <TextBlock Text="History"/>
+                        <FontIcon FontSize="16" Glyph="&#xE81C;" />
+                        <TextBlock Text="History" />
                     </StackPanel>
                 </Button>
-                <Button Click="ExportConversation_Click"
-                        IsEnabled="{x:Bind ViewModel.IsModelReady, Mode=OneWay}"
-                        ToolTipService.ToolTip="Export Conversation to Markdown">
+                <Button
+                    Click="ExportConversation_Click"
+                    IsEnabled="{x:Bind ViewModel.IsModelReady, Mode=OneWay}"
+                    ToolTipService.ToolTip="Export Conversation to Markdown">
                     <StackPanel Orientation="Horizontal" Spacing="8">
-                        <FontIcon Glyph="&#xE74E;" FontSize="16"/>
-                        <TextBlock Text="Export"/>
+                        <FontIcon FontSize="16" Glyph="&#xE74E;" />
+                        <TextBlock Text="Export" />
                     </StackPanel>
                 </Button>
-                <Button Click="OpenSettings_Click"
-                        ToolTipService.ToolTip="Settings">
+                <Button Click="OpenSettings_Click" ToolTipService.ToolTip="Settings">
                     <StackPanel Orientation="Horizontal" Spacing="8">
-                        <FontIcon Glyph="&#xE713;" FontSize="16"/>
-                        <TextBlock Text="Settings"/>
+                        <FontIcon FontSize="16" Glyph="&#xE713;" />
+                        <TextBlock Text="Settings" />
                     </StackPanel>
                 </Button>
-                <Button Click="SelectModel_Click"
-                        ToolTipService.ToolTip="Change AI Model">
+                <Button Click="SelectModel_Click" ToolTipService.ToolTip="Change AI Model">
                     <StackPanel Orientation="Horizontal" Spacing="8">
-                        <FontIcon Glyph="&#xE8F4;" FontSize="16"/>
-                        <TextBlock Text="Model"/>
+                        <FontIcon FontSize="16" Glyph="&#xE8F4;" />
+                        <TextBlock Text="Model" />
                     </StackPanel>
                 </Button>
-                <Button Command="{x:Bind ViewModel.NewConversationCommand}"
-                        ToolTipService.ToolTip="New Conversation">
+                <Button Command="{x:Bind ViewModel.NewConversationCommand}" ToolTipService.ToolTip="New Conversation">
                     <StackPanel Orientation="Horizontal" Spacing="8">
-                        <FontIcon Glyph="&#xE710;" FontSize="16"/>
-                        <TextBlock Text="New Chat"/>
+                        <FontIcon FontSize="16" Glyph="&#xE710;" />
+                        <TextBlock Text="New Chat" />
                     </StackPanel>
                 </Button>
             </StackPanel>
         </Grid>
 
-        <!-- Chat Messages Area -->
-        <ScrollViewer Grid.Row="1" 
-                      x:Name="ChatScrollViewer"
-                      Padding="20"
-                      VerticalScrollBarVisibility="Auto">
+        <!--  Chat Messages Area  -->
+        <ScrollViewer
+            x:Name="ChatScrollViewer"
+            Grid.Row="1"
+            Padding="20"
+            VerticalScrollBarVisibility="Auto">
             <ItemsControl ItemsSource="{x:Bind ViewModel.Messages, Mode=OneWay}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate x:DataType="vm:ChatMessageViewModel">
                         <Grid Margin="0,0,0,20">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
 
-                            <!-- User Message (Right aligned) -->
-                            <Grid Grid.Column="1"
-                                  Grid.ColumnSpan="2"
-                                  HorizontalAlignment="Right"
-                                  MaxWidth="600"
-                                  Visibility="{x:Bind IsUser, Mode=OneWay}">
-                                <Border Background="{ThemeResource AccentFillColorDefaultBrush}"
-                                        CornerRadius="12,12,4,12"
-                                        Padding="16,12">
-                                    <TextBlock Text="{x:Bind Content, Mode=OneWay}"
-                                               Foreground="White"
-                                               TextWrapping="Wrap"
-                                               IsTextSelectionEnabled="True"/>
+                            <!--  User Message (Right aligned)  -->
+                            <Grid
+                                Grid.Column="1"
+                                Grid.ColumnSpan="2"
+                                MaxWidth="600"
+                                HorizontalAlignment="Right"
+                                Visibility="{x:Bind IsUser, Mode=OneWay}">
+                                <Border
+                                    Padding="16,12"
+                                    Background="{ThemeResource AccentFillColorDefaultBrush}"
+                                    CornerRadius="12,12,4,12">
+                                    <TextBlock
+                                        Foreground="White"
+                                        IsTextSelectionEnabled="True"
+                                        Text="{x:Bind Content, Mode=OneWay}"
+                                        TextWrapping="Wrap" />
                                 </Border>
                             </Grid>
 
-                            <!-- Assistant Message (Left aligned) -->
-                            <Grid Grid.Column="0"
-                                  Grid.ColumnSpan="2"
-                                  HorizontalAlignment="Left"
-                                  MaxWidth="600">
+                            <!--  Assistant Message (Left aligned)  -->
+                            <Grid
+                                Grid.Column="0"
+                                Grid.ColumnSpan="2"
+                                MaxWidth="600"
+                                HorizontalAlignment="Left">
                                 <Grid.Visibility>
-                                    <Binding Path="IsUser" Mode="OneWay">
+                                    <Binding Mode="OneWay" Path="IsUser">
                                         <Binding.Converter>
-                                            <local:InverseBoolToVisibilityConverter/>
+                                            <local:InverseBoolToVisibilityConverter />
                                         </Binding.Converter>
                                     </Binding>
                                 </Grid.Visibility>
 
-                                <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
-                                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                                        BorderThickness="1"
-                                        CornerRadius="12,12,12,4"
-                                        Padding="16,12">
+                                <Border
+                                    Padding="16,12"
+                                    Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                                    BorderThickness="1"
+                                    CornerRadius="12,12,12,4">
                                     <StackPanel Spacing="8">
                                         <Grid>
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="Auto"/>
-                                                <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="Auto" />
                                             </Grid.ColumnDefinitions>
-                                            <FontIcon Glyph="&#xE8F4;" 
-                                                      FontSize="16"
-                                                      Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"
-                                                      Margin="0,0,8,0"/>
-                                            <TextBlock Grid.Column="1"
-                                                       Text="AI Assistant"
-                                                       Style="{StaticResource CaptionTextBlockStyle}"
-                                                       FontWeight="SemiBold"
-                                                       Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"/>
-                                            <Button Grid.Column="2"
-                                                    Click="CopyMessage_Click"
-                                                    Tag="{x:Bind Content, Mode=OneWay}"
-                                                    Style="{StaticResource SubtleButtonStyle}"
-                                                    Padding="8,4"
-                                                    ToolTipService.ToolTip="Copy to clipboard">
-                                                <FontIcon Glyph="&#xE8C8;" FontSize="14"/>
+                                            <FontIcon
+                                                Margin="0,0,8,0"
+                                                FontSize="16"
+                                                Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"
+                                                Glyph="&#xE8F4;" />
+                                            <TextBlock
+                                                Grid.Column="1"
+                                                FontWeight="SemiBold"
+                                                Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"
+                                                Style="{StaticResource CaptionTextBlockStyle}"
+                                                Text="AI Assistant" />
+                                            <Button
+                                                Grid.Column="2"
+                                                Padding="8,4"
+                                                Click="CopyMessage_Click"
+                                                Style="{StaticResource SubtleButtonStyle}"
+                                                Tag="{x:Bind Content, Mode=OneWay}"
+                                                ToolTipService.ToolTip="Copy to clipboard">
+                                                <FontIcon FontSize="14" Glyph="&#xE8C8;" />
                                             </Button>
                                         </Grid>
-                                        <TextBlock Text="{x:Bind Content, Mode=OneWay}"
-                                                   TextWrapping="Wrap"
-                                                   IsTextSelectionEnabled="True"/>
+                                        <TextBlock
+                                            IsTextSelectionEnabled="True"
+                                            Text="{x:Bind Content, Mode=OneWay}"
+                                            TextWrapping="Wrap" />
                                     </StackPanel>
                                 </Border>
                             </Grid>
@@ -188,80 +214,91 @@
             </ItemsControl>
         </ScrollViewer>
 
-        <!-- Loading Indicator -->
-        <ProgressBar Grid.Row="1"
-                     IsIndeterminate="True"
-                     VerticalAlignment="Bottom"
-                     Visibility="{x:Bind ViewModel.IsLoading, Mode=OneWay}"/>
+        <!--  Loading Indicator  -->
+        <ProgressBar
+            Grid.Row="1"
+            VerticalAlignment="Bottom"
+            IsIndeterminate="True"
+            Visibility="{x:Bind ViewModel.IsLoading, Mode=OneWay}" />
 
-        <!-- Download Progress -->
-        <Grid Grid.Row="1"
-              Background="{ThemeResource AcrylicInAppFillColorDefaultBrush}"
-              Visibility="{x:Bind ViewModel.IsDownloading, Mode=OneWay}">
-            <StackPanel HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Spacing="16"
-                        MaxWidth="400">
-                <FontIcon Glyph="&#xE896;" 
-                          FontSize="48"
-                          Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"/>
-                <TextBlock Text="Downloading Model..."
-                           Style="{StaticResource TitleTextBlockStyle}"
-                           HorizontalAlignment="Center"/>
-                <ProgressBar Value="{x:Bind ViewModel.DownloadProgress, Mode=OneWay}"
-                             Maximum="100"
-                             Width="300"/>
-                <TextBlock Text="{x:Bind ViewModel.StatusMessage, Mode=OneWay}"
-                           Style="{StaticResource CaptionTextBlockStyle}"
-                           HorizontalAlignment="Center"
-                           Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+        <!--  Download Progress  -->
+        <Grid
+            Grid.Row="1"
+            Background="{ThemeResource AcrylicInAppFillColorDefaultBrush}"
+            Visibility="{x:Bind ViewModel.IsDownloading, Mode=OneWay}">
+            <StackPanel
+                MaxWidth="400"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Spacing="16">
+                <FontIcon
+                    FontSize="48"
+                    Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"
+                    Glyph="&#xE896;" />
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    Style="{StaticResource TitleTextBlockStyle}"
+                    Text="Downloading Model..." />
+                <ProgressBar
+                    Width="300"
+                    Maximum="100"
+                    Value="{x:Bind ViewModel.DownloadProgress, Mode=OneWay}" />
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                    Style="{StaticResource CaptionTextBlockStyle}"
+                    Text="{x:Bind ViewModel.StatusMessage, Mode=OneWay}" />
             </StackPanel>
         </Grid>
 
-        <!-- Input Area -->
-        <Grid Grid.Row="2" 
-              Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
-              Padding="20,16"
-              BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-              BorderThickness="0,1,0,0">
+        <!--  Input Area  -->
+        <Grid
+            Grid.Row="2"
+            Padding="20,16"
+            Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+            BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+            BorderThickness="0,1,0,0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
-            <TextBox x:Name="InputTextBox"
-                     Grid.Column="0"
-                     Text="{x:Bind ViewModel.UserInput, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                     PlaceholderText="Type your message here... (Enter to send, Shift+Enter for new line)"
-                     AcceptsReturn="True"
-                     TextWrapping="Wrap"
-                     MaxHeight="120"
-                     VerticalAlignment="Center"
-                     Margin="0,0,12,0"
-                     IsEnabled="{x:Bind ViewModel.IsModelReady, Mode=OneWay}">
+            <TextBox
+                x:Name="InputTextBox"
+                Grid.Column="0"
+                MaxHeight="120"
+                Margin="0,0,12,0"
+                VerticalAlignment="Center"
+                AcceptsReturn="True"
+                IsEnabled="{x:Bind ViewModel.IsModelReady, Mode=OneWay}"
+                PlaceholderText="Type your message here... (Enter to send, Shift+Enter for new line)"
+                Text="{x:Bind ViewModel.UserInput, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                TextWrapping="Wrap">
                 <TextBox.KeyboardAccelerators>
-                    <KeyboardAccelerator Key="Enter" 
-                                         Invoked="SendMessage_Invoked"/>
+                    <KeyboardAccelerator Key="Enter" Invoked="SendMessage_Invoked" />
                 </TextBox.KeyboardAccelerators>
             </TextBox>
 
-            <StackPanel Grid.Column="1" 
-                        Orientation="Horizontal" 
-                        Spacing="8"
-                        VerticalAlignment="Center">
-                <Button Command="{x:Bind ViewModel.StopGenerationCommand}"
-                        Visibility="{x:Bind ViewModel.IsLoading, Mode=OneWay}"
-                        Style="{StaticResource AccentButtonStyle}"
-                        ToolTipService.ToolTip="Stop Generation">
-                    <FontIcon Glyph="&#xE71A;" FontSize="16"/>
+            <StackPanel
+                Grid.Column="1"
+                VerticalAlignment="Center"
+                Orientation="Horizontal"
+                Spacing="8">
+                <Button
+                    Command="{x:Bind ViewModel.StopGenerationCommand}"
+                    Style="{StaticResource AccentButtonStyle}"
+                    ToolTipService.ToolTip="Stop Generation"
+                    Visibility="{x:Bind ViewModel.IsLoading, Mode=OneWay}">
+                    <FontIcon FontSize="16" Glyph="&#xE71A;" />
                 </Button>
 
-                <Button Command="{x:Bind ViewModel.SendMessageCommand}"
-                        Style="{StaticResource AccentButtonStyle}"
-                        ToolTipService.ToolTip="Send Message (Enter)">
+                <Button
+                    Command="{x:Bind ViewModel.SendMessageCommand}"
+                    Style="{StaticResource AccentButtonStyle}"
+                    ToolTipService.ToolTip="Send Message (Enter)">
                     <StackPanel Orientation="Horizontal" Spacing="8">
-                        <FontIcon Glyph="&#xE724;" FontSize="16"/>
-                        <TextBlock Text="Send"/>
+                        <FontIcon FontSize="16" Glyph="&#xE724;" />
+                        <TextBlock Text="Send" />
                     </StackPanel>
                 </Button>
             </StackPanel>
