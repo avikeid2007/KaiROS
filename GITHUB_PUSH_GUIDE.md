@@ -1,11 +1,11 @@
 # Push KAIROS to GitHub - Complete Guide
 
-## ?? Quick Start (5 Steps)
+## 🚀 Quick Start (5 Steps)
 
 ### Step 1: Initialize Git Repository
 ```powershell
 # Navigate to your project directory
-cd C:\Users\User\source\repos\KAIROS
+cd C:\Users\%USERNAME%\source\repos\KaiROS
 
 # Initialize git
 git init
@@ -49,16 +49,16 @@ winget install --id GitHub.cli
 gh auth login
 
 # Create repository and push
-gh repo create KAIROS --public --source=. --remote=origin --push
+gh repo create KaiROS --public --source=. --remote=origin --push
 
 # Or create as private
-gh repo create KAIROS --private --source=. --remote=origin --push
+gh repo create KaiROS --private --source=. --remote=origin --push
 ```
 
 #### Option B: Using GitHub Website
 1. Go to [GitHub](https://github.com)
 2. Click **"+" ? New repository**
-3. Repository name: `KAIROS`
+3. Repository name: `KaiROS`
 4. Description: `AI Chat Assistant - Privacy-focused local LLM chatbot for Windows`
 5. Choose **Public** or **Private**
 6. **DON'T** initialize with README (we have one)
@@ -66,8 +66,8 @@ gh repo create KAIROS --private --source=. --remote=origin --push
 
 ### Step 5: Push to GitHub
 ```powershell
-# Add remote (replace YOUR_USERNAME)
-git remote add origin https://github.com/YOUR_USERNAME/KAIROS.git
+# Add remote (replace <username> with your GitHub username)
+git remote add origin https://github.com/<username>/KaiROS.git
 
 # Verify remote
 git remote -v
@@ -82,7 +82,7 @@ git push -u origin main
 
 ---
 
-## ?? Detailed Instructions
+## 📖 Detailed Instructions
 
 ### Prerequisites
 
@@ -113,7 +113,7 @@ git push -u origin main
 
 ---
 
-## ?? Authentication Options
+## 🔐 Authentication Options
 
 ### Option 1: Personal Access Token (Recommended)
 
@@ -176,12 +176,12 @@ git push -u origin main
 4. **Use SSH URL**
    ```powershell
    # Add remote with SSH
-   git remote add origin git@github.com:YOUR_USERNAME/KAIROS.git
+   git remote add origin git@github.com:<username>/KaiROS.git
    ```
 
 ---
 
-## ?? What Gets Pushed?
+## 📦 What Gets Pushed?
 
 ### ? Included Files
 - Source code (`.cs`, `.xaml`, `.csproj`)
@@ -202,20 +202,20 @@ git push -u origin main
 
 ---
 
-## ?? Verification
+## ✅ Verification
 
 After pushing, verify your repository:
 
 1. **Check GitHub Web**
-   - Go to `https://github.com/YOUR_USERNAME/KAIROS`
+   - Go to `https://github.com/<username>/KaiROS`
    - You should see all files and README
 
 2. **Clone Test** (Optional)
    ```powershell
    # Clone in different directory
    cd C:\Temp
-   git clone https://github.com/YOUR_USERNAME/KAIROS.git
-   cd KAIROS
+   git clone https://github.com/<username>/KaiROS.git
+   cd KaiROS
    
    # Build to verify
    dotnet build
@@ -223,7 +223,7 @@ After pushing, verify your repository:
 
 ---
 
-## ?? Future Updates
+## 🔄 Future Updates
 
 ### Making Changes and Pushing
 ```powershell
@@ -267,7 +267,7 @@ Types:
 
 ---
 
-## ??? Releases
+## 🏷️ Releases
 
 ### Create a Release
 1. **Tag a version**
@@ -294,7 +294,7 @@ Types:
 
 ---
 
-## ?? Repository Settings
+## ⚙️ Repository Settings
 
 ### Recommended Settings
 
@@ -321,7 +321,7 @@ Types:
 
 ---
 
-## ??? Security
+## 🔒 Security
 
 ### Add Security Policy
 Create `SECURITY.md`:
@@ -330,8 +330,7 @@ Create `SECURITY.md`:
 
 ## Reporting a Vulnerability
 
-If you discover a security vulnerability, please email:
-your-email@example.com
+If you discover a security vulnerability, please report it through GitHub's security advisory feature or create a private security advisory.
 
 Please do not open public issues for security vulnerabilities.
 
@@ -351,7 +350,7 @@ Please do not open public issues for security vulnerabilities.
 
 ---
 
-## ?? GitHub Actions (CI/CD)
+## 🔧 GitHub Actions (CI/CD)
 
 ### Add Build Workflow
 Create `.github/workflows/build.yml`:
@@ -403,20 +402,20 @@ Before pushing to GitHub:
 
 ---
 
-## ?? Success!
+## 🎉 Success!
 
 Your repository is now on GitHub! 
 
 ### Next Steps:
 1. ? Star your own repository
-2. ?? Update README with screenshots
-3. ??? Create first release
-4. ?? Share with community
-5. ?? Accept contributions
+2. 📸 Update README with screenshots
+3. 🏷️ Create first release
+4. 📢 Share with community
+5. 🤝 Accept contributions
 
 ---
 
-## ?? Troubleshooting
+## ❓ Troubleshooting
 
 ### Problem: "fatal: remote origin already exists"
 ```powershell
@@ -424,7 +423,7 @@ Your repository is now on GitHub!
 git remote remove origin
 
 # Add again
-git remote add origin https://github.com/YOUR_USERNAME/KAIROS.git
+git remote add origin https://github.com/<username>/KaiROS.git
 ```
 
 ### Problem: "refusing to merge unrelated histories"
@@ -451,7 +450,7 @@ git commit -m "Remove large file"
 
 ---
 
-## ?? Need Help?
+## 💬 Need Help?
 
 - GitHub Docs: https://docs.github.com/
 - Git Docs: https://git-scm.com/doc
@@ -459,4 +458,4 @@ git commit -m "Remove large file"
 
 ---
 
-**Ready to push? Follow Step 1-5 above!** ??
+**Ready to push? Follow Step 1-5 above!** 🚀

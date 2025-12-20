@@ -70,15 +70,15 @@ Choose from professionally selected models:
 ## 📦 Installation
 
 ### Option 1: Download Release (Coming Soon)
-1. Download the latest `.msix` from [Releases](../../releases)
+1. Download the latest `.msix` from [Releases](https://github.com/avikeid2007/KaiROS/releases)
 2. Double-click to install
 3. Launch KAIROS from Start Menu
 
 ### Option 2: Build from Source
 ```powershell
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/KAIROS.git
-cd KAIROS
+git clone https://github.com/avikeid2007/KaiROS.git
+cd KaiROS
 
 # Restore dependencies
 dotnet restore
@@ -95,19 +95,25 @@ dotnet run
 ## 📸 Screenshots
 
 ### Model Selection
-Beautiful dialog to choose your AI model:
+Beautiful dialog to choose your AI model
 
-![Model Selection](docs/screenshots/model-selection.png)
+> **Note:** Screenshot coming soon
+
+<!-- ![Model Selection](docs/screenshots/model-selection.png) -->
 
 ### Chat Interface
-Modern, clean chat experience:
+Modern, clean chat experience
 
-![Chat Interface](docs/screenshots/chat-interface.png)
+> **Note:** Screenshot coming soon
+
+<!-- ![Chat Interface](docs/screenshots/chat-interface.png) -->
 
 ### Download Progress
-Smooth download experience with progress tracking:
+Smooth download experience with progress tracking
 
-![Download Progress](docs/screenshots/download-progress.png)
+> **Note:** Screenshot coming soon
+
+<!-- ![Download Progress](docs/screenshots/download-progress.png) -->
 
 ---
 
@@ -122,13 +128,13 @@ Smooth download experience with progress tracking:
 ### Build Steps
 1. **Clone the repository**
    ```powershell
-   git clone https://github.com/YOUR_USERNAME/KAIROS.git
-   cd KAIROS
+   git clone https://github.com/avikeid2007/KaiROS.git
+   cd KaiROS
    ```
 
 2. **Open in Visual Studio**
    ```powershell
-   start KAIROS.sln
+   start KAIROS.slnx
    ```
 
 3. **Restore NuGet packages**
@@ -243,16 +249,18 @@ var parameters = new ModelParams(modelPath)
 ## 🗺️ Roadmap
 
 - [ ] GPU acceleration auto-detection
-- [ ] Export conversations (PDF, Markdown)
+- [x] Export conversations (Markdown) ✅
+- [ ] Export conversations to PDF
 - [ ] Custom system prompts
 - [ ] Temperature/Top-P controls
-- [ ] Dark/Light theme toggle
+- [x] Dark/Light theme toggle ✅
 - [ ] Multi-conversation tabs
-- [ ] Search conversations
-- [ ] Model management (delete cached models)
+- [x] Search conversations ✅
+- [x] Model management (delete cached models) ✅
 - [ ] Code syntax highlighting
 - [ ] Markdown rendering
 - [ ] Voice input (speech-to-text)
+- [ ] Conversation statistics dashboard
 
 ---
 
@@ -293,9 +301,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📧 Contact & Support
 
-- **Issues**: [GitHub Issues](../../issues)
-- **Discussions**: [GitHub Discussions](../../discussions)
-- **Email**: your-email@example.com
+- **Issues**: [GitHub Issues](https://github.com/avikeid2007/KaiROS/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/avikeid2007/KaiROS/discussions)
 
 ---
 

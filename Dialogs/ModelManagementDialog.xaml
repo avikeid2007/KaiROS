@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentDialog
+    x:Class="KAIROS.Dialogs.ModelManagementDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="Model Management"
+    PrimaryButtonText="Close"
+    DefaultButton="Primary"
+    MinWidth="500">
+
+    <ScrollViewer MaxHeight="500">
+        <StackPanel Spacing="16" Padding="4">
+            <!-- Info Banner -->
+            <InfoBar Severity="Informational" IsOpen="True" IsClosable="False">
+                <InfoBar.Content>
+                    <TextBlock TextWrapping="Wrap">
+                        Manage your downloaded AI models. You can delete models you no longer use to free up disk space.
+                    </TextBlock>
+                </InfoBar.Content>
+            </InfoBar>
+
+            <!-- Total Storage Info -->
+            <Grid Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                  BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                  BorderThickness="1"
+                  CornerRadius="8"
+                  Padding="16">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+                <FontIcon Glyph="&#xE896;" 
+                          FontSize="32"
+                          Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"
+                          Margin="0,0,16,0"/>
+                
+                <StackPanel Grid.Column="1">
+                    <TextBlock Text="Total Storage Used" 
+                               Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                    <TextBlock x:Name="TotalStorageTextBlock"
+                               Text="Calculating..."
+                               Style="{StaticResource TitleTextBlockStyle}"
+                               Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"/>
+                </StackPanel>
+            </Grid>
+
+            <!-- Models List -->
+            <TextBlock Text="Downloaded Models" 
+                       Style="{StaticResource SubtitleTextBlockStyle}"
+                       FontWeight="SemiBold"/>
+
+            <StackPanel x:Name="ModelsStackPanel" Spacing="12">
+                <!-- Models will be added here dynamically -->
+            </StackPanel>
+
+            <TextBlock x:Name="NoModelsTextBlock"
+                       Text="No models downloaded yet."
+                       Style="{StaticResource BodyTextBlockStyle}"
+                       Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                       HorizontalAlignment="Center"
+                       Margin="0,24"
+                       Visibility="Collapsed"/>
+        </StackPanel>
+    </ScrollViewer>
+</ContentDialog>
