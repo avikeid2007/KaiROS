@@ -59,7 +59,7 @@ The only third-party service KaiROS interacts with is:
 
 ### Data Storage
 
-- **Local SQLite Database**: Conversations stored in an encrypted-at-rest database on your device
+- **Local SQLite Database**: Conversations stored in a local database on your device
 - **User-Controlled**: You can backup, export, or delete your data at any time
 - **No Synchronization**: Data is never synced to cloud services
 
