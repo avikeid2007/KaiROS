@@ -4,7 +4,7 @@
 
 ## Overview
 
-KaiROS ("we", "our", or "the application") is committed to protecting your privacy. This Privacy Policy explains how KaiROS handles your data and information.
+KaiROS ("we", "our", or "the application") is a Windows desktop application committed to protecting your privacy. This Privacy Policy explains how KaiROS handles your data and information.
 
 ## Our Privacy Promise
 
@@ -23,10 +23,10 @@ KaiROS ("we", "our", or "the application") is committed to protecting your priva
 
 ### What Data Stays Local
 
-KaiROS stores the following data **only on your local device**:
+KaiROS stores the following data **only on your local Windows device**:
 
-- **Conversation History**: Stored in a SQLite database at `%LocalAppData%\KAIROS\chat.db`
-- **AI Models**: Downloaded models cached at `%LocalAppData%\KAIROS\Models\`
+- **Conversation History**: Stored in a SQLite database at `%LocalAppData%\KAIROS\chat.db` (Windows path)
+- **AI Models**: Downloaded models cached at `%LocalAppData%\KAIROS\Models\` (Windows path)
 - **Application Settings**: User preferences and configuration
 
 **You have full control** over this data and can delete it at any time by removing these files or uninstalling the application.
@@ -127,7 +127,7 @@ For users in the European Union:
 
 While we don't collect data, we take security seriously:
 
-- **Local Storage Security**: Data protected by your Windows user account and device security
+- **Local Storage Security**: Data files are protected by your Windows user account permissions and device security (note: SQLite database files are not encrypted by default)
 - **No Network Exposure**: Conversations never transmitted over networks
 - **Regular Updates**: Security patches provided through application updates
 - **Secure Dependencies**: We use well-maintained, security-audited libraries
