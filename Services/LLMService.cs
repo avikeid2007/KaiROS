@@ -1,5 +1,6 @@
 using LLama;
 using LLama.Common;
+
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -44,7 +45,7 @@ namespace KAIROS.Services
 
                 _model = await Task.Run(() => LLamaWeights.LoadFromFile(parameters));
                 _context = _model.CreateContext(parameters);
-                
+
                 _isInitialized = true;
                 return true;
             }
@@ -73,10 +74,10 @@ namespace KAIROS.Services
             var inferenceParams = new InferenceParams
             {
                 MaxTokens = 2048, // Increased for longer responses
-                AntiPrompts = new List<string> 
-                { 
-                    "User:", 
-                    "\nUser:", 
+                AntiPrompts = new List<string>
+                {
+                    "User:",
+                    "\nUser:",
                     "\n\nUser:",
                     "<|user|>",
                     "<|endoftext|>",
@@ -90,13 +91,13 @@ namespace KAIROS.Services
                 {
                     yield break;
                 }
-                
+
                 // Filter out repetitive assistant tags
                 if (text.Contains("<|assistant|>") || text.Contains("[assistant]"))
                 {
                     continue;
                 }
-                
+
                 yield return text;
             }
         }
@@ -105,7 +106,7 @@ namespace KAIROS.Services
         {
             // Use chat template format for better quality
             var promptBuilder = new System.Text.StringBuilder();
-            
+
             // System prompt
             promptBuilder.AppendLine("### System:");
             promptBuilder.AppendLine("You are KAIROS, a helpful and knowledgeable AI assistant. Provide clear, accurate, and concise responses.");

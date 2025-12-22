@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
@@ -6,7 +6,10 @@
     <RootNamespace>KAIROS</RootNamespace>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <Platforms>x86;x64;ARM64</Platforms>
-    <RuntimeIdentifiers>win-x86;win-x64;win-arm64</RuntimeIdentifiers>
+    <!-- Ensure RID matches selected Platform to avoid NETSDK1032 -->
+    <RuntimeIdentifier Condition="'$(Platform)'=='x86'">win-x86</RuntimeIdentifier>
+    <RuntimeIdentifier Condition="'$(Platform)'=='x64'">win-x64</RuntimeIdentifier>
+    
     <PublishProfile>win-$(Platform).pubxml</PublishProfile>
     <UseWinUI>true</UseWinUI>
     <WinUISDKReferences>false</WinUISDKReferences>
@@ -27,6 +30,30 @@
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+  </ItemGroup>
+  
+  <!-- Custom DLLs from DLLs folder -->
+  <ItemGroup>
+    <Content Include="DLLs\ggml-base.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="DLLs\ggml-cpu.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="DLLs\ggml.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="DLLs\llama.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="DLLs\llava_shared.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -56,8 +83,44 @@
     <Content Include="$(NuGetPackageRoot)llamasharp.backend.cpu\0.20.0\runtimes\win-x64\native\avx2\*.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Link>%(Filename)%(Extension)</Link>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
   </ItemGroup>
+
+  <!-- Ensure MSIX package includes native DLLs -->
+  <ItemGroup Condition="'$(WindowsPackageType)'=='MSIX'">
+    <None Include="$(NuGetPackageRoot)llamasharp.backend.cpu\0.20.0\runtimes\win-x64\native\avx2\*.dll">
+      <DeploymentContent>true</DeploymentContent>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+
+  <!-- Explicitly copy native DLLs to publish directory to ensure MSIX publish includes them -->
+  <Target Name="CopyLlamaNativeDllsToPublish" AfterTargets="Publish">
+    <Message Importance="high" Text="Copying LLama/ggml native DLLs to $(PublishDir)" />
+    <ItemGroup>
+      <_LlamaNativeDlls Include="$(NuGetPackageRoot)llamasharp.backend.cpu\0.20.0\runtimes\win-$(Platform.ToLower())\native\avx2\*.dll" />
+    </ItemGroup>
+    <Copy SourceFiles="@(_LlamaNativeDlls)" DestinationFolder="$(PublishDir)" SkipUnchangedFiles="true" Condition="Exists('$(NuGetPackageRoot)llamasharp.backend.cpu\0.20.0\runtimes\win-$(Platform.ToLower())\native\avx2')" />
+  </Target>
+  
+  <!-- Explicitly copy custom DLLs to output and publish directories -->
+  <Target Name="CopyCustomDllsToOutput" AfterTargets="Build">
+    <Message Importance="high" Text="Copying custom DLLs from DLLs folder to $(OutDir)" />
+    <ItemGroup>
+      <_CustomDlls Include="$(ProjectDir)DLLs\*.dll" />
+    </ItemGroup>
+    <Copy SourceFiles="@(_CustomDlls)" DestinationFolder="$(OutDir)" SkipUnchangedFiles="true" />
+  </Target>
+  
+  <Target Name="CopyCustomDllsToPublish" AfterTargets="Publish">
+    <Message Importance="high" Text="Copying custom DLLs from DLLs folder to $(PublishDir)" />
+    <ItemGroup>
+      <_CustomPublishDlls Include="$(ProjectDir)DLLs\*.dll" />
+    </ItemGroup>
+    <Copy SourceFiles="@(_CustomPublishDlls)" DestinationFolder="$(PublishDir)" SkipUnchangedFiles="true" />
+  </Target>
 
   <!-- Filter LlamaSharp native libraries before MSIX packaging to avoid APPX1101 errors -->
   <Target Name="RemoveDuplicateLlamaNativeLibs" BeforeTargets="AssignTargetPaths;_ConvertItems" AfterTargets="ResolveAssemblyReferences">
@@ -84,5 +147,12 @@
     <PublishReadyToRun Condition="'$(Configuration)' != 'Debug'">True</PublishReadyToRun>
     <PublishTrimmed Condition="'$(Configuration)' == 'Debug'">False</PublishTrimmed>
     <PublishTrimmed Condition="'$(Configuration)' != 'Debug'">True</PublishTrimmed>
+    <GenerateTemporaryStoreCertificate>True</GenerateTemporaryStoreCertificate>
+    <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <GenerateTestArtifacts>True</GenerateTestArtifacts>
+    <AppxBundle>Always</AppxBundle>
+    <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
+    <AppxBundlePlatforms>x64</AppxBundlePlatforms>
   </PropertyGroup>
 </Project>

@@ -8,15 +8,15 @@
   IgnorableNamespaces="uap rescap">
 
   <Identity
-    Name="f0942ecc-4217-4a75-8ffd-a8233936ec59"
-    Publisher="CN=User"
-    Version="1.0.0.0" />
+    Name="34488AvnishKumar.KaiROSAI"
+    Publisher="CN=1494B4FB-4349-4083-8AFA-16D2A64B8D99"
+    Version="1.0.2.0" />
 
-  <mp:PhoneIdentity PhoneProductId="f0942ecc-4217-4a75-8ffd-a8233936ec59" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="3c4901ca-725b-428d-b1ec-dbc28e322a6d" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>KAIROS</DisplayName>
-    <PublisherDisplayName>User</PublisherDisplayName>
+    <DisplayName>KaiROS AI</DisplayName>
+    <PublisherDisplayName>Avnish Kumar</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -34,7 +34,7 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="KAIROS"
+        DisplayName="KaiROS AI"
         Description="KAIROS"
         BackgroundColor="transparent"
         Square150x150Logo="Assets\Square150x150Logo.png"
