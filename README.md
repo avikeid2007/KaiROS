@@ -69,12 +69,20 @@ Choose from professionally selected models:
 
 ## 📦 Installation
 
-### Option 1: Download Release (Coming Soon)
+### Option 1: Microsoft Store (Recommended)
+Coming soon! The MSI installer is ready for Microsoft Store submission.
+
+### Option 2: Download MSI Installer
+1. Download the latest `KaiROS-AI-Setup.msi` from [Releases](https://github.com/avikeid2007/KaiROS/releases)
+2. Run the installer (supports silent install: `msiexec /i KaiROS-AI-Setup.msi /quiet /qn`)
+3. Launch KAIROS from Start Menu or Desktop
+
+### Option 3: Download MSIX Package
 1. Download the latest `.msix` from [Releases](https://github.com/avikeid2007/KaiROS/releases)
 2. Double-click to install
 3. Launch KAIROS from Start Menu
 
-### Option 2: Build from Source
+### Option 4: Build from Source
 ```powershell
 # Clone the repository
 git clone https://github.com/avikeid2007/KaiROS.git
@@ -89,6 +97,8 @@ dotnet build
 # Run
 dotnet run
 ```
+
+> **For Developers**: See [MSI-SETUP-SUMMARY.md](MSI-SETUP-SUMMARY.md) for MSI packaging instructions.
 
 ---
 
@@ -124,8 +134,11 @@ Smooth download experience with progress tracking
   - .NET 8.0 SDK
   - Windows App SDK
   - Universal Windows Platform development workload
+- [WiX Toolset v3.11+](https://wixtoolset.org/releases/) (for MSI packaging)
 
 ### Build Steps
+
+#### Build Application
 1. **Clone the repository**
    ```powershell
    git clone https://github.com/avikeid2007/KaiROS.git
@@ -148,6 +161,25 @@ Smooth download experience with progress tracking
 5. **Run**
    - Press `F5` for debugging
    - Or `Ctrl+F5` for release mode
+
+#### Build MSI Installer
+
+For Microsoft Store submission or distribution:
+
+```powershell
+# Navigate to installer directory
+cd KAIROS.Installer
+
+# Build MSI for x64
+.\Build-MSI.ps1 -Platform x64 -Configuration Release
+
+# Validate MSI
+.\Validate-MSI.ps1 -MSIPath "bin\x64\Release\KaiROS-AI-Setup.msi"
+```
+
+📖 **Complete MSI Packaging Guide**: [MSI-SETUP-SUMMARY.md](MSI-SETUP-SUMMARY.md)
+
+📋 **Store Submission**: [KAIROS.Installer/SUBMISSION-GUIDE.md](KAIROS.Installer/SUBMISSION-GUIDE.md)
 
 ---
 

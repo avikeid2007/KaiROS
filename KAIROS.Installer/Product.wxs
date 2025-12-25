@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+  
+  <?define ProductName = "KaiROS AI" ?>
+  <?define ProductVersion = "1.0.2.0" ?>
+  <?define Manufacturer = "Avnish Kumar" ?>
+  <?define UpgradeCode = "3C4901CA-725B-428D-B1EC-DBC28E322A6D" ?>
+  
+  <?if $(var.Platform) = x64 ?>
+    <?define Win64 = "yes" ?>
+    <?define PlatformProgramFilesFolder = "ProgramFiles64Folder" ?>
+    <?define ProductId = "34488AvnishKumar.KaiROSAI.x64" ?>
+  <?elseif $(var.Platform) = x86 ?>
+    <?define Win64 = "no" ?>
+    <?define PlatformProgramFilesFolder = "ProgramFilesFolder" ?>
+    <?define ProductId = "34488AvnishKumar.KaiROSAI.x86" ?>
+  <?else ?>
+    <?error Unsupported platform: $(var.Platform) ?>
+  <?endif ?>
+
+  <Product Id="*"
+           Name="$(var.ProductName)"
+           Language="1033"
+           Version="$(var.ProductVersion)"
+           Manufacturer="$(var.Manufacturer)"
+           UpgradeCode="$(var.UpgradeCode)">
+    
+    <Package InstallerVersion="500"
+             Compressed="yes"
+             InstallScope="perMachine"
+             Platform="$(var.Platform)"
+             Description="KaiROS AI - Local AI Assistant"
+             Comments="AI-powered assistant running locally on your machine"
+             Manufacturer="$(var.Manufacturer)" />
+
+    <!-- Microsoft Store Requirements -->
+    <!-- Support silent installation with /quiet or /qn switches -->
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+    
+    <!-- Ensure proper upgrade handling -->
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed."
+                  AllowSameVersionUpgrades="yes"
+                  Schedule="afterInstallInitialize" />
+    
+    <MediaTemplate EmbedCab="yes" CompressionLevel="high" />
+
+    <!-- Application Icon -->
+    <Icon Id="AppIcon.ico" SourceFile="..\Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Property Id="ARPPRODUCTICON" Value="AppIcon.ico" />
+    
+    <!-- Add/Remove Programs Properties -->
+    <Property Id="ARPHELPLINK" Value="https://github.com/avikeid2007/KaiROS" />
+    <Property Id="ARPURLINFOABOUT" Value="https://github.com/avikeid2007/KaiROS" />
+    <Property Id="ARPNOREPAIR" Value="yes" Secure="yes" />
+    <Property Id="ARPNOMODIFY" Value="yes" Secure="yes" />
+
+    <!-- Microsoft Store Requirements: Support silent install -->
+    <Property Id="MSIUSEREALADMINDETECTION" Value="1" />
+    
+    <!-- Windows Version Check - Minimum Windows 10 1809 (Build 17763) -->
+    <Condition Message="This application requires Windows 10 version 1809 (Build 17763) or later.">
+      <![CDATA[Installed OR (VersionNT >= 603) OR (VersionNT >= 602 AND VersionNT64)]]>
+    </Condition>
+
+    <!-- Feature definition -->
+    <Feature Id="ProductFeature"
+             Title="KaiROS AI"
+             Description="Complete KaiROS AI application"
+             Level="1"
+             ConfigurableDirectory="INSTALLFOLDER"
+             AllowAdvertise="no"
+             Display="expand"
+             Absent="disallow">
+      <ComponentGroupRef Id="ProductComponents" />
+      <ComponentGroupRef Id="NativeDLLComponents" />
+      <ComponentRef Id="ApplicationShortcut" />
+      <ComponentRef Id="ProgramMenuFolder" />
+    </Feature>
+
+    <!-- UI for interactive installation -->
+    <UIRef Id="WixUI_InstallDir" />
+    <UIRef Id="WixUI_ErrorProgressText" />
+    
+    <!-- Custom UI for silent install support -->
+    <UI Id="WixUI_Minimal">
+      <TextStyle Id="WixUI_Font_Normal" FaceName="Tahoma" Size="8" />
+      <TextStyle Id="WixUI_Font_Bigger" FaceName="Tahoma" Size="12" />
+      <TextStyle Id="WixUI_Font_Title" FaceName="Tahoma" Size="9" Bold="yes" />
+
+      <Property Id="DefaultUIFont" Value="WixUI_Font_Normal" />
+      <Property Id="WixUI_Mode" Value="InstallDir" />
+
+      <DialogRef Id="ErrorDlg" />
+      <DialogRef Id="FatalError" />
+      <DialogRef Id="FilesInUse" />
+      <DialogRef Id="MsiRMFilesInUse" />
+      <DialogRef Id="PrepareDlg" />
+      <DialogRef Id="ProgressDlg" />
+      <DialogRef Id="ResumeDlg" />
+      <DialogRef Id="UserExit" />
+    </UI>
+
+    <!-- Launch application after installation (optional, can be suppressed in silent mode) -->
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch KaiROS AI" />
+    <Property Id="WixShellExecTarget" Value="[#KAIROS.exe]" />
+    <CustomAction Id="LaunchApplication"
+                  BinaryKey="WixCA"
+                  DllEntry="WixShellExec"
+                  Impersonate="yes" />
+
+    <!-- Suppress launch in silent mode -->
+    <InstallExecuteSequence>
+      <Custom Action="LaunchApplication" After="InstallFinalize">
+        <![CDATA[WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed and NOT (REMOVE="ALL")]]>
+      </Custom>
+    </InstallExecuteSequence>
+  </Product>
+
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="$(var.PlatformProgramFilesFolder)">
+        <Directory Id="ManufacturerFolder" Name="$(var.Manufacturer)">
+          <Directory Id="INSTALLFOLDER" Name="$(var.ProductName)" />
+        </Directory>
+      </Directory>
+      
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="$(var.ProductName)" />
+      </Directory>
+
+      <Directory Id="DesktopFolder" Name="Desktop" />
+    </Directory>
+  </Fragment>
+
+  <Fragment>
+    <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+      <!-- Main Application Executable -->
+      <Component Id="KAIROS.exe" Guid="A1B2C3D4-E5F6-7890-ABCD-EF1234567890" Win64="$(var.Win64)">
+        <File Id="KAIROS.exe"
+              Source="$(var.KAIROS.TargetDir)KAIROS.exe"
+              KeyPath="yes"
+              Checksum="yes" />
+        
+        <!-- Registry entries for app paths -->
+        <RegistryValue Root="HKCU"
+                       Key="Software\$(var.Manufacturer)\$(var.ProductName)"
+                       Name="InstallPath"
+                       Type="string"
+                       Value="[INSTALLFOLDER]"
+                       KeyPath="no" />
+      </Component>
+
+      <!-- Application Dependencies -->
+      <Component Id="AppDependencies" Guid="B2C3D4E5-F6A7-8901-BCDE-F12345678901" Win64="$(var.Win64)">
+        <File Source="$(var.KAIROS.TargetDir)KAIROS.dll" />
+        <File Source="$(var.KAIROS.TargetDir)Microsoft.Extensions.DependencyInjection.dll" />
+        <File Source="$(var.KAIROS.TargetDir)Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
+        <File Source="$(var.KAIROS.TargetDir)Microsoft.EntityFrameworkCore.dll" />
+        <File Source="$(var.KAIROS.TargetDir)Microsoft.EntityFrameworkCore.Abstractions.dll" />
+        <File Source="$(var.KAIROS.TargetDir)Microsoft.EntityFrameworkCore.Sqlite.dll" />
+        <File Source="$(var.KAIROS.TargetDir)SQLitePCLRaw.core.dll" />
+        <File Source="$(var.KAIROS.TargetDir)SQLitePCLRaw.provider.e_sqlite3.dll" />
+        <File Source="$(var.KAIROS.TargetDir)SQLitePCLRaw.batteries_v2.dll" />
+        <File Source="$(var.KAIROS.TargetDir)CommunityToolkit.Mvvm.dll" />
+        <File Source="$(var.KAIROS.TargetDir)LLamaSharp.dll" />
+      </Component>
+
+      <!-- Runtime Configuration -->
+      <Component Id="RuntimeConfig" Guid="C3D4E5F6-A7B8-9012-CDEF-123456789012" Win64="$(var.Win64)">
+        <File Source="$(var.KAIROS.TargetDir)KAIROS.runtimeconfig.json" />
+        <File Source="$(var.KAIROS.TargetDir)KAIROS.deps.json" />
+      </Component>
+    </ComponentGroup>
+
+    <ComponentGroup Id="NativeDLLComponents" Directory="INSTALLFOLDER">
+      <!-- Native LLama/GGML DLLs -->
+      <Component Id="NativeDLL_llama" Guid="D4E5F6A7-B890-1234-DEF1-234567890123" Win64="$(var.Win64)">
+        <File Source="..\DLLs\llama.dll" />
+      </Component>
+      
+      <Component Id="NativeDLL_ggml" Guid="E5F6A7B8-9012-3456-EF12-345678901234" Win64="$(var.Win64)">
+        <File Source="..\DLLs\ggml.dll" />
+      </Component>
+
+      <Component Id="NativeDLL_ggml_base" Guid="F6A7B890-1234-5678-F123-456789012345" Win64="$(var.Win64)">
+        <File Source="..\DLLs\ggml-base.dll" />
+      </Component>
+
+      <Component Id="NativeDLL_ggml_cpu" Guid="A7B89012-3456-7890-1234-567890123456" Win64="$(var.Win64)">
+        <File Source="..\DLLs\ggml-cpu.dll" />
+      </Component>
+
+      <Component Id="NativeDLL_llava_shared" Guid="B8901234-5678-9012-2345-678901234567" Win64="$(var.Win64)">
+        <File Source="..\DLLs\llava_shared.dll" />
+      </Component>
+    </ComponentGroup>
+
+    <!-- Start Menu Shortcut -->
+    <ComponentGroup Id="ApplicationShortcuts" Directory="ApplicationProgramsFolder">
+      <Component Id="ApplicationShortcut" Guid="C9012345-6789-0123-3456-789012345678" Win64="$(var.Win64)">
+        <Shortcut Id="ApplicationStartMenuShortcut"
+                  Name="$(var.ProductName)"
+                  Description="AI-powered assistant running locally"
+                  Target="[#KAIROS.exe]"
+                  WorkingDirectory="INSTALLFOLDER"
+                  Icon="AppIcon.ico" />
+        
+        <!-- Desktop Shortcut (Optional) -->
+        <Shortcut Id="ApplicationDesktopShortcut"
+                  Directory="DesktopFolder"
+                  Name="$(var.ProductName)"
+                  Description="AI-powered assistant running locally"
+                  Target="[#KAIROS.exe]"
+                  WorkingDirectory="INSTALLFOLDER"
+                  Icon="AppIcon.ico" />
+        
+        <RemoveFolder Id="CleanUpShortCut" Directory="ApplicationProgramsFolder" On="uninstall" />
+        <RegistryValue Root="HKCU"
+                       Key="Software\$(var.Manufacturer)\$(var.ProductName)"
+                       Name="installed"
+                       Type="integer"
+                       Value="1"
+                       KeyPath="yes" />
+      </Component>
+
+      <Component Id="ProgramMenuFolder" Guid="D0123456-789A-BCDE-F012-3456789ABCDE" Win64="$(var.Win64)">
+        <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall" />
+        <RegistryValue Root="HKCU"
+                       Key="Software\$(var.Manufacturer)\$(var.ProductName)"
+                       Name="ProgramMenuFolder"
+                       Type="integer"
+                       Value="1"
+                       KeyPath="yes" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>

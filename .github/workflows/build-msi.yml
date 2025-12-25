@@ -1,0 +1,303 @@
+name: Build MSI Package
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+env:
+  SOLUTION_PATH: KAIROS.csproj
+  INSTALLER_PATH: KAIROS.Installer\KAIROS.Installer.wixproj
+  BUILD_CONFIGURATION: Release
+
+jobs:
+  build-msi:
+    strategy:
+      matrix:
+        platform: [x64, x86]
+    
+    runs-on: windows-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+    
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1.3
+    
+    - name: Install WiX Toolset
+      run: |
+        Write-Host "Downloading WiX Toolset..."
+        $wixUrl = "https://github.com/wixtoolset/wix3/releases/download/wix3112rtm/wix311.exe"
+        $wixInstaller = "$env:TEMP\wix311.exe"
+        Invoke-WebRequest -Uri $wixUrl -OutFile $wixInstaller
+        
+        Write-Host "Installing WiX Toolset..."
+        Start-Process -FilePath $wixInstaller -ArgumentList "/quiet" -Wait
+        
+        # Add WiX to PATH
+        $wixPath = "${env:ProgramFiles(x86)}\WiX Toolset v3.11\bin"
+        echo "$wixPath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+        
+        Write-Host "WiX Toolset installed successfully"
+      shell: powershell
+    
+    - name: Restore NuGet packages
+      run: dotnet restore ${{ env.SOLUTION_PATH }}
+    
+    - name: Build Application
+      run: |
+        msbuild ${{ env.SOLUTION_PATH }} `
+          /p:Configuration=${{ env.BUILD_CONFIGURATION }} `
+          /p:Platform=${{ matrix.platform }} `
+          /p:WindowsPackageType=None `
+          /verbosity:minimal
+      shell: powershell
+    
+    - name: Build MSI Installer
+      run: |
+        msbuild ${{ env.INSTALLER_PATH }} `
+          /p:Configuration=${{ env.BUILD_CONFIGURATION }} `
+          /p:Platform=${{ matrix.platform }} `
+          /verbosity:minimal
+      shell: powershell
+    
+    - name: Sign MSI (if certificate is available)
+      if: ${{ secrets.SIGNING_CERTIFICATE != '' }}
+      run: |
+        # Decode certificate from base64
+        $certBytes = [System.Convert]::FromBase64String("${{ secrets.SIGNING_CERTIFICATE }}")
+        $certPath = "$env:TEMP\cert.pfx"
+        [System.IO.File]::WriteAllBytes($certPath, $certBytes)
+        
+        # Find SignTool
+        $signTool = Get-ChildItem "C:\Program Files (x86)\Windows Kits\10\bin\*\x64\signtool.exe" -Recurse | 
+                    Sort-Object FullName -Descending | 
+                    Select-Object -First 1
+        
+        if ($signTool) {
+          $msiPath = "KAIROS.Installer\bin\${{ matrix.platform }}\${{ env.BUILD_CONFIGURATION }}\KaiROS-AI-Setup.msi"
+          
+          & $signTool.FullName sign `
+            /f $certPath `
+            /p "${{ secrets.CERTIFICATE_PASSWORD }}" `
+            /t http://timestamp.digicert.com `
+            $msiPath
+          
+          Write-Host "MSI signed successfully"
+        } else {
+          Write-Warning "SignTool not found, skipping signing"
+        }
+        
+        # Clean up certificate
+        Remove-Item $certPath -Force
+      shell: powershell
+    
+    - name: Run Validation Tests
+      run: |
+        $msiPath = "KAIROS.Installer\bin\${{ matrix.platform }}\${{ env.BUILD_CONFIGURATION }}\KaiROS-AI-Setup.msi"
+        
+        # Run validation script (skip installation test in CI)
+        .\KAIROS.Installer\Validate-MSI.ps1 `
+          -MSIPath $msiPath `
+          -SkipInstallTest `
+          -CleanupAfterTest
+      shell: powershell
+    
+    - name: Get Version
+      id: version
+      run: |
+        $version = "1.0.2.0"
+        if ($env:GITHUB_REF -match 'refs/tags/v(.+)') {
+          $version = $matches[1]
+        }
+        echo "version=$version" >> $env:GITHUB_OUTPUT
+      shell: powershell
+    
+    - name: Upload MSI Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: KaiROS-AI-Setup-${{ matrix.platform }}-v${{ steps.version.outputs.version }}
+        path: KAIROS.Installer\bin\${{ matrix.platform }}\${{ env.BUILD_CONFIGURATION }}\KaiROS-AI-Setup.msi
+        retention-days: 30
+    
+    - name: Upload Validation Report
+      uses: actions/upload-artifact@v4
+      with:
+        name: ValidationReport-${{ matrix.platform }}
+        path: KAIROS.Installer\bin\${{ matrix.platform }}\${{ env.BUILD_CONFIGURATION }}\ValidationReport.txt
+        retention-days: 30
+
+  create-release:
+    needs: build-msi
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: windows-latest
+    
+    permissions:
+      contents: write
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Get Version
+      id: version
+      run: |
+        $version = $env:GITHUB_REF -replace 'refs/tags/v', ''
+        echo "version=$version" >> $env:GITHUB_OUTPUT
+      shell: powershell
+    
+    - name: Download x64 MSI
+      uses: actions/download-artifact@v4
+      with:
+        name: KaiROS-AI-Setup-x64-v${{ steps.version.outputs.version }}
+        path: release/x64
+    
+    - name: Download x86 MSI
+      uses: actions/download-artifact@v4
+      with:
+        name: KaiROS-AI-Setup-x86-v${{ steps.version.outputs.version }}
+        path: release/x86
+    
+    - name: Download Validation Reports
+      uses: actions/download-artifact@v4
+      with:
+        pattern: ValidationReport-*
+        path: release/reports
+    
+    - name: Create Release Notes
+      run: |
+        $version = "${{ steps.version.outputs.version }}"
+        $releaseNotes = @"
+        # KaiROS AI v$version
+        
+        ## Installation
+        
+        Download the appropriate MSI installer for your system:
+        - **x64 (64-bit)**: Recommended for most modern Windows systems
+        - **x86 (32-bit)**: For older or 32-bit Windows systems
+        
+        ### Silent Installation
+        ``````powershell
+        msiexec /i KaiROS-AI-Setup.msi /quiet /qn
+        ``````
+        
+        ### Requirements
+        - Windows 10 version 1809 (Build 17763) or later
+        - 4 GB RAM minimum (8 GB recommended)
+        - 500 MB free disk space
+        
+        ## Changes
+        
+        See [CHANGELOG.md](CHANGELOG.md) for detailed changes.
+        
+        ## Support
+        
+        - Documentation: [README.md](README.md)
+        - Issues: [GitHub Issues](https://github.com/avikeid2007/KaiROS/issues)
+        "@
+        
+        $releaseNotes | Out-File -FilePath release/RELEASE_NOTES.md -Encoding UTF8
+      shell: powershell
+    
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          release/x64/KaiROS-AI-Setup.msi
+          release/x86/KaiROS-AI-Setup.msi
+          release/reports/**/*.txt
+        body_path: release/RELEASE_NOTES.md
+        draft: false
+        prerelease: false
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+  # Optional: Store submission preparation
+  prepare-store-submission:
+    needs: build-msi
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: windows-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Get Version
+      id: version
+      run: |
+        $version = $env:GITHUB_REF -replace 'refs/tags/v', ''
+        echo "version=$version" >> $env:GITHUB_OUTPUT
+      shell: powershell
+    
+    - name: Download x64 MSI
+      uses: actions/download-artifact@v4
+      with:
+        name: KaiROS-AI-Setup-x64-v${{ steps.version.outputs.version }}
+        path: store-submission
+    
+    - name: Download Validation Report
+      uses: actions/download-artifact@v4
+      with:
+        name: ValidationReport-x64
+        path: store-submission
+    
+    - name: Create Submission Package
+      run: |
+        $submissionPath = "store-submission"
+        
+        # Copy documentation
+        Copy-Item "KAIROS.Installer\SUBMISSION-GUIDE.md" -Destination "$submissionPath\"
+        Copy-Item "KAIROS.Installer\QUICK-REFERENCE.md" -Destination "$submissionPath\"
+        Copy-Item "README.md" -Destination "$submissionPath\"
+        
+        # Create submission checklist
+        $checklist = @"
+        Microsoft Store Submission Checklist for v${{ steps.version.outputs.version }}
+        
+        Pre-Submission:
+        [ ] Review validation report
+        [ ] Test MSI on clean Windows 10 machine
+        [ ] Run Windows App Certification Kit (WACK)
+        [ ] Verify all features work correctly
+        [ ] Update store listing description
+        [ ] Prepare screenshots (1-10)
+        [ ] Update privacy policy (if needed)
+        
+        Partner Center Steps:
+        [ ] Log in to Partner Center
+        [ ] Create new submission
+        [ ] Upload MSI (x64)
+        [ ] Complete store listing
+        [ ] Set pricing and availability
+        [ ] Submit for certification
+        
+        Files in this package:
+        - KaiROS-AI-Setup.msi: Main installer package
+        - ValidationReport.txt: Automated validation results
+        - SUBMISSION-GUIDE.md: Detailed submission guide
+        - QUICK-REFERENCE.md: Quick command reference
+        - README.md: Project documentation
+        "@
+        
+        $checklist | Out-File -FilePath "$submissionPath\SUBMISSION-CHECKLIST.txt" -Encoding UTF8
+        
+        # Create ZIP archive
+        Compress-Archive -Path "$submissionPath\*" -DestinationPath "KaiROS-Store-Submission-v${{ steps.version.outputs.version }}.zip"
+      shell: powershell
+    
+    - name: Upload Store Submission Package
+      uses: actions/upload-artifact@v4
+      with:
+        name: Microsoft-Store-Submission-v${{ steps.version.outputs.version }}
+        path: KaiROS-Store-Submission-v${{ steps.version.outputs.version }}.zip
+        retention-days: 90

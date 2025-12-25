@@ -95,6 +95,10 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <None Include=".github\workflows\build-msi.yml" />
+    <None Include="KAIROS.Installer\KAIROS.Installer.wixproj" />
+  </ItemGroup>
 
   <!-- Explicitly copy native DLLs to publish directory to ensure MSIX publish includes them -->
   <Target Name="CopyLlamaNativeDllsToPublish" AfterTargets="Publish">
