@@ -1,15 +1,62 @@
 # Microsoft Store Publishing Guide for KAIROS
 
-## ? Current Status
-Your project is now **configured for MSIX packaging** and can be published to the Microsoft Store with additional steps.
+## ‚úÖ Current Status
+Your project is **ready for Microsoft Store submission** with MSI packages.
 
-## ?? What Was Fixed
-1. **Re-enabled MSIX tooling** (`EnableMsixTooling=true`)
-2. **Added MSBuild target** to filter duplicate LlamaSharp native DLLs (keeping only AVX2)
-3. **Set WindowsPackageType** to MSIX
-4. **Configured for self-contained deployment** (includes Windows App SDK runtime)
+## üì¶ What Package to Submit
 
-## ?? Pre-Publishing Checklist
+### Microsoft Store Accepts MSI Installers! ‚úÖ
+
+Good news: You can submit MSI installers directly to the Microsoft Store. You **do not** need to convert to MSIX format.
+
+The automated build workflow (`build-msi.yml`) already creates:
+- **MSI packages** for x64 and x86 architectures
+- **Store submission package** with all necessary files and documentation
+
+## üöÄ Quick Start: Creating a Release for MS Store
+
+### Step 1: Create a Release Tag
+
+```bash
+# Update version numbers in your code first
+# Then create and push a tag:
+git tag -a v1.0.3.0 -m "Release version 1.0.3.0"
+git push origin v1.0.3.0
+```
+
+### Step 2: Download Store Submission Package
+
+1. Go to [GitHub Actions](https://github.com/avikeid2007/KaiROS/actions)
+2. Click on the workflow run triggered by your tag
+3. Download artifact: `Microsoft-Store-Submission-vX.X.X.X.zip`
+
+### Step 3: Submit to Microsoft Store
+
+1. Extract the submission package
+2. Review `SUBMISSION-CHECKLIST.txt`
+3. Test the MSI installer
+4. Log in to [Microsoft Partner Center](https://partner.microsoft.com/dashboard)
+5. Upload `KaiROS-AI-Setup.msi` from the package
+6. Complete store listing and submit for certification
+
+**For detailed instructions, see [RELEASE_GUIDE.md](RELEASE_GUIDE.md)**
+
+## üéØ Why MSI Works for Microsoft Store
+
+Microsoft Store accepts MSI installers for desktop applications. Your MSI packages include:
+- Silent installation support (`/quiet /qn`)
+- Proper upgrade handling
+- Windows 10/11 compatibility
+- All necessary dependencies
+
+## üìù What Was Configured
+1. **MSI installer project** with WiX Toolset
+2. **Automated build workflow** for x64 and x86
+3. **Silent install/uninstall** support
+4. **Auto-harvest of application files**
+5. **Store submission packaging**
+
+## üìã Pre-Publishing Checklist
 
 ### 1. Package Identity & Metadata
 You need to update `Package.appxmanifest` with:
@@ -179,10 +226,10 @@ FEATURES:
 ?? Beautiful Modern UI - Fluent Design with Mica backdrop
 
 REQUIREMENTS:
-ï Windows 10 version 1809 or higher
-ï 2GB free disk space (for AI model)
-ï Internet connection for initial model download
-ï Offline after first use
+ÔøΩ Windows 10 version 1809 or higher
+ÔøΩ 2GB free disk space (for AI model)
+ÔøΩ Internet connection for initial model download
+ÔøΩ Offline after first use
 
 Note: First launch downloads a ~637MB AI model. Responses are generated 
 locally on your device.
