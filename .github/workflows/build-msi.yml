@@ -7,6 +7,17 @@ on:
   pull_request:
     branches: [ main ]
   workflow_dispatch:
+    inputs:
+      create_release:
+        description: 'Create GitHub release (only works with manual trigger)'
+        required: false
+        type: boolean
+        default: false
+      version:
+        description: 'Version number for release (e.g., 1.0.3.0)'
+        required: false
+        type: string
+        default: '1.0.2.0'
 
 env:
   SOLUTION_PATH: KAIROS.csproj
@@ -107,8 +118,11 @@ jobs:
         $version = "1.0.2.0"
         if ($env:GITHUB_REF -match 'refs/tags/v(.+)') {
           $version = $matches[1]
+        } elseif ("${{ github.event.inputs.version }}" -ne "") {
+          $version = "${{ github.event.inputs.version }}"
         }
         echo "version=$version" >> $env:GITHUB_OUTPUT
+        Write-Host "Building version: $version"
       shell: powershell
     
     - name: Upload MSI Artifact
@@ -127,7 +141,7 @@ jobs:
 
   create-release:
     needs: build-msi
-    if: startsWith(github.ref, 'refs/tags/v')
+    if: startsWith(github.ref, 'refs/tags/v') || (github.event_name == 'workflow_dispatch' && github.event.inputs.create_release == 'true')
     runs-on: windows-latest
     
     permissions:
@@ -137,11 +151,16 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
     
-    - name: Get Version
+    - name: Get Version (create-release job)
       id: version
       run: |
         $version = $env:GITHUB_REF -replace 'refs/tags/v', ''
+        if ($version -eq $env:GITHUB_REF) {
+          # Not a tag, use workflow input
+          $version = "${{ github.event.inputs.version }}"
+        }
         echo "version=$version" >> $env:GITHUB_OUTPUT
+        Write-Host "Release version: $version"
       shell: powershell
     
     - name: Download x64 MSI
@@ -212,18 +231,23 @@ jobs:
   # Optional: Store submission preparation
   prepare-store-submission:
     needs: build-msi
-    if: startsWith(github.ref, 'refs/tags/v')
+    if: startsWith(github.ref, 'refs/tags/v') || (github.event_name == 'workflow_dispatch' && github.event.inputs.create_release == 'true')
     runs-on: windows-latest
     
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
     
-    - name: Get Version
+    - name: Get Version (prepare-store-submission job)
       id: version
       run: |
         $version = $env:GITHUB_REF -replace 'refs/tags/v', ''
+        if ($version -eq $env:GITHUB_REF) {
+          # Not a tag, use workflow input
+          $version = "${{ github.event.inputs.version }}"
+        }
         echo "version=$version" >> $env:GITHUB_OUTPUT
+        Write-Host "Store submission version: $version"
       shell: powershell
     
     - name: Download x64 MSI
