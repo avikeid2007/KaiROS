@@ -1,43 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" InitialTargets="EnsureWixToolsetInstalled" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x64</Platform>
-    <ProductVersion>3.11</ProductVersion>
+    <ProductVersion>3.14</ProductVersion>
     <ProjectGuid>{E8F3C7B2-9B4A-4C3D-8F6E-1A2B3C4D5E6F}</ProjectGuid>
     <SchemaVersion>2.0</SchemaVersion>
     <OutputName>KaiROS-AI-Setup</OutputName>
     <OutputType>Package</OutputType>
-    <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' AND '$(MSBuildExtensionsPath32)' != '' ">$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
-    <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
-  </PropertyGroup>
-
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
-    <OutputPath>bin\$(Platform)\$(Configuration)\</OutputPath>
-    <IntermediateOutputPath>obj\$(Platform)\$(Configuration)\</IntermediateOutputPath>
-    <DefineConstants>Debug;Platform=$(Platform)</DefineConstants>
+    <DefineSolutionProperties>false</DefineSolutionProperties>
+    
+    <!-- WiX Toolset Path Detection -->
+    <WixToolPath Condition=" '$(WixToolPath)' == '' AND Exists('$(ProgramFiles(x86))\WiX Toolset v3.14\bin') ">$(ProgramFiles(x86))\WiX Toolset v3.14\bin\</WixToolPath>
+    <WixToolPath Condition=" '$(WixToolPath)' == '' AND Exists('$(ProgramFiles)\WiX Toolset v3.14\bin') ">$(ProgramFiles)\WiX Toolset v3.14\bin\</WixToolPath>
+    <WixToolPath Condition=" '$(WixToolPath)' == '' AND Exists('$(ProgramFiles(x86))\WiX Toolset v3.11\bin') ">$(ProgramFiles(x86))\WiX Toolset v3.11\bin\</WixToolPath>
+    <WixToolPath Condition=" '$(WixToolPath)' == '' AND Exists('$(ProgramFiles)\WiX Toolset v3.11\bin') ">$(ProgramFiles)\WiX Toolset v3.11\bin\</WixToolPath>
+    
+    <!-- WiX Targets Path - Try MSBuild extensions first -->
+    <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' AND Exists('$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\wix.targets') ">$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\wix.targets</WixTargetsPath>
+    <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' AND Exists('$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\wix.targets') ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\wix.targets</WixTargetsPath>
+    
+    <!-- Fallback to legacy MSBuild location -->
+    <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' AND Exists('C:\Program Files (x86)\MSBuild\Microsoft\WiX\v3.x\wix.targets') ">C:\Program Files (x86)\MSBuild\Microsoft\WiX\v3.x\wix.targets</WixTargetsPath>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
     <OutputPath>bin\$(Platform)\$(Configuration)\</OutputPath>
     <IntermediateOutputPath>obj\$(Platform)\$(Configuration)\</IntermediateOutputPath>
-    <DefineConstants>Platform=$(Platform)</DefineConstants>
+    <DefineConstants>BinPath=..\bin\x64\$(Configuration)\net8.0-windows10.0.19041.0\win-x64</DefineConstants>
+    <SuppressIces>ICE61;ICE03</SuppressIces>
   </PropertyGroup>
 
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
     <OutputPath>bin\$(Platform)\$(Configuration)\</OutputPath>
     <IntermediateOutputPath>obj\$(Platform)\$(Configuration)\</IntermediateOutputPath>
-    <DefineConstants>Debug;Platform=$(Platform)</DefineConstants>
+    <DefineConstants>Debug;BinPath=..\bin\x64\$(Configuration)\net8.0-windows10.0.19041.0\win-x64</DefineConstants>
+    <SuppressIces>ICE03</SuppressIces>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <OutputPath>bin\$(Platform)\$(Configuration)\</OutputPath>
     <IntermediateOutputPath>obj\$(Platform)\$(Configuration)\</IntermediateOutputPath>
-    <DefineConstants>Platform=$(Platform)</DefineConstants>
+    <DefineConstants>BinPath=..\bin\x86\$(Configuration)\net8.0-windows10.0.19041.0\win-x86</DefineConstants>
+    <SuppressIces>ICE61;ICE03</SuppressIces>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <OutputPath>bin\$(Platform)\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Platform)\$(Configuration)\</IntermediateOutputPath>
+    <DefineConstants>Debug;BinPath=..\bin\x86\$(Configuration)\net8.0-windows10.0.19041.0\win-x86</DefineConstants>
+    <SuppressIces>ICE03</SuppressIces>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Include="Product.wxs" />
+    <Compile Include="HarvestFiles.wxs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -51,19 +68,10 @@
     </WixExtension>
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\KAIROS.csproj">
-      <Name>KAIROS</Name>
-      <Project>{YOUR_KAIROS_PROJECT_GUID}</Project>
-      <Private>True</Private>
-      <DoNotHarvest>True</DoNotHarvest>
-      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
-      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
-    </ProjectReference>
-  </ItemGroup>
-
   <Import Project="$(WixTargetsPath)" Condition=" Exists('$(WixTargetsPath)') " />
-  <Target Name="EnsureWixToolsetInstalled" Condition=" !Exists('$(WixTargetsPath)') ">
-    <Error Text="The WiX Toolset v3.11 (or newer) build tools must be installed to build this project. To download the WiX Toolset, see http://wixtoolset.org/releases/" />
+  
+  <!-- Fallback: If targets not found, provide helpful error -->
+  <Target Name="EnsureWixToolsetInstalled" BeforeTargets="Build" Condition=" !Exists('$(WixTargetsPath)') ">
+    <Error Text="WiX Toolset v3.11 or v3.14 targets not found at '$(WixTargetsPath)'. Please ensure WiX Toolset is properly installed. Download from: http://wixtoolset.org/releases/" />
   </Target>
 </Project>

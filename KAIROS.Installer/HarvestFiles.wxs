@@ -1,0 +1,2399 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="INSTALLFOLDER">
+            <Component Id="App.xbf" Guid="{75746457-2D16-4574-8A84-517AFDD763C8}">
+                <File Id="App.xbf" KeyPath="yes" Source="$(var.BinPath)\App.xbf" />
+            </Component>
+            <Component Id="clretwrc.dll" Guid="{D032D2EB-0627-4ADE-B2C6-D5FDD51A145A}">
+                <File Id="clretwrc.dll" KeyPath="yes" Source="$(var.BinPath)\clretwrc.dll" />
+            </Component>
+            <Component Id="clrgc.dll" Guid="{5C5085AC-35B2-492C-8649-E22C6A7AA095}">
+                <File Id="clrgc.dll" KeyPath="yes" Source="$(var.BinPath)\clrgc.dll" />
+            </Component>
+            <Component Id="clrjit.dll" Guid="{5B496D7E-400F-4882-9DF0-050C6D463B0F}">
+                <File Id="clrjit.dll" KeyPath="yes" Source="$(var.BinPath)\clrjit.dll" />
+            </Component>
+            <Component Id="CommunityToolkit.Mvvm.dll" Guid="{E1E673C5-4E11-4F50-AB4F-A5FEB1DC7ACF}">
+                <File Id="CommunityToolkit.Mvvm.dll" KeyPath="yes" Source="$(var.BinPath)\CommunityToolkit.Mvvm.dll" />
+            </Component>
+            <Component Id="coreclr.dll" Guid="{61DB7CD5-6FB7-4736-A701-97524025724D}">
+                <File Id="coreclr.dll" KeyPath="yes" Source="$(var.BinPath)\coreclr.dll" />
+            </Component>
+            <Component Id="CoreMessagingXP.dll" Guid="{318C1A60-EE65-4F85-8D40-4BAE61F7C7BE}">
+                <File Id="CoreMessagingXP.dll" KeyPath="yes" Source="$(var.BinPath)\CoreMessagingXP.dll" />
+            </Component>
+            <Component Id="createdump.exe" Guid="{1B84AF73-A4B7-4FAD-BDFA-313EC251AB04}">
+                <File Id="createdump.exe" KeyPath="yes" Source="$(var.BinPath)\createdump.exe" />
+            </Component>
+            <Component Id="dcompi.dll" Guid="{080A04DE-F50E-46C7-AA82-1F65189EBA8E}">
+                <File Id="dcompi.dll" KeyPath="yes" Source="$(var.BinPath)\dcompi.dll" />
+            </Component>
+            <Component Id="DirectML.dll" Guid="{97D4C3DC-DB8A-4D16-AFD8-A5D92C16C1DE}">
+                <File Id="DirectML.dll" KeyPath="yes" Source="$(var.BinPath)\DirectML.dll" />
+            </Component>
+            <Component Id="dwmcorei.dll" Guid="{59358C31-7D3E-4F3C-9C9F-CF7191DF8408}">
+                <File Id="dwmcorei.dll" KeyPath="yes" Source="$(var.BinPath)\dwmcorei.dll" />
+            </Component>
+            <Component Id="DwmSceneI.dll" Guid="{F0CB64ED-8AC9-4857-ADB9-AD2B5C6D9AAB}">
+                <File Id="DwmSceneI.dll" KeyPath="yes" Source="$(var.BinPath)\DwmSceneI.dll" />
+            </Component>
+            <Component Id="DWriteCore.dll" Guid="{2FE065D5-38E9-40E1-9BF9-72828AF11A74}">
+                <File Id="DWriteCore.dll" KeyPath="yes" Source="$(var.BinPath)\DWriteCore.dll" />
+            </Component>
+            <Component Id="e_sqlite3.dll" Guid="{895DE40D-AE60-467D-9D07-95B39C3FE835}">
+                <File Id="e_sqlite3.dll" KeyPath="yes" Source="$(var.BinPath)\e_sqlite3.dll" />
+            </Component>
+            <Component Id="ggml_base.dll" Guid="{9D448686-9931-4D20-B4B5-0D8B02E17A65}">
+                <File Id="ggml_base.dll" KeyPath="yes" Source="$(var.BinPath)\ggml-base.dll" />
+            </Component>
+            <Component Id="ggml_cpu.dll" Guid="{A1759AE6-F9B0-4105-9992-AB615ED50274}">
+                <File Id="ggml_cpu.dll" KeyPath="yes" Source="$(var.BinPath)\ggml-cpu.dll" />
+            </Component>
+            <Component Id="ggml.dll" Guid="{0C52DCF2-2CF2-4083-B656-ED8C14CC1001}">
+                <File Id="ggml.dll" KeyPath="yes" Source="$(var.BinPath)\ggml.dll" />
+            </Component>
+            <Component Id="hostfxr.dll" Guid="{D9294816-9B1B-4688-B7D4-A1B2CEAEBFB7}">
+                <File Id="hostfxr.dll" KeyPath="yes" Source="$(var.BinPath)\hostfxr.dll" />
+            </Component>
+            <Component Id="hostpolicy.dll" Guid="{9688F559-B00E-4F14-833B-A62EA9871E3A}">
+                <File Id="hostpolicy.dll" KeyPath="yes" Source="$(var.BinPath)\hostpolicy.dll" />
+            </Component>
+            <Component Id="KAIROS.build.appxrecipe" Guid="{1D6125B0-D4E9-4244-AA45-D761993A5083}">
+                <File Id="KAIROS.build.appxrecipe" KeyPath="yes" Source="$(var.BinPath)\KAIROS.build.appxrecipe" />
+            </Component>
+            <Component Id="KAIROS.deps.json" Guid="{E07736F2-1E04-4A4B-8383-8A5E48BA666A}">
+                <File Id="KAIROS.deps.json" KeyPath="yes" Source="$(var.BinPath)\KAIROS.deps.json" />
+            </Component>
+            <Component Id="KAIROS.dll" Guid="{218D2403-6E35-4633-BF9E-108EE7407F89}">
+                <File Id="KAIROS.dll" KeyPath="yes" Source="$(var.BinPath)\KAIROS.dll" />
+            </Component>
+            <Component Id="KAIROS.exe" Guid="{EE0BC702-1C4D-4187-B055-E7565C45A144}">
+                <File Id="KAIROS.exe" KeyPath="yes" Source="$(var.BinPath)\KAIROS.exe" />
+            </Component>
+            <Component Id="KAIROS.pdb" Guid="{D8565B19-1E47-4430-8C5A-F2DB17A378BD}">
+                <File Id="KAIROS.pdb" KeyPath="yes" Source="$(var.BinPath)\KAIROS.pdb" />
+            </Component>
+            <Component Id="KAIROS.pri" Guid="{30D6556A-AF31-47F0-8F84-63B9014852B1}">
+                <File Id="KAIROS.pri" KeyPath="yes" Source="$(var.BinPath)\KAIROS.pri" />
+            </Component>
+            <Component Id="KAIROS.runtimeconfig.json" Guid="{20A77492-2A13-480E-8714-55C5F2211F91}">
+                <File Id="KAIROS.runtimeconfig.json" KeyPath="yes" Source="$(var.BinPath)\KAIROS.runtimeconfig.json" />
+            </Component>
+            <Component Id="llama.dll" Guid="{8E137001-2ABE-4CD6-8C24-401A2580A3FD}">
+                <File Id="llama.dll" KeyPath="yes" Source="$(var.BinPath)\llama.dll" />
+            </Component>
+            <Component Id="LLamaSharp.dll" Guid="{B72598EE-AD33-4A0E-B107-8483B13A9186}">
+                <File Id="LLamaSharp.dll" KeyPath="yes" Source="$(var.BinPath)\LLamaSharp.dll" />
+            </Component>
+            <Component Id="llava_shared.dll" Guid="{D0B364B5-4367-4B26-8756-9907208BB270}">
+                <File Id="llava_shared.dll" KeyPath="yes" Source="$(var.BinPath)\llava_shared.dll" />
+            </Component>
+            <Component Id="MainWindow.xbf" Guid="{18E42DE9-B3E8-47E4-A34B-6A8A6E1A03C1}">
+                <File Id="MainWindow.xbf" KeyPath="yes" Source="$(var.BinPath)\MainWindow.xbf" />
+            </Component>
+            <Component Id="marshal.dll" Guid="{2955959A-F51C-41A8-8DDE-34F6AB497CFA}">
+                <File Id="marshal.dll" KeyPath="yes" Source="$(var.BinPath)\marshal.dll" />
+            </Component>
+            <Component Id="Microsoft.Bcl.AsyncInterfaces.dll" Guid="{304A5A26-672F-45A3-9C80-AD4B78D0F90A}">
+                <File Id="Microsoft.Bcl.AsyncInterfaces.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Bcl.AsyncInterfaces.dll" />
+            </Component>
+            <Component Id="Microsoft.CSharp.dll" Guid="{571FFD20-DA3E-48B2-94F1-53C510EFF7D3}">
+                <File Id="Microsoft.CSharp.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.CSharp.dll" />
+            </Component>
+            <Component Id="Microsoft.Data.Sqlite.dll" Guid="{0FCB4947-B014-42D2-B210-CE22EE314CC5}">
+                <File Id="Microsoft.Data.Sqlite.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Data.Sqlite.dll" />
+            </Component>
+            <Component Id="Microsoft.DiaSymReader.Native.amd64.dll" Guid="{AF2D9584-F2FC-4AC8-810B-882F5C0206E7}">
+                <File Id="Microsoft.DiaSymReader.Native.amd64.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.DiaSymReader.Native.amd64.dll" />
+            </Component>
+            <Component Id="Microsoft.DirectManipulation.dll" Guid="{1200420B-39D4-410B-AF0F-DF6A9FDE200F}">
+                <File Id="Microsoft.DirectManipulation.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.DirectManipulation.dll" />
+            </Component>
+            <Component Id="Microsoft.EntityFrameworkCore.Abstractions.dll" Guid="{403CB9D8-F565-4F88-BD64-59B8BB8EA919}">
+                <File Id="Microsoft.EntityFrameworkCore.Abstractions.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.EntityFrameworkCore.Abstractions.dll" />
+            </Component>
+            <Component Id="Microsoft.EntityFrameworkCore.dll" Guid="{4FB0732C-61D3-4DA9-B480-9072054E5DE6}">
+                <File Id="Microsoft.EntityFrameworkCore.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.EntityFrameworkCore.dll" />
+            </Component>
+            <Component Id="Microsoft.EntityFrameworkCore.Relational.dll" Guid="{96F39FA2-8E87-401D-BDE6-79C5DFBA4354}">
+                <File Id="Microsoft.EntityFrameworkCore.Relational.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.EntityFrameworkCore.Relational.dll" />
+            </Component>
+            <Component Id="Microsoft.EntityFrameworkCore.Sqlite.dll" Guid="{22E3AE60-8DC1-4B96-A1FC-0C0AE2480223}">
+                <File Id="Microsoft.EntityFrameworkCore.Sqlite.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.EntityFrameworkCore.Sqlite.dll" />
+            </Component>
+            <Component Id="Microsoft.Extensions.AI.Abstractions.dll" Guid="{895DAD87-D23A-42E3-B0B1-5312B2AC4338}">
+                <File Id="Microsoft.Extensions.AI.Abstractions.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Extensions.AI.Abstractions.dll" />
+            </Component>
+            <Component Id="Microsoft.Extensions.Caching.Abstractions.dll" Guid="{21E767AD-C0AD-488A-9E16-5B22DE76481F}">
+                <File Id="Microsoft.Extensions.Caching.Abstractions.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Extensions.Caching.Abstractions.dll" />
+            </Component>
+            <Component Id="Microsoft.Extensions.Caching.Memory.dll" Guid="{AC51DB11-75B1-43B5-B8D3-2D1B28627BB4}">
+                <File Id="Microsoft.Extensions.Caching.Memory.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Extensions.Caching.Memory.dll" />
+            </Component>
+            <Component Id="Microsoft.Extensions.Configuration.Abstractions.dll" Guid="{B2A74150-21C3-463F-927D-A8C08DE7D39C}">
+                <File Id="Microsoft.Extensions.Configuration.Abstractions.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Extensions.Configuration.Abstractions.dll" />
+            </Component>
+            <Component Id="Microsoft.Extensions.DependencyInjection.Abstractions.dll" Guid="{925F3036-6326-4116-B03C-5F5AC79C7306}">
+                <File Id="Microsoft.Extensions.DependencyInjection.Abstractions.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
+            </Component>
+            <Component Id="Microsoft.Extensions.DependencyInjection.dll" Guid="{2BFFF683-0D30-47A8-9A84-3C3D10B590E9}">
+                <File Id="Microsoft.Extensions.DependencyInjection.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Extensions.DependencyInjection.dll" />
+            </Component>
+            <Component Id="Microsoft.Extensions.DependencyModel.dll" Guid="{FDC44463-E28C-4954-9D68-184F1B35015A}">
+                <File Id="Microsoft.Extensions.DependencyModel.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Extensions.DependencyModel.dll" />
+            </Component>
+            <Component Id="Microsoft.Extensions.Logging.Abstractions.dll" Guid="{398F375E-B6D0-463E-8C7F-57841F014145}">
+                <File Id="Microsoft.Extensions.Logging.Abstractions.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Extensions.Logging.Abstractions.dll" />
+            </Component>
+            <Component Id="Microsoft.Extensions.Logging.dll" Guid="{408D4903-4B86-4442-BD29-A58BB141B1F0}">
+                <File Id="Microsoft.Extensions.Logging.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Extensions.Logging.dll" />
+            </Component>
+            <Component Id="Microsoft.Extensions.Options.dll" Guid="{AD2AB3CD-D843-4B3C-972B-F3917D3DF0AD}">
+                <File Id="Microsoft.Extensions.Options.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Extensions.Options.dll" />
+            </Component>
+            <Component Id="Microsoft.Extensions.Primitives.dll" Guid="{2B7B38DE-B4E7-4799-84CD-0A90DD45B499}">
+                <File Id="Microsoft.Extensions.Primitives.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Extensions.Primitives.dll" />
+            </Component>
+            <Component Id="Microsoft.Foundation.winmd" Guid="{2A8C915A-0F89-45B9-B6FA-C7C9B2A5BBDB}">
+                <File Id="Microsoft.Foundation.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Foundation.winmd" />
+            </Component>
+            <Component Id="Microsoft.Graphics.Display.dll" Guid="{02A1CDB9-3536-4331-A5FE-B4A706216996}">
+                <File Id="Microsoft.Graphics.Display.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Graphics.Display.dll" />
+            </Component>
+            <Component Id="Microsoft.Graphics.Imaging.dll" Guid="{DC65059E-3C7D-4970-B6F9-420E24E0BD18}">
+                <File Id="Microsoft.Graphics.Imaging.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Graphics.Imaging.dll" />
+            </Component>
+            <Component Id="Microsoft.Graphics.Imaging.Projection.dll" Guid="{835379FF-F528-483A-9C9B-C8B3E0B59BB2}">
+                <File Id="Microsoft.Graphics.Imaging.Projection.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Graphics.Imaging.Projection.dll" />
+            </Component>
+            <Component Id="Microsoft.Graphics.Imaging.winmd" Guid="{A360746F-80BD-4578-BFAF-1B35A6159450}">
+                <File Id="Microsoft.Graphics.Imaging.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Graphics.Imaging.winmd" />
+            </Component>
+            <Component Id="Microsoft.Graphics.ImagingInternal.ImageObjectRemover.winmd" Guid="{75D20F98-CC99-41BE-B0C5-701AEDBF972F}">
+                <File Id="Microsoft.Graphics.ImagingInternal.ImageObjectRemover.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Graphics.ImagingInternal.ImageObjectRemover.winmd" />
+            </Component>
+            <Component Id="Microsoft.Graphics.ImagingInternal.winmd" Guid="{BA90A9CB-D72C-4B3E-A662-7286A4632C0D}">
+                <File Id="Microsoft.Graphics.ImagingInternal.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Graphics.ImagingInternal.winmd" />
+            </Component>
+            <Component Id="Microsoft.Graphics.Internal.Imaging.winmd" Guid="{BC59D976-2461-4FF2-A329-921BD19E401C}">
+                <File Id="Microsoft.Graphics.Internal.Imaging.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Graphics.Internal.Imaging.winmd" />
+            </Component>
+            <Component Id="Microsoft.Graphics.winmd" Guid="{8C9F1CDF-0F29-4DFC-ACE7-B9901E18AD65}">
+                <File Id="Microsoft.Graphics.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Graphics.winmd" />
+            </Component>
+            <Component Id="Microsoft.InputStateManager.dll" Guid="{8CFDEF56-B40D-4D59-92CD-5BD7D4A216FD}">
+                <File Id="Microsoft.InputStateManager.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.InputStateManager.dll" />
+            </Component>
+            <Component Id="Microsoft.InteractiveExperiences.Projection.dll" Guid="{86732F0F-0A7E-46D5-950F-AD7C6D3EE897}">
+                <File Id="Microsoft.InteractiveExperiences.Projection.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.InteractiveExperiences.Projection.dll" />
+            </Component>
+            <Component Id="Microsoft.Internal.FrameworkUdk.dll" Guid="{046E4FAA-CB28-4E49-9E55-A92304C91263}">
+                <File Id="Microsoft.Internal.FrameworkUdk.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Internal.FrameworkUdk.dll" />
+            </Component>
+            <Component Id="Microsoft.ML.OnnxRuntime.dll" Guid="{9409D722-1B15-4F4D-8C2A-13A8CEF96ED8}">
+                <File Id="Microsoft.ML.OnnxRuntime.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.ML.OnnxRuntime.dll" />
+            </Component>
+            <Component Id="Microsoft.Security.Authentication.OAuth.Projection.dll" Guid="{51250E72-D0E6-491C-8E8D-A091C3C84812}">
+                <File Id="Microsoft.Security.Authentication.OAuth.Projection.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Security.Authentication.OAuth.Projection.dll" />
+            </Component>
+            <Component Id="Microsoft.Security.Authentication.OAuth.winmd" Guid="{C67526E3-CA03-4E29-8BCE-F2DA01206734}">
+                <File Id="Microsoft.Security.Authentication.OAuth.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Security.Authentication.OAuth.winmd" />
+            </Component>
+            <Component Id="Microsoft.UI.Composition.OSSupport.dll" Guid="{AE8A0C73-242F-4569-AE8F-169585656035}">
+                <File Id="Microsoft.UI.Composition.OSSupport.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.UI.Composition.OSSupport.dll" />
+            </Component>
+            <Component Id="Microsoft.UI.Designer.dll" Guid="{3691323E-E69E-4646-B79E-3176BC9B8253}">
+                <File Id="Microsoft.UI.Designer.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.UI.Designer.dll" />
+            </Component>
+            <Component Id="Microsoft.UI.dll" Guid="{D06A91B6-9824-402B-AE27-3BDB88B87107}">
+                <File Id="Microsoft.UI.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.UI.dll" />
+            </Component>
+            <Component Id="Microsoft.UI.Input.dll" Guid="{0ACBFA8E-F3BA-4C30-8DE7-0A517E4F6B98}">
+                <File Id="Microsoft.UI.Input.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.UI.Input.dll" />
+            </Component>
+            <Component Id="Microsoft.UI.pri" Guid="{F2DFB579-C448-4B4E-BE24-72B83F583139}">
+                <File Id="Microsoft.UI.pri" KeyPath="yes" Source="$(var.BinPath)\Microsoft.UI.pri" />
+            </Component>
+            <Component Id="Microsoft.UI.Text.winmd" Guid="{39E29C9E-6EC9-4FEF-88E1-C8D32910A317}">
+                <File Id="Microsoft.UI.Text.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.UI.Text.winmd" />
+            </Component>
+            <Component Id="Microsoft.UI.Windowing.Core.dll" Guid="{AE7FB574-BB6F-487A-A1C5-4494A5C91B88}">
+                <File Id="Microsoft.UI.Windowing.Core.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.UI.Windowing.Core.dll" />
+            </Component>
+            <Component Id="Microsoft.UI.Windowing.dll" Guid="{3FC32721-7C07-48FF-8F24-2EA8C325DBDC}">
+                <File Id="Microsoft.UI.Windowing.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.UI.Windowing.dll" />
+            </Component>
+            <Component Id="Microsoft.UI.winmd" Guid="{D14F640D-A78A-4D32-992E-B33780DC60E5}">
+                <File Id="Microsoft.UI.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.UI.winmd" />
+            </Component>
+            <Component Id="Microsoft.UI.Xaml.Controls.dll" Guid="{CB6438AB-1A10-4798-80D3-563535A22F3B}">
+                <File Id="Microsoft.UI.Xaml.Controls.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.UI.Xaml.Controls.dll" />
+            </Component>
+            <Component Id="Microsoft.UI.Xaml.Controls.pri" Guid="{BE96B54B-CA25-493D-BCF1-B468846171D5}">
+                <File Id="Microsoft.UI.Xaml.Controls.pri" KeyPath="yes" Source="$(var.BinPath)\Microsoft.UI.Xaml.Controls.pri" />
+            </Component>
+            <Component Id="Microsoft.ui.xaml.dll" Guid="{C0D6D057-A6E3-45D0-BD6B-C354A8C37BD0}">
+                <File Id="Microsoft.ui.xaml.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.ui.xaml.dll" />
+            </Component>
+            <Component Id="Microsoft.UI.Xaml.Internal.dll" Guid="{DFB3F4E0-38BB-4A43-96A3-F55C6F21C189}">
+                <File Id="Microsoft.UI.Xaml.Internal.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.UI.Xaml.Internal.dll" />
+            </Component>
+            <Component Id="Microsoft.UI.Xaml.Phone.dll" Guid="{28F03B91-9C20-4832-89D3-BB9FA7B010CA}">
+                <File Id="Microsoft.UI.Xaml.Phone.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.UI.Xaml.Phone.dll" />
+            </Component>
+            <Component Id="Microsoft.ui.xaml.resources.19h1.dll" Guid="{A8814494-9CD6-40AA-ABD4-D6E428477CFC}">
+                <File Id="Microsoft.ui.xaml.resources.19h1.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.ui.xaml.resources.19h1.dll" />
+            </Component>
+            <Component Id="Microsoft.ui.xaml.resources.common.dll" Guid="{3A57FCA1-EE3A-4781-9867-413FC8DB25E6}">
+                <File Id="Microsoft.ui.xaml.resources.common.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.ui.xaml.resources.common.dll" />
+            </Component>
+            <Component Id="Microsoft.UI.Xaml.winmd" Guid="{88F21510-7D63-4FB7-9744-204B28806703}">
+                <File Id="Microsoft.UI.Xaml.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.UI.Xaml.winmd" />
+            </Component>
+            <Component Id="Microsoft.VisualBasic.Core.dll" Guid="{3E9AF42C-9FB7-4C0A-BA80-2A04FBA51311}">
+                <File Id="Microsoft.VisualBasic.Core.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.VisualBasic.Core.dll" />
+            </Component>
+            <Component Id="Microsoft.VisualBasic.dll" Guid="{5CFEFCAF-1D57-4070-AF1C-7411E9F2756E}">
+                <File Id="Microsoft.VisualBasic.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.VisualBasic.dll" />
+            </Component>
+            <Component Id="Microsoft.Web.WebView2.Core.dll" Guid="{ABDA29A7-22A0-4BF7-83D2-BB528C095E37}">
+                <File Id="Microsoft.Web.WebView2.Core.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Web.WebView2.Core.dll" />
+            </Component>
+            <Component Id="Microsoft.Web.WebView2.Core.Projection.dll" Guid="{EE39964A-0567-4722-BAF4-2B02333AA7FB}">
+                <File Id="Microsoft.Web.WebView2.Core.Projection.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Web.WebView2.Core.Projection.dll" />
+            </Component>
+            <Component Id="Microsoft.Win32.Primitives.dll" Guid="{C1DC6B1A-B58C-4959-833C-86252EF1188B}">
+                <File Id="Microsoft.Win32.Primitives.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Win32.Primitives.dll" />
+            </Component>
+            <Component Id="Microsoft.Win32.Registry.dll" Guid="{B6839CFF-5F30-4FC2-B3FE-FACDE7994D34}">
+                <File Id="Microsoft.Win32.Registry.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Win32.Registry.dll" />
+            </Component>
+            <Component Id="Microsoft.Windows.AI.ContentModerationInternal.winmd" Guid="{5B3E1A5F-BD74-4BED-B746-875D8400F5D9}">
+                <File Id="Microsoft.Windows.AI.ContentModerationInternal.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.AI.ContentModerationInternal.winmd" />
+            </Component>
+            <Component Id="Microsoft.Windows.AI.ContentSafety.dll" Guid="{DABA972F-E377-44C0-A988-CCF4E1CE7D5A}">
+                <File Id="Microsoft.Windows.AI.ContentSafety.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.AI.ContentSafety.dll" />
+            </Component>
+            <Component Id="Microsoft.Windows.AI.ContentSafety.Projection.dll" Guid="{14AA67FE-FEFC-4F60-940B-38D1363A8D04}">
+                <File Id="Microsoft.Windows.AI.ContentSafety.Projection.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.AI.ContentSafety.Projection.dll" />
+            </Component>
+            <Component Id="Microsoft.Windows.AI.ContentSafety.winmd" Guid="{6A5DAAD5-3695-46FC-884A-F1F50A5E72E7}">
+                <File Id="Microsoft.Windows.AI.ContentSafety.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.AI.ContentSafety.winmd" />
+            </Component>
+            <Component Id="Microsoft.Windows.AI.Foundation.Projection.dll" Guid="{D0D01A43-5879-4E60-B95C-FD20997921CF}">
+                <File Id="Microsoft.Windows.AI.Foundation.Projection.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.AI.Foundation.Projection.dll" />
+            </Component>
+            <Component Id="Microsoft.Windows.AI.Foundation.winmd" Guid="{D1DD6CD8-8B83-465C-BAA1-168E6F045D84}">
+                <File Id="Microsoft.Windows.AI.Foundation.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.AI.Foundation.winmd" />
+            </Component>
+            <Component Id="Microsoft.Windows.AI.FoundationInternal.winmd" Guid="{D892E049-7C0A-47B0-A0A4-5E49B81E12B1}">
+                <File Id="Microsoft.Windows.AI.FoundationInternal.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.AI.FoundationInternal.winmd" />
+            </Component>
+            <Component Id="Microsoft.Windows.AI.GenerativeInternal.winmd" Guid="{80A76DCF-A6EB-44DF-A0EE-B44FB2039484}">
+                <File Id="Microsoft.Windows.AI.GenerativeInternal.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.AI.GenerativeInternal.winmd" />
+            </Component>
+            <Component Id="Microsoft.Windows.AI.Imaging.dll" Guid="{227C93F3-1ED2-42CD-801D-27E2E33D4189}">
+                <File Id="Microsoft.Windows.AI.Imaging.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.AI.Imaging.dll" />
+            </Component>
+            <Component Id="Microsoft.Windows.AI.Imaging.Projection.dll" Guid="{F983C311-ABBF-4C64-8A5B-F0DE0275FE99}">
+                <File Id="Microsoft.Windows.AI.Imaging.Projection.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.AI.Imaging.Projection.dll" />
+            </Component>
+            <Component Id="Microsoft.Windows.AI.Imaging.winmd" Guid="{130B9759-9B32-4389-95D1-CD12744E46F2}">
+                <File Id="Microsoft.Windows.AI.Imaging.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.AI.Imaging.winmd" />
+            </Component>
+            <Component Id="Microsoft.Windows.AI.MachineLearning.dll" Guid="{FD158ACA-F647-4EFD-9D2B-C965F88B4FC6}">
+                <File Id="Microsoft.Windows.AI.MachineLearning.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.AI.MachineLearning.dll" />
+            </Component>
+            <Component Id="Microsoft.Windows.AI.MachineLearning.Projection.dll" Guid="{AC0183B6-D85B-4532-BCEC-62366A5B86B5}">
+                <File Id="Microsoft.Windows.AI.MachineLearning.Projection.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.AI.MachineLearning.Projection.dll" />
+            </Component>
+            <Component Id="Microsoft.Windows.AI.MachineLearning.winmd" Guid="{D6BE28D7-F791-48F0-934C-CF4D00E66A5B}">
+                <File Id="Microsoft.Windows.AI.MachineLearning.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.AI.MachineLearning.winmd" />
+            </Component>
+            <Component Id="Microsoft.Windows.AI.Projection.dll" Guid="{073973F1-0BA7-4F57-8DAC-88E33D5D15DB}">
+                <File Id="Microsoft.Windows.AI.Projection.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.AI.Projection.dll" />
+            </Component>
+            <Component Id="Microsoft.Windows.AI.Text.dll" Guid="{A7AE3525-4ED9-4652-B152-D8DC67C31F05}">
+                <File Id="Microsoft.Windows.AI.Text.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.AI.Text.dll" />
+            </Component>
+            <Component Id="Microsoft.Windows.AI.Text.Projection.dll" Guid="{A6326588-A18A-430A-B296-B292BCC47BF0}">
+                <File Id="Microsoft.Windows.AI.Text.Projection.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.AI.Text.Projection.dll" />
+            </Component>
+            <Component Id="Microsoft.Windows.AI.Text.winmd" Guid="{02FE8F1C-1D39-42B1-9256-E0B673E2AB35}">
+                <File Id="Microsoft.Windows.AI.Text.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.AI.Text.winmd" />
+            </Component>
+            <Component Id="Microsoft.Windows.AI.winmd" Guid="{F65C61D6-0871-4568-AB57-A12A0ED30FD2}">
+                <File Id="Microsoft.Windows.AI.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.AI.winmd" />
+            </Component>
+            <Component Id="Microsoft.Windows.ApplicationModel.Background.Projection.dll" Guid="{4BA0D181-9402-4B7B-903A-83C6118B7133}">
+                <File Id="Microsoft.Windows.ApplicationModel.Background.Projection.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.ApplicationModel.Background.Projection.dll" />
+            </Component>
+            <Component Id="Microsoft.Windows.ApplicationModel.Background.UniversalBGTask.dll" Guid="{5DCAABD6-31EB-4C13-8695-8551FD549292}">
+                <File Id="Microsoft.Windows.ApplicationModel.Background.UniversalBGTask.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.ApplicationModel.Background.UniversalBGTask.dll" />
+            </Component>
+            <Component Id="Microsoft.Windows.ApplicationModel.Background.UniversalBGTask.winmd" Guid="{E7C7F817-C871-4A99-88BC-4012D2048BF7}">
+                <File Id="Microsoft.Windows.ApplicationModel.Background.UniversalBGTask.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.ApplicationModel.Background.UniversalBGTask.winmd" />
+            </Component>
+            <Component Id="Microsoft.Windows.ApplicationModel.Background.winmd" Guid="{5D4E9D34-4C26-4CC0-B567-AF771FEA816A}">
+                <File Id="Microsoft.Windows.ApplicationModel.Background.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.ApplicationModel.Background.winmd" />
+            </Component>
+            <Component Id="Microsoft.Windows.ApplicationModel.DynamicDependency.Projection.dll" Guid="{13068D78-9E4C-475D-9913-8846F20665CC}">
+                <File Id="Microsoft.Windows.ApplicationModel.DynamicDependency.Projection.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.ApplicationModel.DynamicDependency.Projection.dll" />
+            </Component>
+            <Component Id="Microsoft.Windows.ApplicationModel.DynamicDependency.winmd" Guid="{6111B433-5127-4FF4-8275-34148780695E}">
+                <File Id="Microsoft.Windows.ApplicationModel.DynamicDependency.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.ApplicationModel.DynamicDependency.winmd" />
+            </Component>
+            <Component Id="Microsoft.Windows.ApplicationModel.Resources.dll" Guid="{277F775C-27E9-473B-A8FF-1B8BD6ECAB65}">
+                <File Id="Microsoft.Windows.ApplicationModel.Resources.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.ApplicationModel.Resources.dll" />
+            </Component>
+            <Component Id="Microsoft.Windows.ApplicationModel.Resources.Projection.dll" Guid="{404987F9-92E5-4FDD-8E1B-37B2DC91E223}">
+                <File Id="Microsoft.Windows.ApplicationModel.Resources.Projection.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.ApplicationModel.Resources.Projection.dll" />
+            </Component>
+            <Component Id="Microsoft.Windows.ApplicationModel.Resources.winmd" Guid="{1ACCE8F5-0E63-4F8E-AED5-228D5CD64F4E}">
+                <File Id="Microsoft.Windows.ApplicationModel.Resources.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.ApplicationModel.Resources.winmd" />
+            </Component>
+            <Component Id="Microsoft.Windows.ApplicationModel.WindowsAppRuntime.Projection.dll" Guid="{4F8E7C0E-CEE9-4DAA-94BD-92AF444C5864}">
+                <File Id="Microsoft.Windows.ApplicationModel.WindowsAppRuntime.Projection.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.ApplicationModel.WindowsAppRuntime.Projection.dll" />
+            </Component>
+            <Component Id="Microsoft.Windows.ApplicationModel.WindowsAppRuntime.winmd" Guid="{1E249C29-7CFB-4733-A1DA-A7728F5DDE0F}">
+                <File Id="Microsoft.Windows.ApplicationModel.WindowsAppRuntime.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.ApplicationModel.WindowsAppRuntime.winmd" />
+            </Component>
+            <Component Id="Microsoft.Windows.AppLifecycle.Projection.dll" Guid="{0EBAC1F8-C459-4B64-92D2-DE7FCDA4EB33}">
+                <File Id="Microsoft.Windows.AppLifecycle.Projection.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.AppLifecycle.Projection.dll" />
+            </Component>
+            <Component Id="Microsoft.Windows.AppLifecycle.winmd" Guid="{7D688E83-D7E8-4A63-A9BD-91B75CE11350}">
+                <File Id="Microsoft.Windows.AppLifecycle.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.AppLifecycle.winmd" />
+            </Component>
+            <Component Id="Microsoft.Windows.AppNotifications.Builder.Projection.dll" Guid="{03CF7589-98B5-49ED-B75F-D964E6B93695}">
+                <File Id="Microsoft.Windows.AppNotifications.Builder.Projection.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.AppNotifications.Builder.Projection.dll" />
+            </Component>
+            <Component Id="Microsoft.Windows.AppNotifications.Builder.winmd" Guid="{BEB42A3E-AC3E-4AF8-A1FF-65F63E9B74CD}">
+                <File Id="Microsoft.Windows.AppNotifications.Builder.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.AppNotifications.Builder.winmd" />
+            </Component>
+            <Component Id="Microsoft.Windows.AppNotifications.Projection.dll" Guid="{27276316-4677-428A-B632-1AA79955D023}">
+                <File Id="Microsoft.Windows.AppNotifications.Projection.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.AppNotifications.Projection.dll" />
+            </Component>
+            <Component Id="Microsoft.Windows.AppNotifications.winmd" Guid="{1E4CC863-AB9E-474A-930D-5C2C7E0248F1}">
+                <File Id="Microsoft.Windows.AppNotifications.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.AppNotifications.winmd" />
+            </Component>
+            <Component Id="Microsoft.Windows.BadgeNotifications.Projection.dll" Guid="{23DBFD9D-147D-40D4-AA44-A87BCB8C1B91}">
+                <File Id="Microsoft.Windows.BadgeNotifications.Projection.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.BadgeNotifications.Projection.dll" />
+            </Component>
+            <Component Id="Microsoft.Windows.BadgeNotifications.winmd" Guid="{545585C9-2926-41DF-8285-770CB88E4B09}">
+                <File Id="Microsoft.Windows.BadgeNotifications.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.BadgeNotifications.winmd" />
+            </Component>
+            <Component Id="Microsoft.Windows.Foundation.Projection.dll" Guid="{5CD5084F-B745-4E5D-90A9-159D7FF85A52}">
+                <File Id="Microsoft.Windows.Foundation.Projection.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.Foundation.Projection.dll" />
+            </Component>
+            <Component Id="Microsoft.Windows.Foundation.winmd" Guid="{AC946012-7FB7-48C8-B194-03B1EE59BBB1}">
+                <File Id="Microsoft.Windows.Foundation.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.Foundation.winmd" />
+            </Component>
+            <Component Id="Microsoft.Windows.Globalization.winmd" Guid="{98B43DE9-8615-47EA-B418-3D82582812A2}">
+                <File Id="Microsoft.Windows.Globalization.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.Globalization.winmd" />
+            </Component>
+            <Component Id="Microsoft.Windows.Internal.Vision.winmd" Guid="{A3150CD3-FC48-42E6-8D24-B5C3C32048E2}">
+                <File Id="Microsoft.Windows.Internal.Vision.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.Internal.Vision.winmd" />
+            </Component>
+            <Component Id="Microsoft.Windows.Management.Deployment.Projection.dll" Guid="{0F3C3349-E3CB-4DB0-B100-4677F1489CFF}">
+                <File Id="Microsoft.Windows.Management.Deployment.Projection.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.Management.Deployment.Projection.dll" />
+            </Component>
+            <Component Id="Microsoft.Windows.Management.Deployment.winmd" Guid="{85F907E2-5E18-4BD9-962E-FC4544202219}">
+                <File Id="Microsoft.Windows.Management.Deployment.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.Management.Deployment.winmd" />
+            </Component>
+            <Component Id="Microsoft.Windows.Media.Capture.Projection.dll" Guid="{2FE7787B-6E25-47CD-A2F3-5B110373D714}">
+                <File Id="Microsoft.Windows.Media.Capture.Projection.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.Media.Capture.Projection.dll" />
+            </Component>
+            <Component Id="Microsoft.Windows.Media.Capture.winmd" Guid="{C55C88AB-BFAB-4609-A6AE-A496308F24F0}">
+                <File Id="Microsoft.Windows.Media.Capture.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.Media.Capture.winmd" />
+            </Component>
+            <Component Id="Microsoft.Windows.Private.Workloads.SessionManager.winmd" Guid="{4C2E7656-EED1-4838-9362-41E2874D4258}">
+                <File Id="Microsoft.Windows.Private.Workloads.SessionManager.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.Private.Workloads.SessionManager.winmd" />
+            </Component>
+            <Component Id="Microsoft.Windows.PrivateCommon.winmd" Guid="{6D6168C9-FCC5-4099-B780-A43F0B426421}">
+                <File Id="Microsoft.Windows.PrivateCommon.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.PrivateCommon.winmd" />
+            </Component>
+            <Component Id="Microsoft.Windows.PushNotifications.Projection.dll" Guid="{9D7C12DE-A692-4249-9FE1-2C2290276DA2}">
+                <File Id="Microsoft.Windows.PushNotifications.Projection.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.PushNotifications.Projection.dll" />
+            </Component>
+            <Component Id="Microsoft.Windows.PushNotifications.winmd" Guid="{37FA8488-1BAC-4C90-A110-49BF31ED6A38}">
+                <File Id="Microsoft.Windows.PushNotifications.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.PushNotifications.winmd" />
+            </Component>
+            <Component Id="Microsoft.Windows.SDK.NET.dll" Guid="{6F1CAC30-E846-4D77-AA54-FD85BC2D97E7}">
+                <File Id="Microsoft.Windows.SDK.NET.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.SDK.NET.dll" />
+            </Component>
+            <Component Id="Microsoft.Windows.Security.AccessControl.Projection.dll" Guid="{B778CC02-FAEA-420C-83AE-230E3F0C5B64}">
+                <File Id="Microsoft.Windows.Security.AccessControl.Projection.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.Security.AccessControl.Projection.dll" />
+            </Component>
+            <Component Id="Microsoft.Windows.Security.AccessControl.winmd" Guid="{519F629B-C05A-41E2-BD84-577D3F39ECFC}">
+                <File Id="Microsoft.Windows.Security.AccessControl.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.Security.AccessControl.winmd" />
+            </Component>
+            <Component Id="Microsoft.Windows.SemanticSearch.winmd" Guid="{BD402EDD-8DA6-45CC-B478-980D3657F77F}">
+                <File Id="Microsoft.Windows.SemanticSearch.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.SemanticSearch.winmd" />
+            </Component>
+            <Component Id="Microsoft.Windows.Storage.Pickers.Projection.dll" Guid="{A5327BDE-A282-4542-BF7B-DD58F1E1CB95}">
+                <File Id="Microsoft.Windows.Storage.Pickers.Projection.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.Storage.Pickers.Projection.dll" />
+            </Component>
+            <Component Id="Microsoft.Windows.Storage.Pickers.winmd" Guid="{45844699-A97E-4BCC-8634-625C43BB477C}">
+                <File Id="Microsoft.Windows.Storage.Pickers.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.Storage.Pickers.winmd" />
+            </Component>
+            <Component Id="Microsoft.Windows.Storage.Projection.dll" Guid="{68F51227-0B0B-420B-813A-94860063F7DF}">
+                <File Id="Microsoft.Windows.Storage.Projection.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.Storage.Projection.dll" />
+            </Component>
+            <Component Id="Microsoft.Windows.Storage.winmd" Guid="{95186D6C-BE98-449A-B3CA-9F1764C83E9A}">
+                <File Id="Microsoft.Windows.Storage.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.Storage.winmd" />
+            </Component>
+            <Component Id="Microsoft.Windows.System.Power.Projection.dll" Guid="{BD814825-01BE-43FF-815C-EAD93EB58198}">
+                <File Id="Microsoft.Windows.System.Power.Projection.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.System.Power.Projection.dll" />
+            </Component>
+            <Component Id="Microsoft.Windows.System.Power.winmd" Guid="{B3CE56D3-52A1-4EC8-BC4E-3B5BB8FBAAA3}">
+                <File Id="Microsoft.Windows.System.Power.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.System.Power.winmd" />
+            </Component>
+            <Component Id="Microsoft.Windows.System.Projection.dll" Guid="{E8E194D1-9236-45DB-A801-D9E6271A04B0}">
+                <File Id="Microsoft.Windows.System.Projection.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.System.Projection.dll" />
+            </Component>
+            <Component Id="Microsoft.Windows.System.winmd" Guid="{FA02355A-2AA5-4A41-B254-D162267FFAA6}">
+                <File Id="Microsoft.Windows.System.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.System.winmd" />
+            </Component>
+            <Component Id="Microsoft.Windows.Vision.winmd" Guid="{BA32EC3A-EF52-40D4-9157-D4BDBA21C930}">
+                <File Id="Microsoft.Windows.Vision.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.Vision.winmd" />
+            </Component>
+            <Component Id="Microsoft.Windows.VisionInternal.winmd" Guid="{1C6B2A47-9CE6-4362-916A-A3803F2C98E8}">
+                <File Id="Microsoft.Windows.VisionInternal.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.VisionInternal.winmd" />
+            </Component>
+            <Component Id="Microsoft.Windows.Widgets.dll" Guid="{B38F1AB0-EFDC-418F-B335-2DE3D16AFB74}">
+                <File Id="Microsoft.Windows.Widgets.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.Widgets.dll" />
+            </Component>
+            <Component Id="Microsoft.Windows.Widgets.Projection.dll" Guid="{787EF94F-A187-4C0D-87D6-56E7DB557DB6}">
+                <File Id="Microsoft.Windows.Widgets.Projection.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.Widgets.Projection.dll" />
+            </Component>
+            <Component Id="Microsoft.Windows.Widgets.winmd" Guid="{3F7D2A82-B01A-4FA2-8D0B-0E362A061091}">
+                <File Id="Microsoft.Windows.Widgets.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.Widgets.winmd" />
+            </Component>
+            <Component Id="Microsoft.Windows.Workloads.dll" Guid="{AF755CFF-911D-471C-8664-974FEC5620D2}">
+                <File Id="Microsoft.Windows.Workloads.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.Workloads.dll" />
+            </Component>
+            <Component Id="Microsoft.Windows.Workloads.Resources.dll" Guid="{BD37FC87-2D1D-4E06-8B53-E5A837ECDFC2}">
+                <File Id="Microsoft.Windows.Workloads.Resources.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.Workloads.Resources.dll" />
+            </Component>
+            <Component Id="Microsoft.Windows.Workloads.Resources_ec.dll" Guid="{DA13C6B7-CDBD-4727-A6E9-9279FCBFCACF}">
+                <File Id="Microsoft.Windows.Workloads.Resources_ec.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.Workloads.Resources_ec.dll" />
+            </Component>
+            <Component Id="Microsoft.Windows.Workloads.winmd" Guid="{B4CAC229-F794-41F2-A4F2-2D19B584D658}">
+                <File Id="Microsoft.Windows.Workloads.winmd" KeyPath="yes" Source="$(var.BinPath)\Microsoft.Windows.Workloads.winmd" />
+            </Component>
+            <Component Id="Microsoft.WindowsAppRuntime.Bootstrap.dll" Guid="{07244EA6-7EF5-4DCF-82EE-E83A70CCBBFB}">
+                <File Id="Microsoft.WindowsAppRuntime.Bootstrap.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.WindowsAppRuntime.Bootstrap.dll" />
+            </Component>
+            <Component Id="Microsoft.WindowsAppRuntime.Bootstrap.Net.dll" Guid="{9A0A8160-5504-47EA-BD6D-34C2897CB559}">
+                <File Id="Microsoft.WindowsAppRuntime.Bootstrap.Net.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.WindowsAppRuntime.Bootstrap.Net.dll" />
+            </Component>
+            <Component Id="Microsoft.WindowsAppRuntime.dll" Guid="{CBAE3F19-C53D-4139-809C-9ED9BF4346B9}">
+                <File Id="Microsoft.WindowsAppRuntime.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.WindowsAppRuntime.dll" />
+            </Component>
+            <Component Id="Microsoft.WindowsAppRuntime.Insights.Resource.dll" Guid="{4F3979EE-4A0B-4259-BC4F-FDA0EA261334}">
+                <File Id="Microsoft.WindowsAppRuntime.Insights.Resource.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.WindowsAppRuntime.Insights.Resource.dll" />
+            </Component>
+            <Component Id="Microsoft.WindowsAppRuntime.pri" Guid="{1C6D4F68-614E-4E1E-9ABA-43DC52E48857}">
+                <File Id="Microsoft.WindowsAppRuntime.pri" KeyPath="yes" Source="$(var.BinPath)\Microsoft.WindowsAppRuntime.pri" />
+            </Component>
+            <Component Id="Microsoft.WinUI.dll" Guid="{B94F415D-2999-4CC5-A0CB-E1A9A4B15EE3}">
+                <File Id="Microsoft.WinUI.dll" KeyPath="yes" Source="$(var.BinPath)\Microsoft.WinUI.dll" />
+            </Component>
+            <Component Id="MRM.dll" Guid="{9CCD0F87-3ED2-4F25-87FE-8DC7E2942FFD}">
+                <File Id="MRM.dll" KeyPath="yes" Source="$(var.BinPath)\MRM.dll" />
+            </Component>
+            <Component Id="mscordaccore.dll" Guid="{E31234B2-6520-49BD-9A21-F20360075EDA}">
+                <File Id="mscordaccore.dll" KeyPath="yes" Source="$(var.BinPath)\mscordaccore.dll" />
+            </Component>
+            <Component Id="mscordaccore_amd64_amd64_8.0.2225.52707.dll" Guid="{2166B0B0-BDF8-4607-B7C1-7C8111A864B6}">
+                <File Id="mscordaccore_amd64_amd64_8.0.2225.52707.dll" KeyPath="yes" Source="$(var.BinPath)\mscordaccore_amd64_amd64_8.0.2225.52707.dll" />
+            </Component>
+            <Component Id="mscordbi.dll" Guid="{54AC0012-1F61-4FA0-A991-771D62A67566}">
+                <File Id="mscordbi.dll" KeyPath="yes" Source="$(var.BinPath)\mscordbi.dll" />
+            </Component>
+            <Component Id="mscorlib.dll" Guid="{6F2E716F-1454-4EE0-9915-7F0CC4122C70}">
+                <File Id="mscorlib.dll" KeyPath="yes" Source="$(var.BinPath)\mscorlib.dll" />
+            </Component>
+            <Component Id="mscorrc.dll" Guid="{3B39B41E-E7FA-4F06-B349-FC81A21566DF}">
+                <File Id="mscorrc.dll" KeyPath="yes" Source="$(var.BinPath)\mscorrc.dll" />
+            </Component>
+            <Component Id="msquic.dll" Guid="{4B5B89E8-4E9C-4544-99E7-D3D938A574DD}">
+                <File Id="msquic.dll" KeyPath="yes" Source="$(var.BinPath)\msquic.dll" />
+            </Component>
+            <Component Id="netstandard.dll" Guid="{73FEC573-348C-4249-85B7-88DE710DE873}">
+                <File Id="netstandard.dll" KeyPath="yes" Source="$(var.BinPath)\netstandard.dll" />
+            </Component>
+            <Component Id="onnxruntime.dll" Guid="{2A59B776-8284-496D-B7CD-66EC877E41AB}">
+                <File Id="onnxruntime.dll" KeyPath="yes" Source="$(var.BinPath)\onnxruntime.dll" />
+            </Component>
+            <Component Id="onnxruntime_providers_shared.dll" Guid="{514CA3A1-101C-48DA-B149-97BFA902F174}">
+                <File Id="onnxruntime_providers_shared.dll" KeyPath="yes" Source="$(var.BinPath)\onnxruntime_providers_shared.dll" />
+            </Component>
+            <Component Id="PushNotificationsLongRunningTask.ProxyStub.dll" Guid="{206192C0-0118-4828-95ED-9B5EDFC8BF25}">
+                <File Id="PushNotificationsLongRunningTask.ProxyStub.dll" KeyPath="yes" Source="$(var.BinPath)\PushNotificationsLongRunningTask.ProxyStub.dll" />
+            </Component>
+            <Component Id="RestartAgent.exe" Guid="{ACCE975F-854C-40FD-A41E-33759F1DF053}">
+                <File Id="RestartAgent.exe" KeyPath="yes" Source="$(var.BinPath)\RestartAgent.exe" />
+            </Component>
+            <Component Id="SessionHandleIPCProxyStub.dll" Guid="{E4E80AD7-A35C-498E-B7DA-DA0F8E893DCC}">
+                <File Id="SessionHandleIPCProxyStub.dll" KeyPath="yes" Source="$(var.BinPath)\SessionHandleIPCProxyStub.dll" />
+            </Component>
+            <Component Id="SQLitePCLRaw.batteries_v2.dll" Guid="{E729E3D1-EA26-4FD2-AC2B-093D7F099445}">
+                <File Id="SQLitePCLRaw.batteries_v2.dll" KeyPath="yes" Source="$(var.BinPath)\SQLitePCLRaw.batteries_v2.dll" />
+            </Component>
+            <Component Id="SQLitePCLRaw.core.dll" Guid="{E8EEF7F1-6D9C-42A2-8D74-6E438F0EBBAB}">
+                <File Id="SQLitePCLRaw.core.dll" KeyPath="yes" Source="$(var.BinPath)\SQLitePCLRaw.core.dll" />
+            </Component>
+            <Component Id="SQLitePCLRaw.provider.e_sqlite3.dll" Guid="{AC643ED5-DF7F-4252-954A-3AFDAB4BE230}">
+                <File Id="SQLitePCLRaw.provider.e_sqlite3.dll" KeyPath="yes" Source="$(var.BinPath)\SQLitePCLRaw.provider.e_sqlite3.dll" />
+            </Component>
+            <Component Id="System.AppContext.dll" Guid="{0647C1BE-2C7F-4120-BA36-625614371533}">
+                <File Id="System.AppContext.dll" KeyPath="yes" Source="$(var.BinPath)\System.AppContext.dll" />
+            </Component>
+            <Component Id="System.Buffers.dll" Guid="{E87D0049-7A79-4C24-BEE5-DC9041DBA70B}">
+                <File Id="System.Buffers.dll" KeyPath="yes" Source="$(var.BinPath)\System.Buffers.dll" />
+            </Component>
+            <Component Id="System.Collections.Concurrent.dll" Guid="{BAF821F6-940F-4A8B-AF0D-839F74374B42}">
+                <File Id="System.Collections.Concurrent.dll" KeyPath="yes" Source="$(var.BinPath)\System.Collections.Concurrent.dll" />
+            </Component>
+            <Component Id="System.Collections.dll" Guid="{3A4B4649-0A74-4245-AE31-45290CB69E26}">
+                <File Id="System.Collections.dll" KeyPath="yes" Source="$(var.BinPath)\System.Collections.dll" />
+            </Component>
+            <Component Id="System.Collections.Immutable.dll" Guid="{AB429883-3009-4D54-B84D-B4D6111CD0F0}">
+                <File Id="System.Collections.Immutable.dll" KeyPath="yes" Source="$(var.BinPath)\System.Collections.Immutable.dll" />
+            </Component>
+            <Component Id="System.Collections.NonGeneric.dll" Guid="{F39A166D-5EFE-4F57-A6BA-2C06C9E1D1CC}">
+                <File Id="System.Collections.NonGeneric.dll" KeyPath="yes" Source="$(var.BinPath)\System.Collections.NonGeneric.dll" />
+            </Component>
+            <Component Id="System.Collections.Specialized.dll" Guid="{76688461-6A2E-4124-B725-08500C282232}">
+                <File Id="System.Collections.Specialized.dll" KeyPath="yes" Source="$(var.BinPath)\System.Collections.Specialized.dll" />
+            </Component>
+            <Component Id="System.ComponentModel.Annotations.dll" Guid="{90698BB1-3D37-4E51-9CE1-0BC71358DE1C}">
+                <File Id="System.ComponentModel.Annotations.dll" KeyPath="yes" Source="$(var.BinPath)\System.ComponentModel.Annotations.dll" />
+            </Component>
+            <Component Id="System.ComponentModel.DataAnnotations.dll" Guid="{12BBFE53-CAAC-4C09-A992-A58517698D63}">
+                <File Id="System.ComponentModel.DataAnnotations.dll" KeyPath="yes" Source="$(var.BinPath)\System.ComponentModel.DataAnnotations.dll" />
+            </Component>
+            <Component Id="System.ComponentModel.dll" Guid="{FFFD9D89-0B06-448E-9C49-E5712E471A7A}">
+                <File Id="System.ComponentModel.dll" KeyPath="yes" Source="$(var.BinPath)\System.ComponentModel.dll" />
+            </Component>
+            <Component Id="System.ComponentModel.EventBasedAsync.dll" Guid="{23DFD718-8DDE-47D2-B4CB-56B8B1C154BD}">
+                <File Id="System.ComponentModel.EventBasedAsync.dll" KeyPath="yes" Source="$(var.BinPath)\System.ComponentModel.EventBasedAsync.dll" />
+            </Component>
+            <Component Id="System.ComponentModel.Primitives.dll" Guid="{C5774789-B0ED-466C-8588-B549CD8A7FAB}">
+                <File Id="System.ComponentModel.Primitives.dll" KeyPath="yes" Source="$(var.BinPath)\System.ComponentModel.Primitives.dll" />
+            </Component>
+            <Component Id="System.ComponentModel.TypeConverter.dll" Guid="{A76CC853-D535-4B83-95E4-F5791F316DEA}">
+                <File Id="System.ComponentModel.TypeConverter.dll" KeyPath="yes" Source="$(var.BinPath)\System.ComponentModel.TypeConverter.dll" />
+            </Component>
+            <Component Id="System.Configuration.dll" Guid="{0F282AFC-6F4E-44C9-A640-C24C0EF23ADF}">
+                <File Id="System.Configuration.dll" KeyPath="yes" Source="$(var.BinPath)\System.Configuration.dll" />
+            </Component>
+            <Component Id="System.Console.dll" Guid="{AB8F9496-528A-4E53-8472-AC71809C3268}">
+                <File Id="System.Console.dll" KeyPath="yes" Source="$(var.BinPath)\System.Console.dll" />
+            </Component>
+            <Component Id="System.Core.dll" Guid="{A40FEEC3-DC2C-4EB4-9E2F-E36B3EF18869}">
+                <File Id="System.Core.dll" KeyPath="yes" Source="$(var.BinPath)\System.Core.dll" />
+            </Component>
+            <Component Id="System.Data.Common.dll" Guid="{89B38E48-24D5-4BA6-A1C0-A27254B4BB77}">
+                <File Id="System.Data.Common.dll" KeyPath="yes" Source="$(var.BinPath)\System.Data.Common.dll" />
+            </Component>
+            <Component Id="System.Data.DataSetExtensions.dll" Guid="{EACAFBCC-5A02-408E-899B-EE91E73C9577}">
+                <File Id="System.Data.DataSetExtensions.dll" KeyPath="yes" Source="$(var.BinPath)\System.Data.DataSetExtensions.dll" />
+            </Component>
+            <Component Id="System.Data.dll" Guid="{3378C0C0-77C8-4F95-9A31-10BE918BA0CA}">
+                <File Id="System.Data.dll" KeyPath="yes" Source="$(var.BinPath)\System.Data.dll" />
+            </Component>
+            <Component Id="System.Diagnostics.Contracts.dll" Guid="{A28D5D53-455C-4842-AD2C-30ED9BB478B4}">
+                <File Id="System.Diagnostics.Contracts.dll" KeyPath="yes" Source="$(var.BinPath)\System.Diagnostics.Contracts.dll" />
+            </Component>
+            <Component Id="System.Diagnostics.Debug.dll" Guid="{6BA27430-7D91-4E2F-AD78-41959E19B64A}">
+                <File Id="System.Diagnostics.Debug.dll" KeyPath="yes" Source="$(var.BinPath)\System.Diagnostics.Debug.dll" />
+            </Component>
+            <Component Id="System.Diagnostics.DiagnosticSource.dll" Guid="{D0428382-E577-47E7-BD92-15ACE7DA5315}">
+                <File Id="System.Diagnostics.DiagnosticSource.dll" KeyPath="yes" Source="$(var.BinPath)\System.Diagnostics.DiagnosticSource.dll" />
+            </Component>
+            <Component Id="System.Diagnostics.FileVersionInfo.dll" Guid="{3DA87EE5-D099-48C4-877E-541C3708CF65}">
+                <File Id="System.Diagnostics.FileVersionInfo.dll" KeyPath="yes" Source="$(var.BinPath)\System.Diagnostics.FileVersionInfo.dll" />
+            </Component>
+            <Component Id="System.Diagnostics.Process.dll" Guid="{3A395A29-EBC9-45A6-A25A-32646A0E5577}">
+                <File Id="System.Diagnostics.Process.dll" KeyPath="yes" Source="$(var.BinPath)\System.Diagnostics.Process.dll" />
+            </Component>
+            <Component Id="System.Diagnostics.StackTrace.dll" Guid="{F63B17FE-065A-4C08-AFA4-8EE37AC83F17}">
+                <File Id="System.Diagnostics.StackTrace.dll" KeyPath="yes" Source="$(var.BinPath)\System.Diagnostics.StackTrace.dll" />
+            </Component>
+            <Component Id="System.Diagnostics.TextWriterTraceListener.dll" Guid="{DC528493-D4FB-434C-AEA7-D1B85D47F698}">
+                <File Id="System.Diagnostics.TextWriterTraceListener.dll" KeyPath="yes" Source="$(var.BinPath)\System.Diagnostics.TextWriterTraceListener.dll" />
+            </Component>
+            <Component Id="System.Diagnostics.Tools.dll" Guid="{10857CCF-643B-4A9B-9385-71911DD9C6D4}">
+                <File Id="System.Diagnostics.Tools.dll" KeyPath="yes" Source="$(var.BinPath)\System.Diagnostics.Tools.dll" />
+            </Component>
+            <Component Id="System.Diagnostics.TraceSource.dll" Guid="{3CB21778-FC98-488F-985C-89FA79DF3BDF}">
+                <File Id="System.Diagnostics.TraceSource.dll" KeyPath="yes" Source="$(var.BinPath)\System.Diagnostics.TraceSource.dll" />
+            </Component>
+            <Component Id="System.Diagnostics.Tracing.dll" Guid="{70917516-D159-4ADC-ACB5-C2FFCFCAE979}">
+                <File Id="System.Diagnostics.Tracing.dll" KeyPath="yes" Source="$(var.BinPath)\System.Diagnostics.Tracing.dll" />
+            </Component>
+            <Component Id="System.dll" Guid="{C024815E-8568-4B8C-8AC9-BC94E66DA1D3}">
+                <File Id="System.dll" KeyPath="yes" Source="$(var.BinPath)\System.dll" />
+            </Component>
+            <Component Id="System.Drawing.dll" Guid="{3A7DAA2C-D4F0-420A-8602-8B49E0B66B0B}">
+                <File Id="System.Drawing.dll" KeyPath="yes" Source="$(var.BinPath)\System.Drawing.dll" />
+            </Component>
+            <Component Id="System.Drawing.Primitives.dll" Guid="{6E9AFA29-F2CF-4B24-8A88-49A08BA1AABC}">
+                <File Id="System.Drawing.Primitives.dll" KeyPath="yes" Source="$(var.BinPath)\System.Drawing.Primitives.dll" />
+            </Component>
+            <Component Id="System.Dynamic.Runtime.dll" Guid="{643ACC58-3DDE-4F6C-A603-6F3293759689}">
+                <File Id="System.Dynamic.Runtime.dll" KeyPath="yes" Source="$(var.BinPath)\System.Dynamic.Runtime.dll" />
+            </Component>
+            <Component Id="System.Formats.Asn1.dll" Guid="{85C72B6C-7723-4B44-A830-DF7C8E2BCFC6}">
+                <File Id="System.Formats.Asn1.dll" KeyPath="yes" Source="$(var.BinPath)\System.Formats.Asn1.dll" />
+            </Component>
+            <Component Id="System.Formats.Tar.dll" Guid="{B8E4E162-1027-40A0-BB0C-DC4BFE0D5982}">
+                <File Id="System.Formats.Tar.dll" KeyPath="yes" Source="$(var.BinPath)\System.Formats.Tar.dll" />
+            </Component>
+            <Component Id="System.Globalization.Calendars.dll" Guid="{8B016192-AC28-47EC-84F7-CAAF514A8D6F}">
+                <File Id="System.Globalization.Calendars.dll" KeyPath="yes" Source="$(var.BinPath)\System.Globalization.Calendars.dll" />
+            </Component>
+            <Component Id="System.Globalization.dll" Guid="{17A66118-894C-44D8-8EC5-F39BADCE29BC}">
+                <File Id="System.Globalization.dll" KeyPath="yes" Source="$(var.BinPath)\System.Globalization.dll" />
+            </Component>
+            <Component Id="System.Globalization.Extensions.dll" Guid="{2C603035-2F9F-42F0-B946-B495C7D0F164}">
+                <File Id="System.Globalization.Extensions.dll" KeyPath="yes" Source="$(var.BinPath)\System.Globalization.Extensions.dll" />
+            </Component>
+            <Component Id="System.IO.Compression.Brotli.dll" Guid="{C2233670-6A0B-4070-A54F-8DB6E2E75A54}">
+                <File Id="System.IO.Compression.Brotli.dll" KeyPath="yes" Source="$(var.BinPath)\System.IO.Compression.Brotli.dll" />
+            </Component>
+            <Component Id="System.IO.Compression.dll" Guid="{BDF4AEE2-66CD-4FA8-A2A8-DE0F7EA7A467}">
+                <File Id="System.IO.Compression.dll" KeyPath="yes" Source="$(var.BinPath)\System.IO.Compression.dll" />
+            </Component>
+            <Component Id="System.IO.Compression.FileSystem.dll" Guid="{CFF5FD06-3E30-4B43-AAA7-157BD851B12E}">
+                <File Id="System.IO.Compression.FileSystem.dll" KeyPath="yes" Source="$(var.BinPath)\System.IO.Compression.FileSystem.dll" />
+            </Component>
+            <Component Id="System.IO.Compression.Native.dll" Guid="{05E2D823-9860-4F82-8085-1817F96FDBE0}">
+                <File Id="System.IO.Compression.Native.dll" KeyPath="yes" Source="$(var.BinPath)\System.IO.Compression.Native.dll" />
+            </Component>
+            <Component Id="System.IO.Compression.ZipFile.dll" Guid="{5FE8C5DB-8DC1-4E2F-AEF7-6D05033A54E5}">
+                <File Id="System.IO.Compression.ZipFile.dll" KeyPath="yes" Source="$(var.BinPath)\System.IO.Compression.ZipFile.dll" />
+            </Component>
+            <Component Id="System.IO.dll" Guid="{1736B7F6-ED10-4362-90B0-B8BE3FB04307}">
+                <File Id="System.IO.dll" KeyPath="yes" Source="$(var.BinPath)\System.IO.dll" />
+            </Component>
+            <Component Id="System.IO.FileSystem.AccessControl.dll" Guid="{519236C5-0D81-40C2-A2A2-6155899D77D4}">
+                <File Id="System.IO.FileSystem.AccessControl.dll" KeyPath="yes" Source="$(var.BinPath)\System.IO.FileSystem.AccessControl.dll" />
+            </Component>
+            <Component Id="System.IO.FileSystem.dll" Guid="{F6B122A9-7437-44F1-9E6B-824DD2A3A00B}">
+                <File Id="System.IO.FileSystem.dll" KeyPath="yes" Source="$(var.BinPath)\System.IO.FileSystem.dll" />
+            </Component>
+            <Component Id="System.IO.FileSystem.DriveInfo.dll" Guid="{E270C3AD-8CD1-40D1-ACA4-C0020DFF310E}">
+                <File Id="System.IO.FileSystem.DriveInfo.dll" KeyPath="yes" Source="$(var.BinPath)\System.IO.FileSystem.DriveInfo.dll" />
+            </Component>
+            <Component Id="System.IO.FileSystem.Primitives.dll" Guid="{BC01F2E8-0603-495A-BD0F-F4E041862481}">
+                <File Id="System.IO.FileSystem.Primitives.dll" KeyPath="yes" Source="$(var.BinPath)\System.IO.FileSystem.Primitives.dll" />
+            </Component>
+            <Component Id="System.IO.FileSystem.Watcher.dll" Guid="{5CC064F4-26E9-4EC1-844B-B78AA85ED3FE}">
+                <File Id="System.IO.FileSystem.Watcher.dll" KeyPath="yes" Source="$(var.BinPath)\System.IO.FileSystem.Watcher.dll" />
+            </Component>
+            <Component Id="System.IO.IsolatedStorage.dll" Guid="{C0DFA88D-6373-4FA2-81C8-DBB1D871A4FF}">
+                <File Id="System.IO.IsolatedStorage.dll" KeyPath="yes" Source="$(var.BinPath)\System.IO.IsolatedStorage.dll" />
+            </Component>
+            <Component Id="System.IO.MemoryMappedFiles.dll" Guid="{6C5A416D-EBE4-4AD7-86CF-4F5C48B6071D}">
+                <File Id="System.IO.MemoryMappedFiles.dll" KeyPath="yes" Source="$(var.BinPath)\System.IO.MemoryMappedFiles.dll" />
+            </Component>
+            <Component Id="System.IO.Pipes.AccessControl.dll" Guid="{E2BB6715-A68D-4844-9A78-E800C8CAE21B}">
+                <File Id="System.IO.Pipes.AccessControl.dll" KeyPath="yes" Source="$(var.BinPath)\System.IO.Pipes.AccessControl.dll" />
+            </Component>
+            <Component Id="System.IO.Pipes.dll" Guid="{2643487D-4132-4A41-A9A9-A8F6E3CD683A}">
+                <File Id="System.IO.Pipes.dll" KeyPath="yes" Source="$(var.BinPath)\System.IO.Pipes.dll" />
+            </Component>
+            <Component Id="System.IO.UnmanagedMemoryStream.dll" Guid="{1939FC1E-C88B-4643-AEF6-D24E571122BE}">
+                <File Id="System.IO.UnmanagedMemoryStream.dll" KeyPath="yes" Source="$(var.BinPath)\System.IO.UnmanagedMemoryStream.dll" />
+            </Component>
+            <Component Id="System.Linq.dll" Guid="{D13B8DB0-1F4B-4366-821A-A420A54E641A}">
+                <File Id="System.Linq.dll" KeyPath="yes" Source="$(var.BinPath)\System.Linq.dll" />
+            </Component>
+            <Component Id="System.Linq.Expressions.dll" Guid="{8AA6E7E1-75FA-4785-B7FB-45ADF42068AF}">
+                <File Id="System.Linq.Expressions.dll" KeyPath="yes" Source="$(var.BinPath)\System.Linq.Expressions.dll" />
+            </Component>
+            <Component Id="System.Linq.Parallel.dll" Guid="{FC377853-E657-4BBD-80C9-78C9936C620E}">
+                <File Id="System.Linq.Parallel.dll" KeyPath="yes" Source="$(var.BinPath)\System.Linq.Parallel.dll" />
+            </Component>
+            <Component Id="System.Linq.Queryable.dll" Guid="{2598B923-17E5-4689-B0B2-FA1DA5ABFA3E}">
+                <File Id="System.Linq.Queryable.dll" KeyPath="yes" Source="$(var.BinPath)\System.Linq.Queryable.dll" />
+            </Component>
+            <Component Id="System.Memory.dll" Guid="{CB74434C-8CA0-4761-963D-02A658D942DD}">
+                <File Id="System.Memory.dll" KeyPath="yes" Source="$(var.BinPath)\System.Memory.dll" />
+            </Component>
+            <Component Id="System.Net.dll" Guid="{1829C243-8047-4755-9E08-25EEF93DA4A3}">
+                <File Id="System.Net.dll" KeyPath="yes" Source="$(var.BinPath)\System.Net.dll" />
+            </Component>
+            <Component Id="System.Net.Http.dll" Guid="{C1ABBA52-7475-48F8-8A1A-A321B4BD4DC0}">
+                <File Id="System.Net.Http.dll" KeyPath="yes" Source="$(var.BinPath)\System.Net.Http.dll" />
+            </Component>
+            <Component Id="System.Net.Http.Json.dll" Guid="{392ED432-73CB-4930-83FB-6CDE0EBACAC0}">
+                <File Id="System.Net.Http.Json.dll" KeyPath="yes" Source="$(var.BinPath)\System.Net.Http.Json.dll" />
+            </Component>
+            <Component Id="System.Net.HttpListener.dll" Guid="{82713CC8-D729-46F9-BE43-D3D440E009D1}">
+                <File Id="System.Net.HttpListener.dll" KeyPath="yes" Source="$(var.BinPath)\System.Net.HttpListener.dll" />
+            </Component>
+            <Component Id="System.Net.Mail.dll" Guid="{F2CAE602-9F7A-43C9-ABA4-D7CA1CC36958}">
+                <File Id="System.Net.Mail.dll" KeyPath="yes" Source="$(var.BinPath)\System.Net.Mail.dll" />
+            </Component>
+            <Component Id="System.Net.NameResolution.dll" Guid="{BA17355E-43A4-47B2-80DB-534710346C55}">
+                <File Id="System.Net.NameResolution.dll" KeyPath="yes" Source="$(var.BinPath)\System.Net.NameResolution.dll" />
+            </Component>
+            <Component Id="System.Net.NetworkInformation.dll" Guid="{72184D79-B955-4D6F-98BF-16CD440318A8}">
+                <File Id="System.Net.NetworkInformation.dll" KeyPath="yes" Source="$(var.BinPath)\System.Net.NetworkInformation.dll" />
+            </Component>
+            <Component Id="System.Net.Ping.dll" Guid="{D4271AD2-5583-4054-8F02-D2F31AA9625A}">
+                <File Id="System.Net.Ping.dll" KeyPath="yes" Source="$(var.BinPath)\System.Net.Ping.dll" />
+            </Component>
+            <Component Id="System.Net.Primitives.dll" Guid="{590E450C-23E3-4DD7-9D8A-8764047E80BD}">
+                <File Id="System.Net.Primitives.dll" KeyPath="yes" Source="$(var.BinPath)\System.Net.Primitives.dll" />
+            </Component>
+            <Component Id="System.Net.Quic.dll" Guid="{9ED1BB15-F3BA-4DF1-A95E-3A684B4E33F0}">
+                <File Id="System.Net.Quic.dll" KeyPath="yes" Source="$(var.BinPath)\System.Net.Quic.dll" />
+            </Component>
+            <Component Id="System.Net.Requests.dll" Guid="{432364C4-9F62-4663-8BBC-1FE2197B138E}">
+                <File Id="System.Net.Requests.dll" KeyPath="yes" Source="$(var.BinPath)\System.Net.Requests.dll" />
+            </Component>
+            <Component Id="System.Net.Security.dll" Guid="{09801843-AC3D-4E93-A4C9-58A86727E937}">
+                <File Id="System.Net.Security.dll" KeyPath="yes" Source="$(var.BinPath)\System.Net.Security.dll" />
+            </Component>
+            <Component Id="System.Net.ServicePoint.dll" Guid="{90FB16C2-C6E7-4603-A03C-D6ED9FF78BE5}">
+                <File Id="System.Net.ServicePoint.dll" KeyPath="yes" Source="$(var.BinPath)\System.Net.ServicePoint.dll" />
+            </Component>
+            <Component Id="System.Net.Sockets.dll" Guid="{0138F024-22AD-4D9C-811C-C597B29E6157}">
+                <File Id="System.Net.Sockets.dll" KeyPath="yes" Source="$(var.BinPath)\System.Net.Sockets.dll" />
+            </Component>
+            <Component Id="System.Net.WebClient.dll" Guid="{80AEF638-F6BB-40BB-8796-B27EA5C1BE0F}">
+                <File Id="System.Net.WebClient.dll" KeyPath="yes" Source="$(var.BinPath)\System.Net.WebClient.dll" />
+            </Component>
+            <Component Id="System.Net.WebHeaderCollection.dll" Guid="{E5B84910-AC02-4424-98EC-DAE260259DCE}">
+                <File Id="System.Net.WebHeaderCollection.dll" KeyPath="yes" Source="$(var.BinPath)\System.Net.WebHeaderCollection.dll" />
+            </Component>
+            <Component Id="System.Net.WebProxy.dll" Guid="{04C04199-82C2-44FA-AC12-A23F037FBCAA}">
+                <File Id="System.Net.WebProxy.dll" KeyPath="yes" Source="$(var.BinPath)\System.Net.WebProxy.dll" />
+            </Component>
+            <Component Id="System.Net.WebSockets.Client.dll" Guid="{4A373A37-0460-43E5-8EB5-0D72C77C91B8}">
+                <File Id="System.Net.WebSockets.Client.dll" KeyPath="yes" Source="$(var.BinPath)\System.Net.WebSockets.Client.dll" />
+            </Component>
+            <Component Id="System.Net.WebSockets.dll" Guid="{909B82BF-494F-4AAD-B4DD-71BA4D192675}">
+                <File Id="System.Net.WebSockets.dll" KeyPath="yes" Source="$(var.BinPath)\System.Net.WebSockets.dll" />
+            </Component>
+            <Component Id="System.Numerics.dll" Guid="{822211FD-CB96-418D-9171-3C516F01078A}">
+                <File Id="System.Numerics.dll" KeyPath="yes" Source="$(var.BinPath)\System.Numerics.dll" />
+            </Component>
+            <Component Id="System.Numerics.Tensors.dll" Guid="{A1B02B60-5347-47BF-8ACD-502C961E38D8}">
+                <File Id="System.Numerics.Tensors.dll" KeyPath="yes" Source="$(var.BinPath)\System.Numerics.Tensors.dll" />
+            </Component>
+            <Component Id="System.Numerics.Vectors.dll" Guid="{9AA0661E-229F-4367-BAB5-683736665DFE}">
+                <File Id="System.Numerics.Vectors.dll" KeyPath="yes" Source="$(var.BinPath)\System.Numerics.Vectors.dll" />
+            </Component>
+            <Component Id="System.ObjectModel.dll" Guid="{01DCB768-7430-4123-B989-B153D7C72ABC}">
+                <File Id="System.ObjectModel.dll" KeyPath="yes" Source="$(var.BinPath)\System.ObjectModel.dll" />
+            </Component>
+            <Component Id="System.Private.CoreLib.dll" Guid="{8BE7B843-19B9-40B2-85DD-4F73AAFCCF17}">
+                <File Id="System.Private.CoreLib.dll" KeyPath="yes" Source="$(var.BinPath)\System.Private.CoreLib.dll" />
+            </Component>
+            <Component Id="System.Private.DataContractSerialization.dll" Guid="{D0EB3DAC-E304-4EF7-A735-594A68CFDF5C}">
+                <File Id="System.Private.DataContractSerialization.dll" KeyPath="yes" Source="$(var.BinPath)\System.Private.DataContractSerialization.dll" />
+            </Component>
+            <Component Id="System.Private.Uri.dll" Guid="{E9A5B925-3B2B-40E3-B448-63235ADF03DA}">
+                <File Id="System.Private.Uri.dll" KeyPath="yes" Source="$(var.BinPath)\System.Private.Uri.dll" />
+            </Component>
+            <Component Id="System.Private.Xml.dll" Guid="{BDE1342A-1B5B-4921-9090-CEF96A1C480B}">
+                <File Id="System.Private.Xml.dll" KeyPath="yes" Source="$(var.BinPath)\System.Private.Xml.dll" />
+            </Component>
+            <Component Id="System.Private.Xml.Linq.dll" Guid="{58931065-223E-400C-A49A-2C8B63353EEF}">
+                <File Id="System.Private.Xml.Linq.dll" KeyPath="yes" Source="$(var.BinPath)\System.Private.Xml.Linq.dll" />
+            </Component>
+            <Component Id="System.Reflection.DispatchProxy.dll" Guid="{814F724A-00E4-4DC3-AD54-4D97260FC840}">
+                <File Id="System.Reflection.DispatchProxy.dll" KeyPath="yes" Source="$(var.BinPath)\System.Reflection.DispatchProxy.dll" />
+            </Component>
+            <Component Id="System.Reflection.dll" Guid="{F6CFD57F-A14A-4C64-80B7-E7F4C0E7E6CC}">
+                <File Id="System.Reflection.dll" KeyPath="yes" Source="$(var.BinPath)\System.Reflection.dll" />
+            </Component>
+            <Component Id="System.Reflection.Emit.dll" Guid="{0C6A4D18-5E19-4832-A2A1-3F8ED6C8003E}">
+                <File Id="System.Reflection.Emit.dll" KeyPath="yes" Source="$(var.BinPath)\System.Reflection.Emit.dll" />
+            </Component>
+            <Component Id="System.Reflection.Emit.ILGeneration.dll" Guid="{925D7A0A-D709-44B9-9BEC-C107C9E6271F}">
+                <File Id="System.Reflection.Emit.ILGeneration.dll" KeyPath="yes" Source="$(var.BinPath)\System.Reflection.Emit.ILGeneration.dll" />
+            </Component>
+            <Component Id="System.Reflection.Emit.Lightweight.dll" Guid="{82B5FC91-3890-4644-A155-769234C41E62}">
+                <File Id="System.Reflection.Emit.Lightweight.dll" KeyPath="yes" Source="$(var.BinPath)\System.Reflection.Emit.Lightweight.dll" />
+            </Component>
+            <Component Id="System.Reflection.Extensions.dll" Guid="{8101AEE6-3E22-4D85-A499-54E52DFCB96E}">
+                <File Id="System.Reflection.Extensions.dll" KeyPath="yes" Source="$(var.BinPath)\System.Reflection.Extensions.dll" />
+            </Component>
+            <Component Id="System.Reflection.Metadata.dll" Guid="{F4D001AC-EFDA-41A8-9E26-8D6F739BA2D3}">
+                <File Id="System.Reflection.Metadata.dll" KeyPath="yes" Source="$(var.BinPath)\System.Reflection.Metadata.dll" />
+            </Component>
+            <Component Id="System.Reflection.Primitives.dll" Guid="{DE26CA7F-6A42-4C50-9A28-D9C63391242D}">
+                <File Id="System.Reflection.Primitives.dll" KeyPath="yes" Source="$(var.BinPath)\System.Reflection.Primitives.dll" />
+            </Component>
+            <Component Id="System.Reflection.TypeExtensions.dll" Guid="{FF7D26A0-181E-42AD-B3C4-F375D54AAE9F}">
+                <File Id="System.Reflection.TypeExtensions.dll" KeyPath="yes" Source="$(var.BinPath)\System.Reflection.TypeExtensions.dll" />
+            </Component>
+            <Component Id="System.Resources.Reader.dll" Guid="{AD50592D-4B82-4DD1-B827-F2A277E2CAF0}">
+                <File Id="System.Resources.Reader.dll" KeyPath="yes" Source="$(var.BinPath)\System.Resources.Reader.dll" />
+            </Component>
+            <Component Id="System.Resources.ResourceManager.dll" Guid="{35CA7A3A-A978-461C-BD07-6FFBB2E8B73E}">
+                <File Id="System.Resources.ResourceManager.dll" KeyPath="yes" Source="$(var.BinPath)\System.Resources.ResourceManager.dll" />
+            </Component>
+            <Component Id="System.Resources.Writer.dll" Guid="{BF5ECEA3-D8D2-4440-B8A8-58DC8F90D4F8}">
+                <File Id="System.Resources.Writer.dll" KeyPath="yes" Source="$(var.BinPath)\System.Resources.Writer.dll" />
+            </Component>
+            <Component Id="System.Runtime.CompilerServices.Unsafe.dll" Guid="{01CFEE43-BB5A-46D8-8610-E75955EF6143}">
+                <File Id="System.Runtime.CompilerServices.Unsafe.dll" KeyPath="yes" Source="$(var.BinPath)\System.Runtime.CompilerServices.Unsafe.dll" />
+            </Component>
+            <Component Id="System.Runtime.CompilerServices.VisualC.dll" Guid="{AE6D25D2-550D-484B-96E0-7C147EC83C40}">
+                <File Id="System.Runtime.CompilerServices.VisualC.dll" KeyPath="yes" Source="$(var.BinPath)\System.Runtime.CompilerServices.VisualC.dll" />
+            </Component>
+            <Component Id="System.Runtime.dll" Guid="{422012B6-991A-4411-A6AE-9212C27920DC}">
+                <File Id="System.Runtime.dll" KeyPath="yes" Source="$(var.BinPath)\System.Runtime.dll" />
+            </Component>
+            <Component Id="System.Runtime.Extensions.dll" Guid="{48311508-0DD3-4C5D-B792-166006AFE686}">
+                <File Id="System.Runtime.Extensions.dll" KeyPath="yes" Source="$(var.BinPath)\System.Runtime.Extensions.dll" />
+            </Component>
+            <Component Id="System.Runtime.Handles.dll" Guid="{2E28B411-0E54-42D7-9D0F-F6AF06C0A53C}">
+                <File Id="System.Runtime.Handles.dll" KeyPath="yes" Source="$(var.BinPath)\System.Runtime.Handles.dll" />
+            </Component>
+            <Component Id="System.Runtime.InteropServices.dll" Guid="{9C8F6C55-8739-457B-A707-2A9DB0014F4D}">
+                <File Id="System.Runtime.InteropServices.dll" KeyPath="yes" Source="$(var.BinPath)\System.Runtime.InteropServices.dll" />
+            </Component>
+            <Component Id="System.Runtime.InteropServices.JavaScript.dll" Guid="{DA608CD0-E06F-43B9-B4ED-E6BBDBD4FEC0}">
+                <File Id="System.Runtime.InteropServices.JavaScript.dll" KeyPath="yes" Source="$(var.BinPath)\System.Runtime.InteropServices.JavaScript.dll" />
+            </Component>
+            <Component Id="System.Runtime.InteropServices.RuntimeInformation.dll" Guid="{963CC16C-5A29-4819-827D-C662ECEEE0B4}">
+                <File Id="System.Runtime.InteropServices.RuntimeInformation.dll" KeyPath="yes" Source="$(var.BinPath)\System.Runtime.InteropServices.RuntimeInformation.dll" />
+            </Component>
+            <Component Id="System.Runtime.Intrinsics.dll" Guid="{B6FC2B54-0614-4BF7-ADF8-BC4CE9950002}">
+                <File Id="System.Runtime.Intrinsics.dll" KeyPath="yes" Source="$(var.BinPath)\System.Runtime.Intrinsics.dll" />
+            </Component>
+            <Component Id="System.Runtime.Loader.dll" Guid="{F329B51F-EEA2-4303-9735-E586B62DDB8E}">
+                <File Id="System.Runtime.Loader.dll" KeyPath="yes" Source="$(var.BinPath)\System.Runtime.Loader.dll" />
+            </Component>
+            <Component Id="System.Runtime.Numerics.dll" Guid="{E82875AA-0808-47BA-A964-5A7FAD2A4583}">
+                <File Id="System.Runtime.Numerics.dll" KeyPath="yes" Source="$(var.BinPath)\System.Runtime.Numerics.dll" />
+            </Component>
+            <Component Id="System.Runtime.Serialization.dll" Guid="{7221EAF3-E970-4219-9D91-FDEF4EC9B8C3}">
+                <File Id="System.Runtime.Serialization.dll" KeyPath="yes" Source="$(var.BinPath)\System.Runtime.Serialization.dll" />
+            </Component>
+            <Component Id="System.Runtime.Serialization.Formatters.dll" Guid="{DACC3C2B-39FE-4D2C-B23F-8C6C2BDAEFB5}">
+                <File Id="System.Runtime.Serialization.Formatters.dll" KeyPath="yes" Source="$(var.BinPath)\System.Runtime.Serialization.Formatters.dll" />
+            </Component>
+            <Component Id="System.Runtime.Serialization.Json.dll" Guid="{C5B82718-E57D-4FF2-AF76-154F9D0CB4AC}">
+                <File Id="System.Runtime.Serialization.Json.dll" KeyPath="yes" Source="$(var.BinPath)\System.Runtime.Serialization.Json.dll" />
+            </Component>
+            <Component Id="System.Runtime.Serialization.Primitives.dll" Guid="{9B03258C-B363-46CA-8CAB-B25B33D428D9}">
+                <File Id="System.Runtime.Serialization.Primitives.dll" KeyPath="yes" Source="$(var.BinPath)\System.Runtime.Serialization.Primitives.dll" />
+            </Component>
+            <Component Id="System.Runtime.Serialization.Xml.dll" Guid="{14804F6E-8E28-4EA7-A19F-F9DB2E05E728}">
+                <File Id="System.Runtime.Serialization.Xml.dll" KeyPath="yes" Source="$(var.BinPath)\System.Runtime.Serialization.Xml.dll" />
+            </Component>
+            <Component Id="System.Security.AccessControl.dll" Guid="{82EB938C-A467-44BF-9542-B710156292F0}">
+                <File Id="System.Security.AccessControl.dll" KeyPath="yes" Source="$(var.BinPath)\System.Security.AccessControl.dll" />
+            </Component>
+            <Component Id="System.Security.Claims.dll" Guid="{DDA0E8CA-ED71-4B52-8C00-829C18982E67}">
+                <File Id="System.Security.Claims.dll" KeyPath="yes" Source="$(var.BinPath)\System.Security.Claims.dll" />
+            </Component>
+            <Component Id="System.Security.Cryptography.Algorithms.dll" Guid="{A534B482-78E3-426A-9024-6815A975FA8A}">
+                <File Id="System.Security.Cryptography.Algorithms.dll" KeyPath="yes" Source="$(var.BinPath)\System.Security.Cryptography.Algorithms.dll" />
+            </Component>
+            <Component Id="System.Security.Cryptography.Cng.dll" Guid="{D593B7C7-4ED0-4858-B4DC-64573443A1C8}">
+                <File Id="System.Security.Cryptography.Cng.dll" KeyPath="yes" Source="$(var.BinPath)\System.Security.Cryptography.Cng.dll" />
+            </Component>
+            <Component Id="System.Security.Cryptography.Csp.dll" Guid="{A44D850B-9712-4B56-8E4E-6DDE032DE6B6}">
+                <File Id="System.Security.Cryptography.Csp.dll" KeyPath="yes" Source="$(var.BinPath)\System.Security.Cryptography.Csp.dll" />
+            </Component>
+            <Component Id="System.Security.Cryptography.dll" Guid="{BA91D416-E6EE-418E-9D38-FF1185FF1C26}">
+                <File Id="System.Security.Cryptography.dll" KeyPath="yes" Source="$(var.BinPath)\System.Security.Cryptography.dll" />
+            </Component>
+            <Component Id="System.Security.Cryptography.Encoding.dll" Guid="{10ED14E9-E881-40F9-BB65-6A143CCC3AB3}">
+                <File Id="System.Security.Cryptography.Encoding.dll" KeyPath="yes" Source="$(var.BinPath)\System.Security.Cryptography.Encoding.dll" />
+            </Component>
+            <Component Id="System.Security.Cryptography.OpenSsl.dll" Guid="{05EA2B12-2F0A-4E16-9673-42D473CFBC3B}">
+                <File Id="System.Security.Cryptography.OpenSsl.dll" KeyPath="yes" Source="$(var.BinPath)\System.Security.Cryptography.OpenSsl.dll" />
+            </Component>
+            <Component Id="System.Security.Cryptography.Primitives.dll" Guid="{571B98E5-D220-4954-A7EB-E9A995C87A81}">
+                <File Id="System.Security.Cryptography.Primitives.dll" KeyPath="yes" Source="$(var.BinPath)\System.Security.Cryptography.Primitives.dll" />
+            </Component>
+            <Component Id="System.Security.Cryptography.X509Certificates.dll" Guid="{3BDEF7A7-0EA3-41DF-A92D-27BF48A12048}">
+                <File Id="System.Security.Cryptography.X509Certificates.dll" KeyPath="yes" Source="$(var.BinPath)\System.Security.Cryptography.X509Certificates.dll" />
+            </Component>
+            <Component Id="System.Security.dll" Guid="{1D084E46-F9A6-4EFF-A36C-A0EC8DFF1DAE}">
+                <File Id="System.Security.dll" KeyPath="yes" Source="$(var.BinPath)\System.Security.dll" />
+            </Component>
+            <Component Id="System.Security.Principal.dll" Guid="{6FA66FE9-349C-40FF-8F56-3CB4F42C4601}">
+                <File Id="System.Security.Principal.dll" KeyPath="yes" Source="$(var.BinPath)\System.Security.Principal.dll" />
+            </Component>
+            <Component Id="System.Security.Principal.Windows.dll" Guid="{6CB18822-FBC4-40EA-B83E-DF4D6A667345}">
+                <File Id="System.Security.Principal.Windows.dll" KeyPath="yes" Source="$(var.BinPath)\System.Security.Principal.Windows.dll" />
+            </Component>
+            <Component Id="System.Security.SecureString.dll" Guid="{E2AB4B7C-68B2-4541-91C7-3E9574C5C68F}">
+                <File Id="System.Security.SecureString.dll" KeyPath="yes" Source="$(var.BinPath)\System.Security.SecureString.dll" />
+            </Component>
+            <Component Id="System.ServiceModel.Web.dll" Guid="{6FCA0186-2DE5-498D-B7C7-64ADCDC255A3}">
+                <File Id="System.ServiceModel.Web.dll" KeyPath="yes" Source="$(var.BinPath)\System.ServiceModel.Web.dll" />
+            </Component>
+            <Component Id="System.ServiceProcess.dll" Guid="{B407B90D-175C-4A75-BB5C-5D6C63B1377C}">
+                <File Id="System.ServiceProcess.dll" KeyPath="yes" Source="$(var.BinPath)\System.ServiceProcess.dll" />
+            </Component>
+            <Component Id="System.Text.Encoding.CodePages.dll" Guid="{5C5AE7BF-8DC1-4740-921A-B55D4B87FEFC}">
+                <File Id="System.Text.Encoding.CodePages.dll" KeyPath="yes" Source="$(var.BinPath)\System.Text.Encoding.CodePages.dll" />
+            </Component>
+            <Component Id="System.Text.Encoding.dll" Guid="{0A20ABA9-E8DB-4429-AAE2-F2F6361EA9B4}">
+                <File Id="System.Text.Encoding.dll" KeyPath="yes" Source="$(var.BinPath)\System.Text.Encoding.dll" />
+            </Component>
+            <Component Id="System.Text.Encoding.Extensions.dll" Guid="{745216D1-8617-4F4F-99FF-9A7AEF39AA66}">
+                <File Id="System.Text.Encoding.Extensions.dll" KeyPath="yes" Source="$(var.BinPath)\System.Text.Encoding.Extensions.dll" />
+            </Component>
+            <Component Id="System.Text.Encodings.Web.dll" Guid="{E510395E-8502-47D9-A6A5-F19CED0BB950}">
+                <File Id="System.Text.Encodings.Web.dll" KeyPath="yes" Source="$(var.BinPath)\System.Text.Encodings.Web.dll" />
+            </Component>
+            <Component Id="System.Text.Json.dll" Guid="{9C941F32-17F4-4220-8C05-BDBF7F5B38F8}">
+                <File Id="System.Text.Json.dll" KeyPath="yes" Source="$(var.BinPath)\System.Text.Json.dll" />
+            </Component>
+            <Component Id="System.Text.RegularExpressions.dll" Guid="{93EC73A8-6EBA-4854-85CE-BFD149DE7FB5}">
+                <File Id="System.Text.RegularExpressions.dll" KeyPath="yes" Source="$(var.BinPath)\System.Text.RegularExpressions.dll" />
+            </Component>
+            <Component Id="System.Threading.Channels.dll" Guid="{9E0BAEC1-E2B8-426D-8CE0-496DA528AA94}">
+                <File Id="System.Threading.Channels.dll" KeyPath="yes" Source="$(var.BinPath)\System.Threading.Channels.dll" />
+            </Component>
+            <Component Id="System.Threading.dll" Guid="{9178D178-6DAD-4194-B242-71022D6B40DC}">
+                <File Id="System.Threading.dll" KeyPath="yes" Source="$(var.BinPath)\System.Threading.dll" />
+            </Component>
+            <Component Id="System.Threading.Overlapped.dll" Guid="{7E6DBB23-DB59-43C6-A751-B4AA5C98AD65}">
+                <File Id="System.Threading.Overlapped.dll" KeyPath="yes" Source="$(var.BinPath)\System.Threading.Overlapped.dll" />
+            </Component>
+            <Component Id="System.Threading.Tasks.Dataflow.dll" Guid="{7AE47499-6846-434B-8EAB-62AECE05F054}">
+                <File Id="System.Threading.Tasks.Dataflow.dll" KeyPath="yes" Source="$(var.BinPath)\System.Threading.Tasks.Dataflow.dll" />
+            </Component>
+            <Component Id="System.Threading.Tasks.dll" Guid="{8041CFA4-C82C-446E-9254-01B066A8B90F}">
+                <File Id="System.Threading.Tasks.dll" KeyPath="yes" Source="$(var.BinPath)\System.Threading.Tasks.dll" />
+            </Component>
+            <Component Id="System.Threading.Tasks.Extensions.dll" Guid="{6D3CD017-D4F4-493D-AFFB-303537B95C77}">
+                <File Id="System.Threading.Tasks.Extensions.dll" KeyPath="yes" Source="$(var.BinPath)\System.Threading.Tasks.Extensions.dll" />
+            </Component>
+            <Component Id="System.Threading.Tasks.Parallel.dll" Guid="{B7D135A3-10CF-4C11-8937-36E420F36EA3}">
+                <File Id="System.Threading.Tasks.Parallel.dll" KeyPath="yes" Source="$(var.BinPath)\System.Threading.Tasks.Parallel.dll" />
+            </Component>
+            <Component Id="System.Threading.Thread.dll" Guid="{5967385D-D16F-402E-8032-679A69A3D534}">
+                <File Id="System.Threading.Thread.dll" KeyPath="yes" Source="$(var.BinPath)\System.Threading.Thread.dll" />
+            </Component>
+            <Component Id="System.Threading.ThreadPool.dll" Guid="{8F5D4DC3-75FF-4327-8C52-3361C9F5B6FD}">
+                <File Id="System.Threading.ThreadPool.dll" KeyPath="yes" Source="$(var.BinPath)\System.Threading.ThreadPool.dll" />
+            </Component>
+            <Component Id="System.Threading.Timer.dll" Guid="{C7E76B68-CE30-4155-8D61-ECB9FEE3CA9F}">
+                <File Id="System.Threading.Timer.dll" KeyPath="yes" Source="$(var.BinPath)\System.Threading.Timer.dll" />
+            </Component>
+            <Component Id="System.Transactions.dll" Guid="{5752FDE4-BEF7-447C-8185-10B33A3430F3}">
+                <File Id="System.Transactions.dll" KeyPath="yes" Source="$(var.BinPath)\System.Transactions.dll" />
+            </Component>
+            <Component Id="System.Transactions.Local.dll" Guid="{AA44699E-38E8-45FE-AF23-3241A5BFD41D}">
+                <File Id="System.Transactions.Local.dll" KeyPath="yes" Source="$(var.BinPath)\System.Transactions.Local.dll" />
+            </Component>
+            <Component Id="System.ValueTuple.dll" Guid="{A094DD45-8E1E-4830-A8AF-8AF7AFE3CF77}">
+                <File Id="System.ValueTuple.dll" KeyPath="yes" Source="$(var.BinPath)\System.ValueTuple.dll" />
+            </Component>
+            <Component Id="System.Web.dll" Guid="{05BBA58D-7177-47F9-A637-29881F8DA15B}">
+                <File Id="System.Web.dll" KeyPath="yes" Source="$(var.BinPath)\System.Web.dll" />
+            </Component>
+            <Component Id="System.Web.HttpUtility.dll" Guid="{7006B8AC-B047-4E01-9456-741E126CA5B8}">
+                <File Id="System.Web.HttpUtility.dll" KeyPath="yes" Source="$(var.BinPath)\System.Web.HttpUtility.dll" />
+            </Component>
+            <Component Id="System.Windows.dll" Guid="{B23B6393-81B9-4D62-BA07-C8711ADC7073}">
+                <File Id="System.Windows.dll" KeyPath="yes" Source="$(var.BinPath)\System.Windows.dll" />
+            </Component>
+            <Component Id="System.Xml.dll" Guid="{886C4F3F-11DA-44B9-BCA5-BFE0FD940026}">
+                <File Id="System.Xml.dll" KeyPath="yes" Source="$(var.BinPath)\System.Xml.dll" />
+            </Component>
+            <Component Id="System.Xml.Linq.dll" Guid="{FEABCCB3-B933-4D8E-9212-CC8004656DF9}">
+                <File Id="System.Xml.Linq.dll" KeyPath="yes" Source="$(var.BinPath)\System.Xml.Linq.dll" />
+            </Component>
+            <Component Id="System.Xml.ReaderWriter.dll" Guid="{0DBA3578-3C5C-4D31-A0F9-63A9D7DE0BF1}">
+                <File Id="System.Xml.ReaderWriter.dll" KeyPath="yes" Source="$(var.BinPath)\System.Xml.ReaderWriter.dll" />
+            </Component>
+            <Component Id="System.Xml.Serialization.dll" Guid="{9A23D8F1-D6ED-4B29-A656-236691BC7A80}">
+                <File Id="System.Xml.Serialization.dll" KeyPath="yes" Source="$(var.BinPath)\System.Xml.Serialization.dll" />
+            </Component>
+            <Component Id="System.Xml.XDocument.dll" Guid="{F9DF13D2-2CEF-4836-AF44-91FB82A18118}">
+                <File Id="System.Xml.XDocument.dll" KeyPath="yes" Source="$(var.BinPath)\System.Xml.XDocument.dll" />
+            </Component>
+            <Component Id="System.Xml.XmlDocument.dll" Guid="{F102470D-7B16-49B4-8AC3-1978E8BC86FC}">
+                <File Id="System.Xml.XmlDocument.dll" KeyPath="yes" Source="$(var.BinPath)\System.Xml.XmlDocument.dll" />
+            </Component>
+            <Component Id="System.Xml.XmlSerializer.dll" Guid="{6444A682-0F45-436E-92DF-53D945A22F11}">
+                <File Id="System.Xml.XmlSerializer.dll" KeyPath="yes" Source="$(var.BinPath)\System.Xml.XmlSerializer.dll" />
+            </Component>
+            <Component Id="System.Xml.XPath.dll" Guid="{1DF21192-0057-48A9-AF1A-A74C5BCDFA2A}">
+                <File Id="System.Xml.XPath.dll" KeyPath="yes" Source="$(var.BinPath)\System.Xml.XPath.dll" />
+            </Component>
+            <Component Id="System.Xml.XPath.XDocument.dll" Guid="{86D5C427-011D-4CC9-BC5C-84946623F606}">
+                <File Id="System.Xml.XPath.XDocument.dll" KeyPath="yes" Source="$(var.BinPath)\System.Xml.XPath.XDocument.dll" />
+            </Component>
+            <Component Id="WebView2Loader.dll" Guid="{421BC8C4-ED19-4CAB-BAD3-C0C7B37DCA3C}">
+                <File Id="WebView2Loader.dll" KeyPath="yes" Source="$(var.BinPath)\WebView2Loader.dll" />
+            </Component>
+            <Component Id="WindowsAppRuntime.DeploymentExtensions.OneCore.dll" Guid="{32B4CE97-41E0-4F0D-A602-FD4E1B40D355}">
+                <File Id="WindowsAppRuntime.DeploymentExtensions.OneCore.dll" KeyPath="yes" Source="$(var.BinPath)\WindowsAppRuntime.DeploymentExtensions.OneCore.dll" />
+            </Component>
+            <Component Id="WindowsAppRuntime.png" Guid="{E241BA98-FD5F-4DDD-86EE-F3931199A4D4}">
+                <File Id="WindowsAppRuntime.png" KeyPath="yes" Source="$(var.BinPath)\WindowsAppRuntime.png" />
+            </Component>
+            <Component Id="WindowsAppSdk.AppxDeploymentExtensions.Desktop_EventLog_Instrumentation." Guid="{70E9C4A3-7862-4B0E-9FB6-44557CC020AA}">
+                <File Id="WindowsAppSdk.AppxDeploymentExtensions.Desktop_EventLog_Instrumentation." KeyPath="yes" Source="$(var.BinPath)\WindowsAppSdk.AppxDeploymentExtensions.Desktop-EventLog-Instrumentation.dll" />
+            </Component>
+            <Component Id="WindowsAppSdk.AppxDeploymentExtensions.Desktop.dll" Guid="{DAEA1B3F-C5C8-4416-9097-6FB4326C60C1}">
+                <File Id="WindowsAppSdk.AppxDeploymentExtensions.Desktop.dll" KeyPath="yes" Source="$(var.BinPath)\WindowsAppSdk.AppxDeploymentExtensions.Desktop.dll" />
+            </Component>
+            <Component Id="WindowsBase.dll" Guid="{CCEDD2E0-1A06-4CC6-9A0F-D5E4D3E8664C}">
+                <File Id="WindowsBase.dll" KeyPath="yes" Source="$(var.BinPath)\WindowsBase.dll" />
+            </Component>
+            <Component Id="WinRT.Runtime.dll" Guid="{652DD776-271D-4D6D-9BB5-DAF815D51FDE}">
+                <File Id="WinRT.Runtime.dll" KeyPath="yes" Source="$(var.BinPath)\WinRT.Runtime.dll" />
+            </Component>
+            <Component Id="WinUIEdit.dll" Guid="{6BD0B6EA-477F-495F-A978-DA92D7F3841C}">
+                <File Id="WinUIEdit.dll" KeyPath="yes" Source="$(var.BinPath)\WinUIEdit.dll" />
+            </Component>
+            <Component Id="workloads.365.json" Guid="{E02800A3-D1C1-4B35-95A3-AE66A709D0BA}">
+                <File Id="workloads.365.json" KeyPath="yes" Source="$(var.BinPath)\workloads.365.json" />
+            </Component>
+            <Component Id="workloads.json" Guid="{D6D32CF4-7E10-476C-9F9E-DF1C109A9E14}">
+                <File Id="workloads.json" KeyPath="yes" Source="$(var.BinPath)\workloads.json" />
+            </Component>
+            <Component Id="workloads.lnl.json" Guid="{331EC59E-6955-4B1E-82F7-098D140D7F85}">
+                <File Id="workloads.lnl.json" KeyPath="yes" Source="$(var.BinPath)\workloads.lnl.json" />
+            </Component>
+            <Component Id="workloads.qnn.json" Guid="{EDE5CF9B-35AF-4121-B69F-56E28569B672}">
+                <File Id="workloads.qnn.json" KeyPath="yes" Source="$(var.BinPath)\workloads.qnn.json" />
+            </Component>
+            <Component Id="workloads.stx.json" Guid="{3842901C-9504-4E6C-8177-65EA3300A7B1}">
+                <File Id="workloads.stx.json" KeyPath="yes" Source="$(var.BinPath)\workloads.stx.json" />
+            </Component>
+            <Component Id="wuceffectsi.dll" Guid="{D6221089-35A7-412E-B9D1-6ECD2EE1CEA0}">
+                <File Id="wuceffectsi.dll" KeyPath="yes" Source="$(var.BinPath)\wuceffectsi.dll" />
+            </Component>
+            <Directory Id="af_ZA" Name="af-ZA">
+                <Component Id="Microsoft.ui.xaml.dll.mui" Guid="{01BC8EC4-9050-4F8E-A84D-CC06E8F6D2D9}">
+                    <File Id="Microsoft.ui.xaml.dll.mui" KeyPath="yes" Source="$(var.BinPath)\af-ZA\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui" Guid="{3595223B-F9C6-4C15-A97D-46F0C353D5A5}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui" KeyPath="yes" Source="$(var.BinPath)\af-ZA\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="am_ET" Name="am-ET">
+                <Component Id="Microsoft.ui.xaml.dll.mui_1" Guid="{8FC551AD-C3A6-4520-B28C-5DBBCCDEEB52}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_1" KeyPath="yes" Source="$(var.BinPath)\am-ET\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_1" Guid="{C42CF83B-874F-4C65-848E-C6DA008FFFB9}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_1" KeyPath="yes" Source="$(var.BinPath)\am-ET\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="ar_SA" Name="ar-SA">
+                <Component Id="Microsoft.ui.xaml.dll.mui_2" Guid="{8C876134-490E-43CB-8C54-46A19856E8A0}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_2" KeyPath="yes" Source="$(var.BinPath)\ar-SA\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_2" Guid="{1FCDE8C4-A857-4CBA-9F12-E656BE09E692}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_2" KeyPath="yes" Source="$(var.BinPath)\ar-SA\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="as_IN" Name="as-IN">
+                <Component Id="Microsoft.ui.xaml.dll.mui_3" Guid="{2B7CD11F-E977-4243-8A94-1371CBDDCB89}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_3" KeyPath="yes" Source="$(var.BinPath)\as-IN\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_3" Guid="{374BA041-41BA-4AD4-A325-13769F873BE4}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_3" KeyPath="yes" Source="$(var.BinPath)\as-IN\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="Assets" Name="Assets">
+                <Component Id="LockScreenLogo.scale_200.png" Guid="{BCD7B125-1024-481D-87EC-3F613A654E7F}">
+                    <File Id="LockScreenLogo.scale_200.png" KeyPath="yes" Source="$(var.BinPath)\Assets\LockScreenLogo.scale-200.png" />
+                </Component>
+                <Component Id="SplashScreen.scale_200.png" Guid="{AE24663A-3E1F-42A7-A404-546BD7672DFC}">
+                    <File Id="SplashScreen.scale_200.png" KeyPath="yes" Source="$(var.BinPath)\Assets\SplashScreen.scale-200.png" />
+                </Component>
+                <Component Id="Square150x150Logo.scale_200.png" Guid="{903CF0AD-4FD9-4505-BF66-25BCA0AA7297}">
+                    <File Id="Square150x150Logo.scale_200.png" KeyPath="yes" Source="$(var.BinPath)\Assets\Square150x150Logo.scale-200.png" />
+                </Component>
+                <Component Id="Square44x44Logo.scale_200.png" Guid="{7FB564A7-9378-409B-9687-0913A36AE5AC}">
+                    <File Id="Square44x44Logo.scale_200.png" KeyPath="yes" Source="$(var.BinPath)\Assets\Square44x44Logo.scale-200.png" />
+                </Component>
+                <Component Id="Square44x44Logo.targetsize_24_altform_unplated.png" Guid="{9F475714-BFEE-4BB0-BE24-0BB4C9D4B4EF}">
+                    <File Id="Square44x44Logo.targetsize_24_altform_unplated.png" KeyPath="yes" Source="$(var.BinPath)\Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+                </Component>
+                <Component Id="StoreLogo.png" Guid="{0859DB78-EB6A-4388-B866-1D8CFA660766}">
+                    <File Id="StoreLogo.png" KeyPath="yes" Source="$(var.BinPath)\Assets\StoreLogo.png" />
+                </Component>
+                <Component Id="Wide310x150Logo.scale_200.png" Guid="{CF712A55-D68C-47B6-AFCF-39B716E658F1}">
+                    <File Id="Wide310x150Logo.scale_200.png" KeyPath="yes" Source="$(var.BinPath)\Assets\Wide310x150Logo.scale-200.png" />
+                </Component>
+            </Directory>
+            <Directory Id="az_Latn_AZ" Name="az-Latn-AZ">
+                <Component Id="Microsoft.ui.xaml.dll.mui_4" Guid="{F82C7030-0277-4348-B8EA-4D6B3D93885C}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_4" KeyPath="yes" Source="$(var.BinPath)\az-Latn-AZ\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_4" Guid="{914FF8DE-07DA-416A-ADFD-1365790B2B13}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_4" KeyPath="yes" Source="$(var.BinPath)\az-Latn-AZ\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="bg_BG" Name="bg-BG">
+                <Component Id="Microsoft.ui.xaml.dll.mui_5" Guid="{A6FB4C9A-546E-4546-B08A-61CA1A8279D2}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_5" KeyPath="yes" Source="$(var.BinPath)\bg-BG\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_5" Guid="{75804087-724F-49D3-B36B-0B79E953B876}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_5" KeyPath="yes" Source="$(var.BinPath)\bg-BG\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="bn_IN" Name="bn-IN">
+                <Component Id="Microsoft.ui.xaml.dll.mui_6" Guid="{F4A78836-198F-4326-A44B-E6391FFD14B7}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_6" KeyPath="yes" Source="$(var.BinPath)\bn-IN\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_6" Guid="{ACE56118-C557-4916-82F0-926F32470E32}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_6" KeyPath="yes" Source="$(var.BinPath)\bn-IN\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="bs_Latn_BA" Name="bs-Latn-BA">
+                <Component Id="Microsoft.ui.xaml.dll.mui_7" Guid="{C1B24171-57A2-4726-A3BC-57AE3E3BE008}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_7" KeyPath="yes" Source="$(var.BinPath)\bs-Latn-BA\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_7" Guid="{ADFBE5C1-0497-4FE5-B6C8-0CA497312341}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_7" KeyPath="yes" Source="$(var.BinPath)\bs-Latn-BA\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="ca_ES" Name="ca-ES">
+                <Component Id="Microsoft.ui.xaml.dll.mui_8" Guid="{1629A1FA-07A0-4B0F-A648-090885712712}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_8" KeyPath="yes" Source="$(var.BinPath)\ca-ES\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_8" Guid="{3C13698F-821B-4925-8966-14120A8F511D}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_8" KeyPath="yes" Source="$(var.BinPath)\ca-ES\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="ca_Es_VALENCIA" Name="ca-Es-VALENCIA">
+                <Component Id="Microsoft.ui.xaml.dll.mui_9" Guid="{4F1E8DF2-7D61-45D9-81B0-70B029F4E3EA}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_9" KeyPath="yes" Source="$(var.BinPath)\ca-Es-VALENCIA\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_9" Guid="{85C1FC48-C217-4D36-9AE9-20A121AD6DFE}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_9" KeyPath="yes" Source="$(var.BinPath)\ca-Es-VALENCIA\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="cs_CZ" Name="cs-CZ">
+                <Component Id="Microsoft.ui.xaml.dll.mui_10" Guid="{D040841C-42AD-4330-BC9D-187B8DC3FFEB}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_10" KeyPath="yes" Source="$(var.BinPath)\cs-CZ\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_10" Guid="{4FA65B7D-0E06-4958-9EEE-650C07558FE5}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_10" KeyPath="yes" Source="$(var.BinPath)\cs-CZ\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="cy_GB" Name="cy-GB">
+                <Component Id="Microsoft.ui.xaml.dll.mui_11" Guid="{0B8A5346-5BAA-4229-96B5-B66458C2DB2B}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_11" KeyPath="yes" Source="$(var.BinPath)\cy-GB\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_11" Guid="{DFCF19D3-874E-4957-BA8E-B1D960A16559}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_11" KeyPath="yes" Source="$(var.BinPath)\cy-GB\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="da_DK" Name="da-DK">
+                <Component Id="Microsoft.ui.xaml.dll.mui_12" Guid="{DE1D5C16-89A7-4CFC-BD91-431D6249C1E2}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_12" KeyPath="yes" Source="$(var.BinPath)\da-DK\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_12" Guid="{F0CB8B39-F4F3-4AE2-8F05-A55CB2F8CBD1}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_12" KeyPath="yes" Source="$(var.BinPath)\da-DK\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="de_DE" Name="de-DE">
+                <Component Id="Microsoft.ui.xaml.dll.mui_13" Guid="{6632126C-B2A7-499B-970F-D4ED3B44A679}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_13" KeyPath="yes" Source="$(var.BinPath)\de-DE\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_13" Guid="{FE728FF2-430A-4007-8C60-29BF9040FF2A}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_13" KeyPath="yes" Source="$(var.BinPath)\de-DE\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="Dialogs" Name="Dialogs">
+                <Component Id="ConversationHistoryDialog.xbf" Guid="{15951934-A8ED-45AE-BCA6-76632F6BFEFC}">
+                    <File Id="ConversationHistoryDialog.xbf" KeyPath="yes" Source="$(var.BinPath)\Dialogs\ConversationHistoryDialog.xbf" />
+                </Component>
+                <Component Id="HelpDialog.xbf" Guid="{CAD7C584-8375-42D7-B915-1EBD49223C24}">
+                    <File Id="HelpDialog.xbf" KeyPath="yes" Source="$(var.BinPath)\Dialogs\HelpDialog.xbf" />
+                </Component>
+                <Component Id="ModelManagementDialog.xbf" Guid="{3BF17E91-ED53-4BC5-AE8D-438595A2F03E}">
+                    <File Id="ModelManagementDialog.xbf" KeyPath="yes" Source="$(var.BinPath)\Dialogs\ModelManagementDialog.xbf" />
+                </Component>
+                <Component Id="ModelSelectionDialog.xbf" Guid="{1088A2EF-9361-44AF-A707-99A2CAD0E671}">
+                    <File Id="ModelSelectionDialog.xbf" KeyPath="yes" Source="$(var.BinPath)\Dialogs\ModelSelectionDialog.xbf" />
+                </Component>
+                <Component Id="SettingsDialog.xbf" Guid="{D9BC8CAC-BEE0-4138-87DA-DD39B6526650}">
+                    <File Id="SettingsDialog.xbf" KeyPath="yes" Source="$(var.BinPath)\Dialogs\SettingsDialog.xbf" />
+                </Component>
+            </Directory>
+            <Directory Id="DLLs" Name="DLLs">
+                <Component Id="ggml_base.dll_1" Guid="{7003DAC1-AD02-47B1-898C-1CA80542F1CA}">
+                    <File Id="ggml_base.dll_1" KeyPath="yes" Source="$(var.BinPath)\DLLs\ggml-base.dll" />
+                </Component>
+                <Component Id="ggml_cpu.dll_1" Guid="{194F7C9F-4170-469E-BD78-229E4FD21A5D}">
+                    <File Id="ggml_cpu.dll_1" KeyPath="yes" Source="$(var.BinPath)\DLLs\ggml-cpu.dll" />
+                </Component>
+                <Component Id="ggml.dll_1" Guid="{2AE3CDD5-1919-4C8D-8207-0FE26CCBA3E3}">
+                    <File Id="ggml.dll_1" KeyPath="yes" Source="$(var.BinPath)\DLLs\ggml.dll" />
+                </Component>
+                <Component Id="llama.dll_1" Guid="{ECDB5644-926E-46F8-AC4D-6D9F76F1B5DA}">
+                    <File Id="llama.dll_1" KeyPath="yes" Source="$(var.BinPath)\DLLs\llama.dll" />
+                </Component>
+                <Component Id="llava_shared.dll_1" Guid="{AA4B1B01-3240-409E-A45A-519A51D12261}">
+                    <File Id="llava_shared.dll_1" KeyPath="yes" Source="$(var.BinPath)\DLLs\llava_shared.dll" />
+                </Component>
+            </Directory>
+            <Directory Id="el_GR" Name="el-GR">
+                <Component Id="Microsoft.ui.xaml.dll.mui_14" Guid="{2BE72BAF-0407-44B0-B796-0058EA179E96}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_14" KeyPath="yes" Source="$(var.BinPath)\el-GR\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_14" Guid="{E9E230FE-D1A4-4F49-968B-CB5415B92DE5}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_14" KeyPath="yes" Source="$(var.BinPath)\el-GR\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="en_GB" Name="en-GB">
+                <Component Id="Microsoft.ui.xaml.dll.mui_15" Guid="{92E1A83E-D6ED-4CC7-81F0-B5A3E06D07BC}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_15" KeyPath="yes" Source="$(var.BinPath)\en-GB\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_15" Guid="{D5FF5111-03E8-485B-BA7F-9F4543621051}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_15" KeyPath="yes" Source="$(var.BinPath)\en-GB\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="en_us" Name="en-us">
+                <Component Id="Microsoft.ui.xaml.dll.mui_16" Guid="{3FF7B880-DE35-427C-950A-5A6DC109489F}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_16" KeyPath="yes" Source="$(var.BinPath)\en-us\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_16" Guid="{E2FA6ADA-3C78-4208-AEBF-E2CF3E5896B6}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_16" KeyPath="yes" Source="$(var.BinPath)\en-us\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="es_ES" Name="es-ES">
+                <Component Id="Microsoft.ui.xaml.dll.mui_17" Guid="{54CFAD5F-85D2-48BB-A369-5B3933048BCA}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_17" KeyPath="yes" Source="$(var.BinPath)\es-ES\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_17" Guid="{39691B27-804F-4ED8-8E31-E9267D7CF2D7}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_17" KeyPath="yes" Source="$(var.BinPath)\es-ES\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="es_MX" Name="es-MX">
+                <Component Id="Microsoft.ui.xaml.dll.mui_18" Guid="{F4002C80-E72C-41FD-9276-C26ED7E5C15B}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_18" KeyPath="yes" Source="$(var.BinPath)\es-MX\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_18" Guid="{BB29293F-7DAC-410E-88B8-3DFDC691F7BB}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_18" KeyPath="yes" Source="$(var.BinPath)\es-MX\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="et_EE" Name="et-EE">
+                <Component Id="Microsoft.ui.xaml.dll.mui_19" Guid="{C282A547-6E38-4C9D-A71C-D8FC8BCA5AB9}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_19" KeyPath="yes" Source="$(var.BinPath)\et-EE\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_19" Guid="{5CE27D57-B01D-436D-9913-127135AFA2FF}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_19" KeyPath="yes" Source="$(var.BinPath)\et-EE\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="eu_ES" Name="eu-ES">
+                <Component Id="Microsoft.ui.xaml.dll.mui_20" Guid="{589EC8A9-D86D-4286-AA32-E57CE0A21786}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_20" KeyPath="yes" Source="$(var.BinPath)\eu-ES\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_20" Guid="{E4ACDEC8-FB8D-4A3F-AFFD-C7FAE1A7296D}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_20" KeyPath="yes" Source="$(var.BinPath)\eu-ES\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="fa_IR" Name="fa-IR">
+                <Component Id="Microsoft.ui.xaml.dll.mui_21" Guid="{44C07CB6-E2F4-4F8D-912A-1227EF4A8D4A}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_21" KeyPath="yes" Source="$(var.BinPath)\fa-IR\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_21" Guid="{0F16E225-B4B2-4644-A360-75F1B9F524EF}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_21" KeyPath="yes" Source="$(var.BinPath)\fa-IR\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="fi_FI" Name="fi-FI">
+                <Component Id="Microsoft.ui.xaml.dll.mui_22" Guid="{B6DEEC12-5110-4AC5-8D2C-96D1776FA4D8}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_22" KeyPath="yes" Source="$(var.BinPath)\fi-FI\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_22" Guid="{1D439613-2A83-4105-A61B-730909238F50}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_22" KeyPath="yes" Source="$(var.BinPath)\fi-FI\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="fil_PH" Name="fil-PH">
+                <Component Id="Microsoft.ui.xaml.dll.mui_23" Guid="{884FA6CA-FE47-4739-8CF6-C80C66700769}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_23" KeyPath="yes" Source="$(var.BinPath)\fil-PH\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_23" Guid="{FF07C4B7-AD8D-4D88-ADAE-E96BF3DA429B}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_23" KeyPath="yes" Source="$(var.BinPath)\fil-PH\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="fr_CA" Name="fr-CA">
+                <Component Id="Microsoft.ui.xaml.dll.mui_24" Guid="{57DFF0B2-3122-44DD-986C-294DBB9253E2}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_24" KeyPath="yes" Source="$(var.BinPath)\fr-CA\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_24" Guid="{6A28BB71-E2C5-424F-904D-63ACB0E8F729}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_24" KeyPath="yes" Source="$(var.BinPath)\fr-CA\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="fr_FR" Name="fr-FR">
+                <Component Id="Microsoft.ui.xaml.dll.mui_25" Guid="{22D33759-2F55-4EB5-951C-818C26BB193B}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_25" KeyPath="yes" Source="$(var.BinPath)\fr-FR\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_25" Guid="{5A22D968-51BA-425B-B838-1A977FAE0D68}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_25" KeyPath="yes" Source="$(var.BinPath)\fr-FR\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="ga_IE" Name="ga-IE">
+                <Component Id="Microsoft.ui.xaml.dll.mui_26" Guid="{EF46AF53-6274-4691-9452-5EC4F32DB455}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_26" KeyPath="yes" Source="$(var.BinPath)\ga-IE\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_26" Guid="{EDF778DA-FF15-4A70-826E-7838DE906F14}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_26" KeyPath="yes" Source="$(var.BinPath)\ga-IE\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="gd_gb" Name="gd-gb">
+                <Component Id="Microsoft.ui.xaml.dll.mui_27" Guid="{5CD9F81A-90CC-4B51-A1EC-2D717798BD28}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_27" KeyPath="yes" Source="$(var.BinPath)\gd-gb\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_27" Guid="{6A758374-9523-4B3B-8993-2B38E5706B83}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_27" KeyPath="yes" Source="$(var.BinPath)\gd-gb\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="gl_ES" Name="gl-ES">
+                <Component Id="Microsoft.ui.xaml.dll.mui_28" Guid="{8DB09A8D-41FD-4958-A638-4EC47D11E3DF}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_28" KeyPath="yes" Source="$(var.BinPath)\gl-ES\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_28" Guid="{8CE9AD7C-7458-4D0E-9721-60D82FF2902E}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_28" KeyPath="yes" Source="$(var.BinPath)\gl-ES\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="gu_IN" Name="gu-IN">
+                <Component Id="Microsoft.ui.xaml.dll.mui_29" Guid="{2F557019-5E32-450F-B6AB-09C7049D633D}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_29" KeyPath="yes" Source="$(var.BinPath)\gu-IN\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_29" Guid="{8AF68E55-13DB-4868-9FCA-543968D2661A}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_29" KeyPath="yes" Source="$(var.BinPath)\gu-IN\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="he_IL" Name="he-IL">
+                <Component Id="Microsoft.ui.xaml.dll.mui_30" Guid="{E5ACE188-53DC-4C55-9D7D-C921EB0F46F4}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_30" KeyPath="yes" Source="$(var.BinPath)\he-IL\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_30" Guid="{3D40D744-0388-4A25-A9F5-401E3FF0CD38}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_30" KeyPath="yes" Source="$(var.BinPath)\he-IL\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="hi_IN" Name="hi-IN">
+                <Component Id="Microsoft.ui.xaml.dll.mui_31" Guid="{8353193F-6F0B-4CAA-B556-1DDF62C50C98}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_31" KeyPath="yes" Source="$(var.BinPath)\hi-IN\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_31" Guid="{3219EC84-1278-4DC1-A1EB-311B5CFBEC91}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_31" KeyPath="yes" Source="$(var.BinPath)\hi-IN\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="hr_HR" Name="hr-HR">
+                <Component Id="Microsoft.ui.xaml.dll.mui_32" Guid="{7FE3F2A0-F748-4B32-8FA2-6E1F54A74456}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_32" KeyPath="yes" Source="$(var.BinPath)\hr-HR\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_32" Guid="{6FA3FF03-70A2-4122-BB77-9F63142218EB}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_32" KeyPath="yes" Source="$(var.BinPath)\hr-HR\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="hu_HU" Name="hu-HU">
+                <Component Id="Microsoft.ui.xaml.dll.mui_33" Guid="{66F7E541-DC71-4A5C-8D81-ADCEE9EDAFC5}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_33" KeyPath="yes" Source="$(var.BinPath)\hu-HU\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_33" Guid="{0D759088-377F-4EEA-9904-44B0789E5600}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_33" KeyPath="yes" Source="$(var.BinPath)\hu-HU\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="hy_AM" Name="hy-AM">
+                <Component Id="Microsoft.ui.xaml.dll.mui_34" Guid="{94F361B3-BF2D-45A1-BF11-97C604556DDA}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_34" KeyPath="yes" Source="$(var.BinPath)\hy-AM\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_34" Guid="{B15C3606-7E79-4C29-BFCE-9813509A5015}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_34" KeyPath="yes" Source="$(var.BinPath)\hy-AM\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="id_ID" Name="id-ID">
+                <Component Id="Microsoft.ui.xaml.dll.mui_35" Guid="{5D3F9C83-1387-47B7-B210-EF484A6D3805}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_35" KeyPath="yes" Source="$(var.BinPath)\id-ID\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_35" Guid="{3C1C76EE-F77A-4985-927F-6AEA7A9FF5DD}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_35" KeyPath="yes" Source="$(var.BinPath)\id-ID\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="is_IS" Name="is-IS">
+                <Component Id="Microsoft.ui.xaml.dll.mui_36" Guid="{94FFE30D-D6FB-4192-91EC-D61D3CDA0E1A}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_36" KeyPath="yes" Source="$(var.BinPath)\is-IS\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_36" Guid="{C5002058-BA8D-423E-83C0-2D270AA590B3}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_36" KeyPath="yes" Source="$(var.BinPath)\is-IS\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="it_IT" Name="it-IT">
+                <Component Id="Microsoft.ui.xaml.dll.mui_37" Guid="{474F1996-3C6B-46D9-BC42-C958C53DF42E}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_37" KeyPath="yes" Source="$(var.BinPath)\it-IT\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_37" Guid="{16CBD254-3523-42EF-B3CC-E1E3C00FA99C}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_37" KeyPath="yes" Source="$(var.BinPath)\it-IT\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="ja_JP" Name="ja-JP">
+                <Component Id="Microsoft.ui.xaml.dll.mui_38" Guid="{CA3B8A2E-358C-449F-AC53-C0D6B98FE171}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_38" KeyPath="yes" Source="$(var.BinPath)\ja-JP\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_38" Guid="{72D32A8D-CE7B-4BA7-AE3B-F9E4D2A36EAB}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_38" KeyPath="yes" Source="$(var.BinPath)\ja-JP\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="ka_GE" Name="ka-GE">
+                <Component Id="Microsoft.ui.xaml.dll.mui_39" Guid="{ADCB60D4-034C-49C3-961C-03D3B5FA90B2}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_39" KeyPath="yes" Source="$(var.BinPath)\ka-GE\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_39" Guid="{FDE5301E-A0AD-446C-85EF-FEA0382DC350}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_39" KeyPath="yes" Source="$(var.BinPath)\ka-GE\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="kk_KZ" Name="kk-KZ">
+                <Component Id="Microsoft.ui.xaml.dll.mui_40" Guid="{D320B321-4970-41E6-8B0C-0362EE1B5788}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_40" KeyPath="yes" Source="$(var.BinPath)\kk-KZ\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_40" Guid="{C2E3EE3B-0B8E-42EF-AB86-4D0E4506CE20}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_40" KeyPath="yes" Source="$(var.BinPath)\kk-KZ\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="km_KH" Name="km-KH">
+                <Component Id="Microsoft.ui.xaml.dll.mui_41" Guid="{EC19E14E-B890-4FA0-BA77-95814CD3CB43}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_41" KeyPath="yes" Source="$(var.BinPath)\km-KH\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_41" Guid="{2C8219DE-3334-4807-A5AA-EC5C7476F573}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_41" KeyPath="yes" Source="$(var.BinPath)\km-KH\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="kn_IN" Name="kn-IN">
+                <Component Id="Microsoft.ui.xaml.dll.mui_42" Guid="{EA74BF22-DB1B-4332-8A49-EF1249ECAD4B}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_42" KeyPath="yes" Source="$(var.BinPath)\kn-IN\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_42" Guid="{B168E18D-EBDF-4C60-AC6F-40B659E9FE20}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_42" KeyPath="yes" Source="$(var.BinPath)\kn-IN\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="ko_KR" Name="ko-KR">
+                <Component Id="Microsoft.ui.xaml.dll.mui_43" Guid="{CD9A37A4-7E4F-4740-8FEC-23DE46A9B314}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_43" KeyPath="yes" Source="$(var.BinPath)\ko-KR\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_43" Guid="{C9C19346-836A-4B35-81B2-B15A274E4D3C}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_43" KeyPath="yes" Source="$(var.BinPath)\ko-KR\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="kok_IN" Name="kok-IN">
+                <Component Id="Microsoft.ui.xaml.dll.mui_44" Guid="{973BBE3B-CA06-40F9-91F3-BBDBDB3B31C0}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_44" KeyPath="yes" Source="$(var.BinPath)\kok-IN\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_44" Guid="{FA41D85A-E344-4F9D-B937-179E40BD3E80}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_44" KeyPath="yes" Source="$(var.BinPath)\kok-IN\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="lb_LU" Name="lb-LU">
+                <Component Id="Microsoft.ui.xaml.dll.mui_45" Guid="{C3EE2D37-2B6C-4420-BD18-36305F1F00D0}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_45" KeyPath="yes" Source="$(var.BinPath)\lb-LU\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_45" Guid="{7B953C6F-AE34-4134-8BCF-E85CA48791EF}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_45" KeyPath="yes" Source="$(var.BinPath)\lb-LU\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="lo_LA" Name="lo-LA">
+                <Component Id="Microsoft.ui.xaml.dll.mui_46" Guid="{7ED85892-635E-4C12-99C3-D249DEC06F65}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_46" KeyPath="yes" Source="$(var.BinPath)\lo-LA\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_46" Guid="{AB1C3A63-A303-4AE4-8456-4FE5FB4E1D96}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_46" KeyPath="yes" Source="$(var.BinPath)\lo-LA\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="lt_LT" Name="lt-LT">
+                <Component Id="Microsoft.ui.xaml.dll.mui_47" Guid="{574A5520-8148-427F-8B15-04CB68F20F91}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_47" KeyPath="yes" Source="$(var.BinPath)\lt-LT\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_47" Guid="{70EB8E89-F43E-41C7-B67D-9C754BD41150}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_47" KeyPath="yes" Source="$(var.BinPath)\lt-LT\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="lv_LV" Name="lv-LV">
+                <Component Id="Microsoft.ui.xaml.dll.mui_48" Guid="{02223F7C-C0F9-4593-AC0D-BF575E7FE49C}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_48" KeyPath="yes" Source="$(var.BinPath)\lv-LV\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_48" Guid="{9F9527BA-9AA9-40FC-9A1F-C3032EB93F17}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_48" KeyPath="yes" Source="$(var.BinPath)\lv-LV\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="mi_NZ" Name="mi-NZ">
+                <Component Id="Microsoft.ui.xaml.dll.mui_49" Guid="{64C03306-57BE-4CE3-855B-7B7DD4DB0F67}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_49" KeyPath="yes" Source="$(var.BinPath)\mi-NZ\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_49" Guid="{D0FBDFEF-7981-44E1-9E77-6F5F55F5036D}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_49" KeyPath="yes" Source="$(var.BinPath)\mi-NZ\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="Microsoft.UI.Xaml" Name="Microsoft.UI.Xaml">
+                <Directory Id="Assets_1" Name="Assets">
+                    <Component Id="map.html" Guid="{7BF585E6-2C85-439C-BAAE-5D37DCB55F21}">
+                        <File Id="map.html" KeyPath="yes" Source="$(var.BinPath)\Microsoft.UI.Xaml\Assets\map.html" />
+                    </Component>
+                    <Component Id="NoiseAsset_256x256_PNG.png" Guid="{0E796C7E-9FDA-4E17-91B2-1E1D2ED2BCA7}">
+                        <File Id="NoiseAsset_256x256_PNG.png" KeyPath="yes" Source="$(var.BinPath)\Microsoft.UI.Xaml\Assets\NoiseAsset_256x256_PNG.png" />
+                    </Component>
+                </Directory>
+            </Directory>
+            <Directory Id="mk_MK" Name="mk-MK">
+                <Component Id="Microsoft.ui.xaml.dll.mui_50" Guid="{2C52C510-8328-4C11-BC16-86C0CD864D74}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_50" KeyPath="yes" Source="$(var.BinPath)\mk-MK\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_50" Guid="{C44DC714-2230-4215-8C0F-6D8BCE2AB4AD}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_50" KeyPath="yes" Source="$(var.BinPath)\mk-MK\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="ml_IN" Name="ml-IN">
+                <Component Id="Microsoft.ui.xaml.dll.mui_51" Guid="{8E3CD3BB-08AD-45DF-BAA5-0F6E1BD2035F}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_51" KeyPath="yes" Source="$(var.BinPath)\ml-IN\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_51" Guid="{97829EFA-3533-4420-A1A6-73F515622E33}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_51" KeyPath="yes" Source="$(var.BinPath)\ml-IN\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="mr_IN" Name="mr-IN">
+                <Component Id="Microsoft.ui.xaml.dll.mui_52" Guid="{01364838-9995-45DC-A349-41AC91E48F36}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_52" KeyPath="yes" Source="$(var.BinPath)\mr-IN\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_52" Guid="{F07CE2D4-A694-4D79-9416-B23807F5D80D}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_52" KeyPath="yes" Source="$(var.BinPath)\mr-IN\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="ms_MY" Name="ms-MY">
+                <Component Id="Microsoft.ui.xaml.dll.mui_53" Guid="{0F860ECE-9C55-4C69-90F3-962703C14B25}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_53" KeyPath="yes" Source="$(var.BinPath)\ms-MY\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_53" Guid="{EEC33154-986F-40DD-9A71-FC7F32DB6D44}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_53" KeyPath="yes" Source="$(var.BinPath)\ms-MY\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="mt_MT" Name="mt-MT">
+                <Component Id="Microsoft.ui.xaml.dll.mui_54" Guid="{6E65CBC8-7510-4A8E-8520-AE136FD62C27}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_54" KeyPath="yes" Source="$(var.BinPath)\mt-MT\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_54" Guid="{E82FA69E-81EF-4F91-A606-802B9AE71395}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_54" KeyPath="yes" Source="$(var.BinPath)\mt-MT\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="nb_NO" Name="nb-NO">
+                <Component Id="Microsoft.ui.xaml.dll.mui_55" Guid="{6E83A1C6-FE99-4782-BD36-E1EE485F14E6}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_55" KeyPath="yes" Source="$(var.BinPath)\nb-NO\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_55" Guid="{E36BE787-3E5C-4F33-AEE0-903C742F14D2}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_55" KeyPath="yes" Source="$(var.BinPath)\nb-NO\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="ne_NP" Name="ne-NP">
+                <Component Id="Microsoft.ui.xaml.dll.mui_56" Guid="{A118A1D1-852F-4501-9D7E-C233465056C4}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_56" KeyPath="yes" Source="$(var.BinPath)\ne-NP\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_56" Guid="{BF2C04B5-19F3-4389-9B7C-941497BC495E}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_56" KeyPath="yes" Source="$(var.BinPath)\ne-NP\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="nl_NL" Name="nl-NL">
+                <Component Id="Microsoft.ui.xaml.dll.mui_57" Guid="{218CEFF1-A455-4E1D-830D-B64B4EBECD93}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_57" KeyPath="yes" Source="$(var.BinPath)\nl-NL\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_57" Guid="{813291BE-1EC3-49DD-953E-686088F2BCB0}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_57" KeyPath="yes" Source="$(var.BinPath)\nl-NL\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="nn_NO" Name="nn-NO">
+                <Component Id="Microsoft.ui.xaml.dll.mui_58" Guid="{4F12E68B-081E-4299-8047-5AEFBA5807D9}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_58" KeyPath="yes" Source="$(var.BinPath)\nn-NO\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_58" Guid="{AD21A2E5-0845-47C7-82EB-FDC03E948B95}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_58" KeyPath="yes" Source="$(var.BinPath)\nn-NO\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="NpuDetect" Name="NpuDetect">
+                <Component Id="NPUDetect.dll" Guid="{C67C7E87-D23A-4F02-A923-F0CAF5ED6E1F}">
+                    <File Id="NPUDetect.dll" KeyPath="yes" Source="$(var.BinPath)\NpuDetect\NPUDetect.dll" />
+                </Component>
+            </Directory>
+            <Directory Id="or_IN" Name="or-IN">
+                <Component Id="Microsoft.ui.xaml.dll.mui_59" Guid="{1EE9CB1B-26F7-4541-80FB-6D556E1F241A}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_59" KeyPath="yes" Source="$(var.BinPath)\or-IN\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_59" Guid="{3D028DED-3BDC-4F4F-8CF3-5F82FE8389EE}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_59" KeyPath="yes" Source="$(var.BinPath)\or-IN\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="pa_IN" Name="pa-IN">
+                <Component Id="Microsoft.ui.xaml.dll.mui_60" Guid="{A30589D2-7868-4CAD-A7AB-2F9A1519EB75}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_60" KeyPath="yes" Source="$(var.BinPath)\pa-IN\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_60" Guid="{5E7F1774-E144-4379-AE1F-0B4544D2A013}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_60" KeyPath="yes" Source="$(var.BinPath)\pa-IN\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="pl_PL" Name="pl-PL">
+                <Component Id="Microsoft.ui.xaml.dll.mui_61" Guid="{73200D73-BD70-425E-B712-439A5A5C31A2}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_61" KeyPath="yes" Source="$(var.BinPath)\pl-PL\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_61" Guid="{72567479-71E5-40BE-8457-85DCAC5E28A2}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_61" KeyPath="yes" Source="$(var.BinPath)\pl-PL\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="pt_BR" Name="pt-BR">
+                <Component Id="Microsoft.ui.xaml.dll.mui_62" Guid="{A920F81B-621D-406B-80CA-C10E24C3EBCD}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_62" KeyPath="yes" Source="$(var.BinPath)\pt-BR\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_62" Guid="{1C1224D0-8791-4BB8-A94B-9FF8212C8276}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_62" KeyPath="yes" Source="$(var.BinPath)\pt-BR\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="pt_PT" Name="pt-PT">
+                <Component Id="Microsoft.ui.xaml.dll.mui_63" Guid="{083AD2B1-8EA8-49B5-A3A2-8BFCD1A68184}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_63" KeyPath="yes" Source="$(var.BinPath)\pt-PT\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_63" Guid="{D61818D8-4F80-4A85-84E8-A13964C7C23D}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_63" KeyPath="yes" Source="$(var.BinPath)\pt-PT\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="quz_PE" Name="quz-PE">
+                <Component Id="Microsoft.ui.xaml.dll.mui_64" Guid="{3E17D0E6-5129-4916-A4C4-A1369A0EDA30}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_64" KeyPath="yes" Source="$(var.BinPath)\quz-PE\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_64" Guid="{658CDF5B-C3A3-44E7-A899-CD10F8F0F056}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_64" KeyPath="yes" Source="$(var.BinPath)\quz-PE\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="ro_RO" Name="ro-RO">
+                <Component Id="Microsoft.ui.xaml.dll.mui_65" Guid="{F6C1C20C-85F5-4A8D-8C5C-7FC75F612D84}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_65" KeyPath="yes" Source="$(var.BinPath)\ro-RO\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_65" Guid="{7A5A4360-4569-45E1-8BA9-47535C0C04DC}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_65" KeyPath="yes" Source="$(var.BinPath)\ro-RO\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="ru_RU" Name="ru-RU">
+                <Component Id="Microsoft.ui.xaml.dll.mui_66" Guid="{7A8941F4-0903-4D5C-8229-D467B9C817B0}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_66" KeyPath="yes" Source="$(var.BinPath)\ru-RU\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_66" Guid="{AC4E6D5E-896F-459D-B777-1E77ABC163E9}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_66" KeyPath="yes" Source="$(var.BinPath)\ru-RU\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="sk_SK" Name="sk-SK">
+                <Component Id="Microsoft.ui.xaml.dll.mui_67" Guid="{20454D81-D552-4B39-8A27-33FD81367632}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_67" KeyPath="yes" Source="$(var.BinPath)\sk-SK\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_67" Guid="{5EAB9A62-BC61-4CE4-8A30-E2AD71D9A6C3}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_67" KeyPath="yes" Source="$(var.BinPath)\sk-SK\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="sl_SI" Name="sl-SI">
+                <Component Id="Microsoft.ui.xaml.dll.mui_68" Guid="{A7C502BE-2B9A-435E-9248-A34F1C0C6C89}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_68" KeyPath="yes" Source="$(var.BinPath)\sl-SI\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_68" Guid="{BD2D9BA8-9BCA-456A-B206-759C45A0870C}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_68" KeyPath="yes" Source="$(var.BinPath)\sl-SI\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="sq_AL" Name="sq-AL">
+                <Component Id="Microsoft.ui.xaml.dll.mui_69" Guid="{0DFAEA79-80C8-49FD-817B-47C00C08FE29}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_69" KeyPath="yes" Source="$(var.BinPath)\sq-AL\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_69" Guid="{A2218D7C-88CD-4149-879B-F1CEF76F0CF6}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_69" KeyPath="yes" Source="$(var.BinPath)\sq-AL\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="sr_Cyrl_BA" Name="sr-Cyrl-BA">
+                <Component Id="Microsoft.ui.xaml.dll.mui_70" Guid="{FF62AD65-5D3F-42DF-AFCC-B6E5AA6C8594}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_70" KeyPath="yes" Source="$(var.BinPath)\sr-Cyrl-BA\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_70" Guid="{5D1628A3-3EA5-43E7-9C33-7F7F92FC780C}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_70" KeyPath="yes" Source="$(var.BinPath)\sr-Cyrl-BA\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="sr_Cyrl_RS" Name="sr-Cyrl-RS">
+                <Component Id="Microsoft.ui.xaml.dll.mui_71" Guid="{BBC701BF-CD47-44C0-A259-7AFCE94833EF}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_71" KeyPath="yes" Source="$(var.BinPath)\sr-Cyrl-RS\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_71" Guid="{894FCA7F-50FC-4238-8D2E-C1DFD05FF3E3}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_71" KeyPath="yes" Source="$(var.BinPath)\sr-Cyrl-RS\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="sr_Latn_RS" Name="sr-Latn-RS">
+                <Component Id="Microsoft.ui.xaml.dll.mui_72" Guid="{40FD7DA3-009F-46CF-95A6-2928E7D04A0C}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_72" KeyPath="yes" Source="$(var.BinPath)\sr-Latn-RS\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_72" Guid="{61A8A8C2-7242-419F-8637-73712D77EAA3}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_72" KeyPath="yes" Source="$(var.BinPath)\sr-Latn-RS\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="sv_SE" Name="sv-SE">
+                <Component Id="Microsoft.ui.xaml.dll.mui_73" Guid="{6BADC1F4-E722-429C-AEE4-3FCE18B64C68}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_73" KeyPath="yes" Source="$(var.BinPath)\sv-SE\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_73" Guid="{81D7926F-11F9-4ECC-A906-AE25C598746C}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_73" KeyPath="yes" Source="$(var.BinPath)\sv-SE\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="ta_IN" Name="ta-IN">
+                <Component Id="Microsoft.ui.xaml.dll.mui_74" Guid="{95F91CFF-C173-4E51-9962-74585EFA446E}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_74" KeyPath="yes" Source="$(var.BinPath)\ta-IN\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_74" Guid="{39D8FA6B-9014-4BF4-91BB-54E69E8B2BBF}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_74" KeyPath="yes" Source="$(var.BinPath)\ta-IN\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="te_IN" Name="te-IN">
+                <Component Id="Microsoft.ui.xaml.dll.mui_75" Guid="{0F6B02D3-60A6-4BCD-8F88-9AD1A6A67F6C}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_75" KeyPath="yes" Source="$(var.BinPath)\te-IN\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_75" Guid="{A2B017D8-B369-45C9-8CFB-92CAA35D0334}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_75" KeyPath="yes" Source="$(var.BinPath)\te-IN\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="th_TH" Name="th-TH">
+                <Component Id="Microsoft.ui.xaml.dll.mui_76" Guid="{01CE7F7A-437E-4AE5-A471-E98AE3B1936C}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_76" KeyPath="yes" Source="$(var.BinPath)\th-TH\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_76" Guid="{CC76E10D-54FC-4FB0-83AE-9F542D84F5FA}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_76" KeyPath="yes" Source="$(var.BinPath)\th-TH\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="tr_TR" Name="tr-TR">
+                <Component Id="Microsoft.ui.xaml.dll.mui_77" Guid="{988BDCD1-0F23-44D5-B77C-3AAC78FA563B}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_77" KeyPath="yes" Source="$(var.BinPath)\tr-TR\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_77" Guid="{EDA76125-F4B7-4959-9425-AB3919E6F50C}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_77" KeyPath="yes" Source="$(var.BinPath)\tr-TR\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="tt_RU" Name="tt-RU">
+                <Component Id="Microsoft.ui.xaml.dll.mui_78" Guid="{82D7C26D-AC4C-4625-96D7-A0E545ED2199}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_78" KeyPath="yes" Source="$(var.BinPath)\tt-RU\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_78" Guid="{B16AA1AC-AB19-4892-96B5-CAE026BDD413}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_78" KeyPath="yes" Source="$(var.BinPath)\tt-RU\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="ug_CN" Name="ug-CN">
+                <Component Id="Microsoft.ui.xaml.dll.mui_79" Guid="{FF2F914F-84A6-4D57-B0AE-ED5569880240}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_79" KeyPath="yes" Source="$(var.BinPath)\ug-CN\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_79" Guid="{0E2F3C84-91D6-4DDD-9360-5E4F89CD0798}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_79" KeyPath="yes" Source="$(var.BinPath)\ug-CN\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="uk_UA" Name="uk-UA">
+                <Component Id="Microsoft.ui.xaml.dll.mui_80" Guid="{665CAB23-3FFE-4962-834C-0A63FEC6D548}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_80" KeyPath="yes" Source="$(var.BinPath)\uk-UA\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_80" Guid="{282BA025-4DC1-4BAA-9634-0F4131FE4A72}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_80" KeyPath="yes" Source="$(var.BinPath)\uk-UA\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            
+            <Directory Id="ur_PK" Name="ur-PK">
+                <Component Id="Microsoft.ui.xaml.dll.mui_81" Guid="{3D90C337-99ED-4EA4-89E0-660933D5C427}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_81" KeyPath="yes" Source="$(var.BinPath)\ur-PK\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_81" Guid="{AD1A8C81-0147-4CA0-9007-BF6F79F37D9F}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_81" KeyPath="yes" Source="$(var.BinPath)\ur-PK\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="uz_Latn_UZ" Name="uz-Latn-UZ">
+                <Component Id="Microsoft.ui.xaml.dll.mui_82" Guid="{02E91C98-69EE-4108-ACFC-AA72D1E85465}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_82" KeyPath="yes" Source="$(var.BinPath)\uz-Latn-UZ\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_82" Guid="{5CE83C8B-A768-4E8B-A133-2928C72BA627}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_82" KeyPath="yes" Source="$(var.BinPath)\uz-Latn-UZ\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="vi_VN" Name="vi-VN">
+                <Component Id="Microsoft.ui.xaml.dll.mui_83" Guid="{A2978E75-76C9-4102-8FEE-2B1F8B3F0C23}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_83" KeyPath="yes" Source="$(var.BinPath)\vi-VN\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_83" Guid="{BAF7F83C-D49B-4F12-B2C1-A309758EEEC1}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_83" KeyPath="yes" Source="$(var.BinPath)\vi-VN\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="zh_CN" Name="zh-CN">
+                <Component Id="Microsoft.ui.xaml.dll.mui_84" Guid="{32276C71-1C9B-4A6F-9180-AE61D8CBFC2B}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_84" KeyPath="yes" Source="$(var.BinPath)\zh-CN\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_84" Guid="{8ED14002-8521-4399-A3F1-7723857ED6DD}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_84" KeyPath="yes" Source="$(var.BinPath)\zh-CN\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+            <Directory Id="zh_TW" Name="zh-TW">
+                <Component Id="Microsoft.ui.xaml.dll.mui_85" Guid="{F9DEBF0A-B4A9-41E5-8853-2981C84CE864}">
+                    <File Id="Microsoft.ui.xaml.dll.mui_85" KeyPath="yes" Source="$(var.BinPath)\zh-TW\Microsoft.ui.xaml.dll.mui" />
+                </Component>
+                <Component Id="Microsoft.UI.Xaml.Phone.dll.mui_85" Guid="{6B47FBCA-D3EE-4914-B984-36F5D2DE4206}">
+                    <File Id="Microsoft.UI.Xaml.Phone.dll.mui_85" KeyPath="yes" Source="$(var.BinPath)\zh-TW\Microsoft.UI.Xaml.Phone.dll.mui" />
+                </Component>
+            </Directory>
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="HarvestedFiles">
+            <ComponentRef Id="App.xbf" />
+            <ComponentRef Id="clretwrc.dll" />
+            <ComponentRef Id="clrgc.dll" />
+            <ComponentRef Id="clrjit.dll" />
+            <ComponentRef Id="CommunityToolkit.Mvvm.dll" />
+            <ComponentRef Id="coreclr.dll" />
+            <ComponentRef Id="CoreMessagingXP.dll" />
+            <ComponentRef Id="createdump.exe" />
+            <ComponentRef Id="dcompi.dll" />
+            <ComponentRef Id="DirectML.dll" />
+            <ComponentRef Id="dwmcorei.dll" />
+            <ComponentRef Id="DwmSceneI.dll" />
+            <ComponentRef Id="DWriteCore.dll" />
+            <ComponentRef Id="e_sqlite3.dll" />
+            <ComponentRef Id="ggml_base.dll" />
+            <ComponentRef Id="ggml_cpu.dll" />
+            <ComponentRef Id="ggml.dll" />
+            <ComponentRef Id="hostfxr.dll" />
+            <ComponentRef Id="hostpolicy.dll" />
+            <ComponentRef Id="KAIROS.build.appxrecipe" />
+            <ComponentRef Id="KAIROS.deps.json" />
+            <ComponentRef Id="KAIROS.dll" />
+            <ComponentRef Id="KAIROS.exe" />
+            <ComponentRef Id="KAIROS.pdb" />
+            <ComponentRef Id="KAIROS.pri" />
+            <ComponentRef Id="KAIROS.runtimeconfig.json" />
+            <ComponentRef Id="llama.dll" />
+            <ComponentRef Id="LLamaSharp.dll" />
+            <ComponentRef Id="llava_shared.dll" />
+            <ComponentRef Id="MainWindow.xbf" />
+            <ComponentRef Id="marshal.dll" />
+            <ComponentRef Id="Microsoft.Bcl.AsyncInterfaces.dll" />
+            <ComponentRef Id="Microsoft.CSharp.dll" />
+            <ComponentRef Id="Microsoft.Data.Sqlite.dll" />
+            <ComponentRef Id="Microsoft.DiaSymReader.Native.amd64.dll" />
+            <ComponentRef Id="Microsoft.DirectManipulation.dll" />
+            <ComponentRef Id="Microsoft.EntityFrameworkCore.Abstractions.dll" />
+            <ComponentRef Id="Microsoft.EntityFrameworkCore.dll" />
+            <ComponentRef Id="Microsoft.EntityFrameworkCore.Relational.dll" />
+            <ComponentRef Id="Microsoft.EntityFrameworkCore.Sqlite.dll" />
+            <ComponentRef Id="Microsoft.Extensions.AI.Abstractions.dll" />
+            <ComponentRef Id="Microsoft.Extensions.Caching.Abstractions.dll" />
+            <ComponentRef Id="Microsoft.Extensions.Caching.Memory.dll" />
+            <ComponentRef Id="Microsoft.Extensions.Configuration.Abstractions.dll" />
+            <ComponentRef Id="Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
+            <ComponentRef Id="Microsoft.Extensions.DependencyInjection.dll" />
+            <ComponentRef Id="Microsoft.Extensions.DependencyModel.dll" />
+            <ComponentRef Id="Microsoft.Extensions.Logging.Abstractions.dll" />
+            <ComponentRef Id="Microsoft.Extensions.Logging.dll" />
+            <ComponentRef Id="Microsoft.Extensions.Options.dll" />
+            <ComponentRef Id="Microsoft.Extensions.Primitives.dll" />
+            <ComponentRef Id="Microsoft.Foundation.winmd" />
+            <ComponentRef Id="Microsoft.Graphics.Display.dll" />
+            <ComponentRef Id="Microsoft.Graphics.Imaging.dll" />
+            <ComponentRef Id="Microsoft.Graphics.Imaging.Projection.dll" />
+            <ComponentRef Id="Microsoft.Graphics.Imaging.winmd" />
+            <ComponentRef Id="Microsoft.Graphics.ImagingInternal.ImageObjectRemover.winmd" />
+            <ComponentRef Id="Microsoft.Graphics.ImagingInternal.winmd" />
+            <ComponentRef Id="Microsoft.Graphics.Internal.Imaging.winmd" />
+            <ComponentRef Id="Microsoft.Graphics.winmd" />
+            <ComponentRef Id="Microsoft.InputStateManager.dll" />
+            <ComponentRef Id="Microsoft.InteractiveExperiences.Projection.dll" />
+            <ComponentRef Id="Microsoft.Internal.FrameworkUdk.dll" />
+            <ComponentRef Id="Microsoft.ML.OnnxRuntime.dll" />
+            <ComponentRef Id="Microsoft.Security.Authentication.OAuth.Projection.dll" />
+            <ComponentRef Id="Microsoft.Security.Authentication.OAuth.winmd" />
+            <ComponentRef Id="Microsoft.UI.Composition.OSSupport.dll" />
+            <ComponentRef Id="Microsoft.UI.Designer.dll" />
+            <ComponentRef Id="Microsoft.UI.dll" />
+            <ComponentRef Id="Microsoft.UI.Input.dll" />
+            <ComponentRef Id="Microsoft.UI.pri" />
+            <ComponentRef Id="Microsoft.UI.Text.winmd" />
+            <ComponentRef Id="Microsoft.UI.Windowing.Core.dll" />
+            <ComponentRef Id="Microsoft.UI.Windowing.dll" />
+            <ComponentRef Id="Microsoft.UI.winmd" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Controls.dll" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Controls.pri" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Internal.dll" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll" />
+            <ComponentRef Id="Microsoft.ui.xaml.resources.19h1.dll" />
+            <ComponentRef Id="Microsoft.ui.xaml.resources.common.dll" />
+            <ComponentRef Id="Microsoft.UI.Xaml.winmd" />
+            <ComponentRef Id="Microsoft.VisualBasic.Core.dll" />
+            <ComponentRef Id="Microsoft.VisualBasic.dll" />
+            <ComponentRef Id="Microsoft.Web.WebView2.Core.dll" />
+            <ComponentRef Id="Microsoft.Web.WebView2.Core.Projection.dll" />
+            <ComponentRef Id="Microsoft.Win32.Primitives.dll" />
+            <ComponentRef Id="Microsoft.Win32.Registry.dll" />
+            <ComponentRef Id="Microsoft.Windows.AI.ContentModerationInternal.winmd" />
+            <ComponentRef Id="Microsoft.Windows.AI.ContentSafety.dll" />
+            <ComponentRef Id="Microsoft.Windows.AI.ContentSafety.Projection.dll" />
+            <ComponentRef Id="Microsoft.Windows.AI.ContentSafety.winmd" />
+            <ComponentRef Id="Microsoft.Windows.AI.Foundation.Projection.dll" />
+            <ComponentRef Id="Microsoft.Windows.AI.Foundation.winmd" />
+            <ComponentRef Id="Microsoft.Windows.AI.FoundationInternal.winmd" />
+            <ComponentRef Id="Microsoft.Windows.AI.GenerativeInternal.winmd" />
+            <ComponentRef Id="Microsoft.Windows.AI.Imaging.dll" />
+            <ComponentRef Id="Microsoft.Windows.AI.Imaging.Projection.dll" />
+            <ComponentRef Id="Microsoft.Windows.AI.Imaging.winmd" />
+            <ComponentRef Id="Microsoft.Windows.AI.MachineLearning.dll" />
+            <ComponentRef Id="Microsoft.Windows.AI.MachineLearning.Projection.dll" />
+            <ComponentRef Id="Microsoft.Windows.AI.MachineLearning.winmd" />
+            <ComponentRef Id="Microsoft.Windows.AI.Projection.dll" />
+            <ComponentRef Id="Microsoft.Windows.AI.Text.dll" />
+            <ComponentRef Id="Microsoft.Windows.AI.Text.Projection.dll" />
+            <ComponentRef Id="Microsoft.Windows.AI.Text.winmd" />
+            <ComponentRef Id="Microsoft.Windows.AI.winmd" />
+            <ComponentRef Id="Microsoft.Windows.ApplicationModel.Background.Projection.dll" />
+            <ComponentRef Id="Microsoft.Windows.ApplicationModel.Background.UniversalBGTask.dll" />
+            <ComponentRef Id="Microsoft.Windows.ApplicationModel.Background.UniversalBGTask.winmd" />
+            <ComponentRef Id="Microsoft.Windows.ApplicationModel.Background.winmd" />
+            <ComponentRef Id="Microsoft.Windows.ApplicationModel.DynamicDependency.Projection.dll" />
+            <ComponentRef Id="Microsoft.Windows.ApplicationModel.DynamicDependency.winmd" />
+            <ComponentRef Id="Microsoft.Windows.ApplicationModel.Resources.dll" />
+            <ComponentRef Id="Microsoft.Windows.ApplicationModel.Resources.Projection.dll" />
+            <ComponentRef Id="Microsoft.Windows.ApplicationModel.Resources.winmd" />
+            <ComponentRef Id="Microsoft.Windows.ApplicationModel.WindowsAppRuntime.Projection.dll" />
+            <ComponentRef Id="Microsoft.Windows.ApplicationModel.WindowsAppRuntime.winmd" />
+            <ComponentRef Id="Microsoft.Windows.AppLifecycle.Projection.dll" />
+            <ComponentRef Id="Microsoft.Windows.AppLifecycle.winmd" />
+            <ComponentRef Id="Microsoft.Windows.AppNotifications.Builder.Projection.dll" />
+            <ComponentRef Id="Microsoft.Windows.AppNotifications.Builder.winmd" />
+            <ComponentRef Id="Microsoft.Windows.AppNotifications.Projection.dll" />
+            <ComponentRef Id="Microsoft.Windows.AppNotifications.winmd" />
+            <ComponentRef Id="Microsoft.Windows.BadgeNotifications.Projection.dll" />
+            <ComponentRef Id="Microsoft.Windows.BadgeNotifications.winmd" />
+            <ComponentRef Id="Microsoft.Windows.Foundation.Projection.dll" />
+            <ComponentRef Id="Microsoft.Windows.Foundation.winmd" />
+            <ComponentRef Id="Microsoft.Windows.Globalization.winmd" />
+            <ComponentRef Id="Microsoft.Windows.Internal.Vision.winmd" />
+            <ComponentRef Id="Microsoft.Windows.Management.Deployment.Projection.dll" />
+            <ComponentRef Id="Microsoft.Windows.Management.Deployment.winmd" />
+            <ComponentRef Id="Microsoft.Windows.Media.Capture.Projection.dll" />
+            <ComponentRef Id="Microsoft.Windows.Media.Capture.winmd" />
+            <ComponentRef Id="Microsoft.Windows.Private.Workloads.SessionManager.winmd" />
+            <ComponentRef Id="Microsoft.Windows.PrivateCommon.winmd" />
+            <ComponentRef Id="Microsoft.Windows.PushNotifications.Projection.dll" />
+            <ComponentRef Id="Microsoft.Windows.PushNotifications.winmd" />
+            <ComponentRef Id="Microsoft.Windows.SDK.NET.dll" />
+            <ComponentRef Id="Microsoft.Windows.Security.AccessControl.Projection.dll" />
+            <ComponentRef Id="Microsoft.Windows.Security.AccessControl.winmd" />
+            <ComponentRef Id="Microsoft.Windows.SemanticSearch.winmd" />
+            <ComponentRef Id="Microsoft.Windows.Storage.Pickers.Projection.dll" />
+            <ComponentRef Id="Microsoft.Windows.Storage.Pickers.winmd" />
+            <ComponentRef Id="Microsoft.Windows.Storage.Projection.dll" />
+            <ComponentRef Id="Microsoft.Windows.Storage.winmd" />
+            <ComponentRef Id="Microsoft.Windows.System.Power.Projection.dll" />
+            <ComponentRef Id="Microsoft.Windows.System.Power.winmd" />
+            <ComponentRef Id="Microsoft.Windows.System.Projection.dll" />
+            <ComponentRef Id="Microsoft.Windows.System.winmd" />
+            <ComponentRef Id="Microsoft.Windows.Vision.winmd" />
+            <ComponentRef Id="Microsoft.Windows.VisionInternal.winmd" />
+            <ComponentRef Id="Microsoft.Windows.Widgets.dll" />
+            <ComponentRef Id="Microsoft.Windows.Widgets.Projection.dll" />
+            <ComponentRef Id="Microsoft.Windows.Widgets.winmd" />
+            <ComponentRef Id="Microsoft.Windows.Workloads.dll" />
+            <ComponentRef Id="Microsoft.Windows.Workloads.Resources.dll" />
+            <ComponentRef Id="Microsoft.Windows.Workloads.Resources_ec.dll" />
+            <ComponentRef Id="Microsoft.Windows.Workloads.winmd" />
+            <ComponentRef Id="Microsoft.WindowsAppRuntime.Bootstrap.dll" />
+            <ComponentRef Id="Microsoft.WindowsAppRuntime.Bootstrap.Net.dll" />
+            <ComponentRef Id="Microsoft.WindowsAppRuntime.dll" />
+            <ComponentRef Id="Microsoft.WindowsAppRuntime.Insights.Resource.dll" />
+            <ComponentRef Id="Microsoft.WindowsAppRuntime.pri" />
+            <ComponentRef Id="Microsoft.WinUI.dll" />
+            <ComponentRef Id="MRM.dll" />
+            <ComponentRef Id="mscordaccore.dll" />
+            <ComponentRef Id="mscordaccore_amd64_amd64_8.0.2225.52707.dll" />
+            <ComponentRef Id="mscordbi.dll" />
+            <ComponentRef Id="mscorlib.dll" />
+            <ComponentRef Id="mscorrc.dll" />
+            <ComponentRef Id="msquic.dll" />
+            <ComponentRef Id="netstandard.dll" />
+            <ComponentRef Id="onnxruntime.dll" />
+            <ComponentRef Id="onnxruntime_providers_shared.dll" />
+            <ComponentRef Id="PushNotificationsLongRunningTask.ProxyStub.dll" />
+            <ComponentRef Id="RestartAgent.exe" />
+            <ComponentRef Id="SessionHandleIPCProxyStub.dll" />
+            <ComponentRef Id="SQLitePCLRaw.batteries_v2.dll" />
+            <ComponentRef Id="SQLitePCLRaw.core.dll" />
+            <ComponentRef Id="SQLitePCLRaw.provider.e_sqlite3.dll" />
+            <ComponentRef Id="System.AppContext.dll" />
+            <ComponentRef Id="System.Buffers.dll" />
+            <ComponentRef Id="System.Collections.Concurrent.dll" />
+            <ComponentRef Id="System.Collections.dll" />
+            <ComponentRef Id="System.Collections.Immutable.dll" />
+            <ComponentRef Id="System.Collections.NonGeneric.dll" />
+            <ComponentRef Id="System.Collections.Specialized.dll" />
+            <ComponentRef Id="System.ComponentModel.Annotations.dll" />
+            <ComponentRef Id="System.ComponentModel.DataAnnotations.dll" />
+            <ComponentRef Id="System.ComponentModel.dll" />
+            <ComponentRef Id="System.ComponentModel.EventBasedAsync.dll" />
+            <ComponentRef Id="System.ComponentModel.Primitives.dll" />
+            <ComponentRef Id="System.ComponentModel.TypeConverter.dll" />
+            <ComponentRef Id="System.Configuration.dll" />
+            <ComponentRef Id="System.Console.dll" />
+            <ComponentRef Id="System.Core.dll" />
+            <ComponentRef Id="System.Data.Common.dll" />
+            <ComponentRef Id="System.Data.DataSetExtensions.dll" />
+            <ComponentRef Id="System.Data.dll" />
+            <ComponentRef Id="System.Diagnostics.Contracts.dll" />
+            <ComponentRef Id="System.Diagnostics.Debug.dll" />
+            <ComponentRef Id="System.Diagnostics.DiagnosticSource.dll" />
+            <ComponentRef Id="System.Diagnostics.FileVersionInfo.dll" />
+            <ComponentRef Id="System.Diagnostics.Process.dll" />
+            <ComponentRef Id="System.Diagnostics.StackTrace.dll" />
+            <ComponentRef Id="System.Diagnostics.TextWriterTraceListener.dll" />
+            <ComponentRef Id="System.Diagnostics.Tools.dll" />
+            <ComponentRef Id="System.Diagnostics.TraceSource.dll" />
+            <ComponentRef Id="System.Diagnostics.Tracing.dll" />
+            <ComponentRef Id="System.dll" />
+            <ComponentRef Id="System.Drawing.dll" />
+            <ComponentRef Id="System.Drawing.Primitives.dll" />
+            <ComponentRef Id="System.Dynamic.Runtime.dll" />
+            <ComponentRef Id="System.Formats.Asn1.dll" />
+            <ComponentRef Id="System.Formats.Tar.dll" />
+            <ComponentRef Id="System.Globalization.Calendars.dll" />
+            <ComponentRef Id="System.Globalization.dll" />
+            <ComponentRef Id="System.Globalization.Extensions.dll" />
+            <ComponentRef Id="System.IO.Compression.Brotli.dll" />
+            <ComponentRef Id="System.IO.Compression.dll" />
+            <ComponentRef Id="System.IO.Compression.FileSystem.dll" />
+            <ComponentRef Id="System.IO.Compression.Native.dll" />
+            <ComponentRef Id="System.IO.Compression.ZipFile.dll" />
+            <ComponentRef Id="System.IO.dll" />
+            <ComponentRef Id="System.IO.FileSystem.AccessControl.dll" />
+            <ComponentRef Id="System.IO.FileSystem.dll" />
+            <ComponentRef Id="System.IO.FileSystem.DriveInfo.dll" />
+            <ComponentRef Id="System.IO.FileSystem.Primitives.dll" />
+            <ComponentRef Id="System.IO.FileSystem.Watcher.dll" />
+            <ComponentRef Id="System.IO.IsolatedStorage.dll" />
+            <ComponentRef Id="System.IO.MemoryMappedFiles.dll" />
+            <ComponentRef Id="System.IO.Pipes.AccessControl.dll" />
+            <ComponentRef Id="System.IO.Pipes.dll" />
+            <ComponentRef Id="System.IO.UnmanagedMemoryStream.dll" />
+            <ComponentRef Id="System.Linq.dll" />
+            <ComponentRef Id="System.Linq.Expressions.dll" />
+            <ComponentRef Id="System.Linq.Parallel.dll" />
+            <ComponentRef Id="System.Linq.Queryable.dll" />
+            <ComponentRef Id="System.Memory.dll" />
+            <ComponentRef Id="System.Net.dll" />
+            <ComponentRef Id="System.Net.Http.dll" />
+            <ComponentRef Id="System.Net.Http.Json.dll" />
+            <ComponentRef Id="System.Net.HttpListener.dll" />
+            <ComponentRef Id="System.Net.Mail.dll" />
+            <ComponentRef Id="System.Net.NameResolution.dll" />
+            <ComponentRef Id="System.Net.NetworkInformation.dll" />
+            <ComponentRef Id="System.Net.Ping.dll" />
+            <ComponentRef Id="System.Net.Primitives.dll" />
+            <ComponentRef Id="System.Net.Quic.dll" />
+            <ComponentRef Id="System.Net.Requests.dll" />
+            <ComponentRef Id="System.Net.Security.dll" />
+            <ComponentRef Id="System.Net.ServicePoint.dll" />
+            <ComponentRef Id="System.Net.Sockets.dll" />
+            <ComponentRef Id="System.Net.WebClient.dll" />
+            <ComponentRef Id="System.Net.WebHeaderCollection.dll" />
+            <ComponentRef Id="System.Net.WebProxy.dll" />
+            <ComponentRef Id="System.Net.WebSockets.Client.dll" />
+            <ComponentRef Id="System.Net.WebSockets.dll" />
+            <ComponentRef Id="System.Numerics.dll" />
+            <ComponentRef Id="System.Numerics.Tensors.dll" />
+            <ComponentRef Id="System.Numerics.Vectors.dll" />
+            <ComponentRef Id="System.ObjectModel.dll" />
+            <ComponentRef Id="System.Private.CoreLib.dll" />
+            <ComponentRef Id="System.Private.DataContractSerialization.dll" />
+            <ComponentRef Id="System.Private.Uri.dll" />
+            <ComponentRef Id="System.Private.Xml.dll" />
+            <ComponentRef Id="System.Private.Xml.Linq.dll" />
+            <ComponentRef Id="System.Reflection.DispatchProxy.dll" />
+            <ComponentRef Id="System.Reflection.dll" />
+            <ComponentRef Id="System.Reflection.Emit.dll" />
+            <ComponentRef Id="System.Reflection.Emit.ILGeneration.dll" />
+            <ComponentRef Id="System.Reflection.Emit.Lightweight.dll" />
+            <ComponentRef Id="System.Reflection.Extensions.dll" />
+            <ComponentRef Id="System.Reflection.Metadata.dll" />
+            <ComponentRef Id="System.Reflection.Primitives.dll" />
+            <ComponentRef Id="System.Reflection.TypeExtensions.dll" />
+            <ComponentRef Id="System.Resources.Reader.dll" />
+            <ComponentRef Id="System.Resources.ResourceManager.dll" />
+            <ComponentRef Id="System.Resources.Writer.dll" />
+            <ComponentRef Id="System.Runtime.CompilerServices.Unsafe.dll" />
+            <ComponentRef Id="System.Runtime.CompilerServices.VisualC.dll" />
+            <ComponentRef Id="System.Runtime.dll" />
+            <ComponentRef Id="System.Runtime.Extensions.dll" />
+            <ComponentRef Id="System.Runtime.Handles.dll" />
+            <ComponentRef Id="System.Runtime.InteropServices.dll" />
+            <ComponentRef Id="System.Runtime.InteropServices.JavaScript.dll" />
+            <ComponentRef Id="System.Runtime.InteropServices.RuntimeInformation.dll" />
+            <ComponentRef Id="System.Runtime.Intrinsics.dll" />
+            <ComponentRef Id="System.Runtime.Loader.dll" />
+            <ComponentRef Id="System.Runtime.Numerics.dll" />
+            <ComponentRef Id="System.Runtime.Serialization.dll" />
+            <ComponentRef Id="System.Runtime.Serialization.Formatters.dll" />
+            <ComponentRef Id="System.Runtime.Serialization.Json.dll" />
+            <ComponentRef Id="System.Runtime.Serialization.Primitives.dll" />
+            <ComponentRef Id="System.Runtime.Serialization.Xml.dll" />
+            <ComponentRef Id="System.Security.AccessControl.dll" />
+            <ComponentRef Id="System.Security.Claims.dll" />
+            <ComponentRef Id="System.Security.Cryptography.Algorithms.dll" />
+            <ComponentRef Id="System.Security.Cryptography.Cng.dll" />
+            <ComponentRef Id="System.Security.Cryptography.Csp.dll" />
+            <ComponentRef Id="System.Security.Cryptography.dll" />
+            <ComponentRef Id="System.Security.Cryptography.Encoding.dll" />
+            <ComponentRef Id="System.Security.Cryptography.OpenSsl.dll" />
+            <ComponentRef Id="System.Security.Cryptography.Primitives.dll" />
+            <ComponentRef Id="System.Security.Cryptography.X509Certificates.dll" />
+            <ComponentRef Id="System.Security.dll" />
+            <ComponentRef Id="System.Security.Principal.dll" />
+            <ComponentRef Id="System.Security.Principal.Windows.dll" />
+            <ComponentRef Id="System.Security.SecureString.dll" />
+            <ComponentRef Id="System.ServiceModel.Web.dll" />
+            <ComponentRef Id="System.ServiceProcess.dll" />
+            <ComponentRef Id="System.Text.Encoding.CodePages.dll" />
+            <ComponentRef Id="System.Text.Encoding.dll" />
+            <ComponentRef Id="System.Text.Encoding.Extensions.dll" />
+            <ComponentRef Id="System.Text.Encodings.Web.dll" />
+            <ComponentRef Id="System.Text.Json.dll" />
+            <ComponentRef Id="System.Text.RegularExpressions.dll" />
+            <ComponentRef Id="System.Threading.Channels.dll" />
+            <ComponentRef Id="System.Threading.dll" />
+            <ComponentRef Id="System.Threading.Overlapped.dll" />
+            <ComponentRef Id="System.Threading.Tasks.Dataflow.dll" />
+            <ComponentRef Id="System.Threading.Tasks.dll" />
+            <ComponentRef Id="System.Threading.Tasks.Extensions.dll" />
+            <ComponentRef Id="System.Threading.Tasks.Parallel.dll" />
+            <ComponentRef Id="System.Threading.Thread.dll" />
+            <ComponentRef Id="System.Threading.ThreadPool.dll" />
+            <ComponentRef Id="System.Threading.Timer.dll" />
+            <ComponentRef Id="System.Transactions.dll" />
+            <ComponentRef Id="System.Transactions.Local.dll" />
+            <ComponentRef Id="System.ValueTuple.dll" />
+            <ComponentRef Id="System.Web.dll" />
+            <ComponentRef Id="System.Web.HttpUtility.dll" />
+            <ComponentRef Id="System.Windows.dll" />
+            <ComponentRef Id="System.Xml.dll" />
+            <ComponentRef Id="System.Xml.Linq.dll" />
+            <ComponentRef Id="System.Xml.ReaderWriter.dll" />
+            <ComponentRef Id="System.Xml.Serialization.dll" />
+            <ComponentRef Id="System.Xml.XDocument.dll" />
+            <ComponentRef Id="System.Xml.XmlDocument.dll" />
+            <ComponentRef Id="System.Xml.XmlSerializer.dll" />
+            <ComponentRef Id="System.Xml.XPath.dll" />
+            <ComponentRef Id="System.Xml.XPath.XDocument.dll" />
+            <ComponentRef Id="WebView2Loader.dll" />
+            <ComponentRef Id="WindowsAppRuntime.DeploymentExtensions.OneCore.dll" />
+            <ComponentRef Id="WindowsAppRuntime.png" />
+            <ComponentRef Id="WindowsAppSdk.AppxDeploymentExtensions.Desktop_EventLog_Instrumentation." />
+            <ComponentRef Id="WindowsAppSdk.AppxDeploymentExtensions.Desktop.dll" />
+            <ComponentRef Id="WindowsBase.dll" />
+            <ComponentRef Id="WinRT.Runtime.dll" />
+            <ComponentRef Id="WinUIEdit.dll" />
+            <ComponentRef Id="workloads.365.json" />
+            <ComponentRef Id="workloads.json" />
+            <ComponentRef Id="workloads.lnl.json" />
+            <ComponentRef Id="workloads.qnn.json" />
+            <ComponentRef Id="workloads.stx.json" />
+            <ComponentRef Id="wuceffectsi.dll" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_1" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_1" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_2" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_2" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_3" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_3" />
+            <ComponentRef Id="LockScreenLogo.scale_200.png" />
+            <ComponentRef Id="SplashScreen.scale_200.png" />
+            <ComponentRef Id="Square150x150Logo.scale_200.png" />
+            <ComponentRef Id="Square44x44Logo.scale_200.png" />
+            <ComponentRef Id="Square44x44Logo.targetsize_24_altform_unplated.png" />
+            <ComponentRef Id="StoreLogo.png" />
+            <ComponentRef Id="Wide310x150Logo.scale_200.png" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_4" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_4" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_5" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_5" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_6" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_6" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_7" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_7" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_8" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_8" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_9" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_9" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_10" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_10" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_11" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_11" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_12" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_12" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_13" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_13" />
+            <ComponentRef Id="ConversationHistoryDialog.xbf" />
+            <ComponentRef Id="HelpDialog.xbf" />
+            <ComponentRef Id="ModelManagementDialog.xbf" />
+            <ComponentRef Id="ModelSelectionDialog.xbf" />
+            <ComponentRef Id="SettingsDialog.xbf" />
+            <ComponentRef Id="ggml_base.dll_1" />
+            <ComponentRef Id="ggml_cpu.dll_1" />
+            <ComponentRef Id="ggml.dll_1" />
+            <ComponentRef Id="llama.dll_1" />
+            <ComponentRef Id="llava_shared.dll_1" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_14" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_14" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_15" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_15" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_16" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_16" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_17" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_17" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_18" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_18" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_19" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_19" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_20" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_20" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_21" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_21" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_22" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_22" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_23" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_23" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_24" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_24" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_25" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_25" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_26" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_26" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_27" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_27" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_28" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_28" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_29" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_29" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_30" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_30" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_31" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_31" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_32" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_32" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_33" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_33" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_34" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_34" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_35" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_35" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_36" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_36" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_37" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_37" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_38" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_38" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_39" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_39" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_40" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_40" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_41" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_41" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_42" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_42" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_43" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_43" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_44" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_44" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_45" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_45" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_46" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_46" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_47" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_47" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_48" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_48" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_49" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_49" />
+            <ComponentRef Id="map.html" />
+            <ComponentRef Id="NoiseAsset_256x256_PNG.png" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_50" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_50" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_51" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_51" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_52" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_52" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_53" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_53" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_54" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_54" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_55" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_55" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_56" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_56" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_57" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_57" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_58" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_58" />
+            <ComponentRef Id="NPUDetect.dll" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_59" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_59" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_60" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_60" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_61" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_61" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_62" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_62" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_63" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_63" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_64" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_64" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_65" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_65" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_66" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_66" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_67" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_67" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_68" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_68" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_69" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_69" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_70" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_70" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_71" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_71" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_72" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_72" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_73" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_73" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_74" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_74" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_75" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_75" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_76" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_76" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_77" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_77" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_78" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_78" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_79" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_79" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_80" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_80" />
+            
+            
+            
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_81" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_81" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_82" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_82" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_83" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_83" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_84" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_84" />
+            <ComponentRef Id="Microsoft.ui.xaml.dll.mui_85" />
+            <ComponentRef Id="Microsoft.UI.Xaml.Phone.dll.mui_85" />
+        </ComponentGroup>
+    </Fragment>
+</Wix>
