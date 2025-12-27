@@ -75,6 +75,7 @@ git push origin v1.0.3.0
    - `build-msi` (for x64 and x86)
    - `create-release`
    - `prepare-store-submission`
+   - `deploy-to-pages`
 
 ### What Gets Created
 
@@ -89,10 +90,17 @@ When you push a tag, the following artifacts are automatically created:
    - Includes both MSI installers
    - Contains auto-generated release notes
 
-3. **Store Submission Package**:
+3. **GitHub Pages Deployment**:
+   - Downloads page deployed to https://avikeid2007.github.io/KaiROS
+   - User-friendly download interface
+   - Automatic redirect from root to downloads page
+   - Version-specific download pages
+
+4. **Store Submission Package**:
    - `Microsoft-Store-Submission-vX.X.X.X.zip`
    - Contains MSI, documentation, and submission checklist
    - Available in workflow artifacts for 90 days
+   - Also available on GitHub Pages downloads
 
 ## Automated Build Process
 
@@ -117,6 +125,39 @@ The GitHub Actions workflow automatically:
    - Bundles MSI, documentation, and checklists
    - Creates submission package ZIP
    - Uploads as workflow artifact
+
+5. **Deploys to GitHub Pages**:
+   - Creates user-friendly download pages
+   - Publishes MSI installers and store submission package
+   - Updates main downloads index
+   - Accessible at https://avikeid2007.github.io/KaiROS
+
+## Accessing Downloads
+
+### For End Users
+
+After a release is created, users can download from multiple locations:
+
+1. **GitHub Pages** (Easiest):
+   - Visit https://avikeid2007.github.io/KaiROS
+   - Click on the desired version
+   - Download MSI installer directly from the browser
+
+2. **GitHub Releases**:
+   - Visit https://github.com/avikeid2007/KaiROS/releases
+   - Find the desired version
+   - Download MSI from release assets
+
+### For Developers/Store Submission
+
+1. **GitHub Actions Artifacts** (90-day retention):
+   - Go to the [workflow run](https://github.com/avikeid2007/KaiROS/actions)
+   - Scroll to "Artifacts" section
+   - Download `Microsoft-Store-Submission-vX.X.X.X.zip`
+
+2. **GitHub Pages**:
+   - Visit https://avikeid2007.github.io/KaiROS/downloads/X.X.X.X/
+   - Download the store submission package
 
 ## Manual Release Process
 

@@ -312,3 +312,345 @@ jobs:
         name: Microsoft-Store-Submission-v${{ steps.version.outputs.version }}
         path: KaiROS-Store-Submission-v${{ steps.version.outputs.version }}.zip
         retention-days: 90
+
+  # Deploy releases to GitHub Pages
+  deploy-to-pages:
+    needs: [build-msi, create-release, prepare-store-submission]
+    if: startsWith(github.ref, 'refs/tags/v') || (github.event_name == 'workflow_dispatch' && github.event.inputs.create_release == 'true')
+    runs-on: windows-latest
+    
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Get Version (deploy-to-pages job)
+      id: version
+      run: |
+        $version = $env:GITHUB_REF -replace 'refs/tags/v', ''
+        if ($version -eq $env:GITHUB_REF) {
+          # Not a tag, use workflow input
+          $version = "${{ github.event.inputs.version }}"
+        }
+        echo "version=$version" >> $env:GITHUB_OUTPUT
+        Write-Host "Deploying version: $version"
+      shell: powershell
+    
+    - name: Download x64 MSI
+      uses: actions/download-artifact@v4
+      with:
+        name: KaiROS-AI-Setup-x64-v${{ steps.version.outputs.version }}
+        path: downloads/msi/x64
+    
+    - name: Download x86 MSI
+      uses: actions/download-artifact@v4
+      with:
+        name: KaiROS-AI-Setup-x86-v${{ steps.version.outputs.version }}
+        path: downloads/msi/x86
+    
+    - name: Download Store Submission Package
+      uses: actions/download-artifact@v4
+      with:
+        name: Microsoft-Store-Submission-v${{ steps.version.outputs.version }}
+        path: downloads/store
+    
+    - name: Create Downloads Page
+      run: |
+        $version = "${{ steps.version.outputs.version }}"
+        
+        # Create downloads directory structure
+        New-Item -ItemType Directory -Force -Path "pages/downloads/$version"
+        
+        # Copy MSI files
+        Copy-Item "downloads/msi/x64/KaiROS-AI-Setup.msi" -Destination "pages/downloads/$version/KaiROS-AI-Setup-x64-v$version.msi"
+        Copy-Item "downloads/msi/x86/KaiROS-AI-Setup.msi" -Destination "pages/downloads/$version/KaiROS-AI-Setup-x86-v$version.msi"
+        Copy-Item "downloads/store/KaiROS-Store-Submission-v$version.zip" -Destination "pages/downloads/$version/"
+        
+        # Create version-specific download page
+        $versionPage = @"
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>KaiROS AI v$version - Downloads</title>
+            <style>
+                body {
+                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    padding: 20px;
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    color: #fff;
+                }
+                .container {
+                    background: rgba(255, 255, 255, 0.1);
+                    backdrop-filter: blur(10px);
+                    border-radius: 20px;
+                    padding: 40px;
+                    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+                }
+                h1 {
+                    font-size: 2.5em;
+                    margin-bottom: 10px;
+                }
+                .version {
+                    font-size: 1.2em;
+                    opacity: 0.9;
+                    margin-bottom: 30px;
+                }
+                .download-section {
+                    background: rgba(255, 255, 255, 0.2);
+                    border-radius: 15px;
+                    padding: 30px;
+                    margin: 20px 0;
+                }
+                .download-btn {
+                    display: inline-block;
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    color: white;
+                    padding: 15px 30px;
+                    margin: 10px 10px 10px 0;
+                    border-radius: 10px;
+                    text-decoration: none;
+                    font-weight: bold;
+                    transition: transform 0.2s;
+                    box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.2);
+                }
+                .download-btn:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+                }
+                .file-info {
+                    font-size: 0.9em;
+                    opacity: 0.8;
+                    margin-top: 5px;
+                }
+                .recommended {
+                    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+                }
+                footer {
+                    text-align: center;
+                    margin-top: 40px;
+                    opacity: 0.8;
+                }
+                .back-link {
+                    color: #fff;
+                    text-decoration: none;
+                    opacity: 0.8;
+                }
+                .back-link:hover {
+                    opacity: 1;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h1>🤖 KaiROS AI</h1>
+                <div class="version">Version $version</div>
+                
+                <div class="download-section">
+                    <h2>📦 MSI Installers (Recommended)</h2>
+                    <p>Professional installers for Windows 10/11. Includes silent install support.</p>
+                    
+                    <a href="KaiROS-AI-Setup-x64-v$version.msi" class="download-btn recommended">
+                        ⬇️ Download x64 (64-bit)
+                    </a>
+                    <div class="file-info">Recommended for most modern Windows systems</div>
+                    
+                    <br><br>
+                    
+                    <a href="KaiROS-AI-Setup-x86-v$version.msi" class="download-btn">
+                        ⬇️ Download x86 (32-bit)
+                    </a>
+                    <div class="file-info">For older or 32-bit Windows systems</div>
+                    
+                    <h3>Installation</h3>
+                    <pre style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 5px; overflow-x: auto;">
+        # Interactive install (double-click MSI file)
+        # Or silent install:
+        msiexec /i KaiROS-AI-Setup.msi /quiet /qn</pre>
+                </div>
+                
+                <div class="download-section">
+                    <h2>🏪 Microsoft Store Submission Package</h2>
+                    <p>Complete package for Microsoft Store submission with documentation and validation reports.</p>
+                    
+                    <a href="KaiROS-Store-Submission-v$version.zip" class="download-btn">
+                        ⬇️ Download Store Submission Package
+                    </a>
+                    <div class="file-info">Includes MSI, documentation, and submission checklist</div>
+                </div>
+                
+                <div class="download-section">
+                    <h2>📋 Requirements</h2>
+                    <ul>
+                        <li>Windows 10 version 1809 (Build 17763) or later</li>
+                        <li>4 GB RAM minimum (8 GB recommended)</li>
+                        <li>500 MB free disk space</li>
+                        <li>Internet connection for initial model download</li>
+                    </ul>
+                </div>
+                
+                <footer>
+                    <p><a href="../../index.html" class="back-link">← Back to All Releases</a></p>
+                    <p><a href="https://github.com/avikeid2007/KaiROS" class="back-link">View on GitHub</a></p>
+                </footer>
+            </div>
+        </body>
+        </html>
+        "@
+        
+        $versionPage | Out-File -FilePath "pages/downloads/$version/index.html" -Encoding UTF8
+        
+        # Update or create main downloads index
+        $mainPage = @"
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>KaiROS AI - Downloads</title>
+            <style>
+                body {
+                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    padding: 20px;
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    color: #fff;
+                    min-height: 100vh;
+                }
+                .container {
+                    background: rgba(255, 255, 255, 0.1);
+                    backdrop-filter: blur(10px);
+                    border-radius: 20px;
+                    padding: 40px;
+                    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+                }
+                h1 {
+                    font-size: 3em;
+                    margin-bottom: 10px;
+                    text-align: center;
+                }
+                .tagline {
+                    text-align: center;
+                    font-size: 1.3em;
+                    opacity: 0.9;
+                    margin-bottom: 50px;
+                }
+                .release-card {
+                    background: rgba(255, 255, 255, 0.2);
+                    border-radius: 15px;
+                    padding: 30px;
+                    margin: 20px 0;
+                    transition: transform 0.2s;
+                }
+                .release-card:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 8px 25px 0 rgba(0, 0, 0, 0.3);
+                }
+                .release-version {
+                    font-size: 1.8em;
+                    font-weight: bold;
+                    margin-bottom: 10px;
+                }
+                .release-date {
+                    opacity: 0.8;
+                    margin-bottom: 20px;
+                }
+                .download-link {
+                    display: inline-block;
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    color: white;
+                    padding: 15px 30px;
+                    border-radius: 10px;
+                    text-decoration: none;
+                    font-weight: bold;
+                    transition: transform 0.2s;
+                    box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.2);
+                }
+                .download-link:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+                }
+                .latest-badge {
+                    display: inline-block;
+                    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+                    padding: 5px 15px;
+                    border-radius: 20px;
+                    font-size: 0.8em;
+                    margin-left: 10px;
+                }
+                footer {
+                    text-align: center;
+                    margin-top: 50px;
+                    opacity: 0.8;
+                }
+                .github-link {
+                    color: #fff;
+                    text-decoration: none;
+                }
+                .github-link:hover {
+                    text-decoration: underline;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h1>🤖 KaiROS AI</h1>
+                <div class="tagline">Intelligence, Precisely When It Matters.</div>
+                
+                <div class="release-card">
+                    <div class="release-version">
+                        Version $version
+                        <span class="latest-badge">LATEST</span>
+                    </div>
+                    <div class="release-date">Released: $(Get-Date -Format "MMMM dd, yyyy")</div>
+                    <p>Professional AI chat assistant with local LLM support.</p>
+                    <a href="$version/index.html" class="download-link">⬇️ Download v$version</a>
+                </div>
+                
+                <footer>
+                    <p><a href="https://github.com/avikeid2007/KaiROS" class="github-link">🔗 View Project on GitHub</a></p>
+                    <p><a href="https://github.com/avikeid2007/KaiROS/blob/main/README.md" class="github-link">📖 Documentation</a></p>
+                </footer>
+            </div>
+        </body>
+        </html>
+        "@
+        
+        $mainPage | Out-File -FilePath "pages/downloads/index.html" -Encoding UTF8
+        
+        # Create root index redirecting to downloads
+        $rootPage = @"
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="refresh" content="0; url=downloads/index.html">
+            <title>KaiROS AI - Redirecting...</title>
+        </head>
+        <body>
+            <p>Redirecting to <a href="downloads/index.html">downloads page</a>...</p>
+        </body>
+        </html>
+        "@
+        
+        $rootPage | Out-File -FilePath "pages/index.html" -Encoding UTF8
+        
+        Write-Host "Created GitHub Pages content for version $version"
+      shell: powershell
+    
+    - name: Upload Pages Artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: pages
+    
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4

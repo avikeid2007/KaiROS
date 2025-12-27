@@ -69,20 +69,26 @@ Choose from professionally selected models:
 
 ## 📦 Installation
 
-### Option 1: Microsoft Store (Recommended)
+### Option 1: GitHub Pages (Quick Download)
+Visit our [downloads page](https://avikeid2007.github.io/KaiROS) for the latest releases:
+- Direct download links for MSI installers (x64 and x86)
+- Microsoft Store submission packages
+- Release notes and documentation
+
+### Option 2: Microsoft Store (Recommended)
 Coming soon! The MSI installer is ready for Microsoft Store submission.
 
-### Option 2: Download MSI Installer
+### Option 3: Download MSI Installer from GitHub Releases
 1. Download the latest `KaiROS-AI-Setup.msi` from [Releases](https://github.com/avikeid2007/KaiROS/releases)
 2. Run the installer (supports silent install: `msiexec /i KaiROS-AI-Setup.msi /quiet /qn`)
 3. Launch KAIROS from Start Menu or Desktop
 
-### Option 3: Download MSIX Package
+### Option 4: Download MSIX Package
 1. Download the latest `.msix` from [Releases](https://github.com/avikeid2007/KaiROS/releases)
 2. Double-click to install
 3. Launch KAIROS from Start Menu
 
-### Option 4: Build from Source
+### Option 5: Build from Source
 ```powershell
 # Clone the repository
 git clone https://github.com/avikeid2007/KaiROS.git
@@ -180,6 +186,31 @@ cd KAIROS.Installer
 📖 **Complete MSI Packaging Guide**: [MSI-SETUP-SUMMARY.md](MSI-SETUP-SUMMARY.md)
 
 📋 **Store Submission**: [KAIROS.Installer/SUBMISSION-GUIDE.md](KAIROS.Installer/SUBMISSION-GUIDE.md)
+
+#### Create a Release
+
+To create an official release with automated builds and MS Store packaging:
+
+```bash
+# 1. Update version numbers in Package.appxmanifest and Product.wxs
+# 2. Commit and push changes
+git add Package.appxmanifest KAIROS.Installer/Product.wxs
+git commit -m "Bump version to X.X.X.0"
+git push origin main
+
+# 3. Create and push release tag
+git tag -a vX.X.X.0 -m "Release version X.X.X.0"
+git push origin vX.X.X.0
+```
+
+The GitHub Actions workflow will automatically:
+- ✅ Build MSI packages for x64 and x86
+- ✅ Create a GitHub release with MSI installers
+- ✅ Package files for Microsoft Store submission
+
+📖 **Release Creation Guide**: [RELEASE_GUIDE.md](RELEASE_GUIDE.md)
+
+📦 **Microsoft Store Guide**: [MICROSOFT_STORE_GUIDE.md](MICROSOFT_STORE_GUIDE.md)
 
 ---
 
