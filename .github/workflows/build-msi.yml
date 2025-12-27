@@ -118,7 +118,7 @@ jobs:
         $version = "1.0.2.0"
         if ($env:GITHUB_REF -match 'refs/tags/v(.+)') {
           $version = $matches[1]
-        } elseif ("${{ github.event.inputs.version }}" -ne "") {
+        } elseif (-not [string]::IsNullOrEmpty("${{ github.event.inputs.version }}")) {
           $version = "${{ github.event.inputs.version }}"
         }
         echo "version=$version" >> $env:GITHUB_OUTPUT
@@ -471,9 +471,9 @@ jobs:
                     
                     <h3>Installation</h3>
                     <pre style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 5px; overflow-x: auto;">
-        # Interactive install (double-click MSI file)
-        # Or silent install:
-        msiexec /i KaiROS-AI-Setup.msi /quiet /qn</pre>
+        # Interactive install (double-click the downloaded MSI file)
+        # Or silent install (replace filename with downloaded file):
+        msiexec /i KaiROS-AI-Setup-x64-v$version.msi /quiet /qn</pre>
                 </div>
                 
                 <div class="download-section">

@@ -56,7 +56,7 @@ Microsoft Store accepts MSI installers for desktop applications. Your MSI packag
 4. **Auto-harvest of application files**
 5. **Store submission packaging**
 
-## ?? Pre-Publishing Checklist
+## 📋 Pre-Publishing Checklist
 
 ### 1. Package Identity & Metadata
 You need to update `Package.appxmanifest` with:
